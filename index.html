@@ -4,44 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>오늘 저녁 뭐 먹지?</title>
-<link id="apple-icon" rel="apple-touch-icon" href="">
-<link id="fav-icon" rel="icon" type="image/png" href="">
-<link id="manifest" rel="manifest" href="">
-<script>
-(function(){
-  // 기존 아이콘 데이터
-  const svgBase64 = "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+PHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+PGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+PHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIigaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNGRjc1NDUiLz48cmVjdCB4PSIyMzYiIHk9IjIzNiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI0RDQTg0MiIvPjxyZWN0IHg9IjI0OCIgeT0iMjQ4IiB3aWR0aD0iMTYiIGhlaWdodD0iMzIiIGZpbGw9IiNEQ0E4NDIiLz48cGF0aCBkPSJNIDEzMCAzMjAgUSA4MCAzMjAgOTAgMzUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNEQ0E4NDIiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0gMzgyIDMyMCBRIDQzMiAzMjAgNDIyIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSIxNDAiIHk9IjI5NiIgd2lkdGg9IjIzMiIgaGVpZ2h0PSIxNDAiIHJ4PSIzMiIgZmlsbD0iI0ZGNzU0NSIvPjxyZWN0IHg9IjE2MCIgeT0iMzIwIiB3aWR0aD0iMTYiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjRkY4QzYxIiBvcGFjaXR5PSIwLjYiLz48L3N2Zz4=";
-  
-  const img = new Image();
-  img.onload = function() {
-    // 1. 브라우저 내부에서 고화질 PNG 이미지로 강제 변환 (안드로이드 인식용)
-    const cvs = document.createElement('canvas');
-    cvs.width = 512; cvs.height = 512;
-    cvs.getContext('2d').drawImage(img, 0, 0);
-    const pngUrl = cvs.toDataURL('image/png');
-    
-    // 2. 변환된 PNG를 아이콘으로 등록
-    document.getElementById('apple-icon').href = pngUrl;
-    document.getElementById('fav-icon').href = pngUrl;
-    
-    // 3. 홈 화면 추가를 위한 Manifest 동적 생성
-    const manifest = {
-      name: "오늘 저녁 뭐 먹지?",
-      short_name: "저녁뭐먹지",
-      display: "standalone",
-      start_url: "./",
-      background_color: "#FFF5E1",
-      theme_color: "#2C1F0E",
-      icons: [{ src: pngUrl, sizes: "512x512", type: "image/png", purpose: "any maskable" }]
-    };
-    
-    // 한글 깨짐 방지용 인코딩 후 적용
-    const manifestBase64 = btoa(unescape(encodeURIComponent(JSON.stringify(manifest))));
-    document.getElementById('manifest').href = 'data:application/json;base64,' + manifestBase64;
-  };
-  img.src = 'data:image/svg+xml;base64,' + svgBase64;
-})();
-</script>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA0MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSIyMzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA0MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSIyMzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="저녁뭐먹지">
+<meta name="theme-color" content="#2C1F0E">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuyYpOuKmCDsoIDrhYEg662QIOuoueyngD8iLCAic2hvcnRfbmFtZSI6ICLsoIDrhYHrrZDrqLnsp4AiLCAiZGVzY3JpcHRpb24iOiAi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNGRkY1RTEiLCAidGhlbWVfY29sb3IiOiAiIzJDMUYwRSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S0lDQThjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnY25nOUlqRXhNaUlnWm1sc2JEMGlJMFpHUmpWRk1TSXZQZ29nSUR4d1lYUm9JR1E5SWswZ01qY3dJREkxTUNCRElETXpNQ0F5TWpBZ01qVXdJREUyTUNBeU9UQWdNVEF3SWlCemRISnZhMlU5SWlOR1JrWkdSa1lpSUhOMGNtOXJaUzEzYVdSMGFEMGlNamdpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSWdabWxzYkQwaWJtOXVaU0lnYjNCaFkybDBlVDBpTUM0NElpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU1EQWdNVFF3SUVNZ01qQXdJRGd3SURNeE1pQTRNQ0F6TVRJZ01UUXdJRU1nTXpFeUlERTRNQ0F5TlRZZ01Ua3dJREkxTmlBeU1qQWlJSE4wY205clpUMGlJMFJEUVRnME1pSWdjM1J5YjJ0bExYZHBaSFJvUFNJek5pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWlCbWFXeHNQU0p1YjI1bElpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU5UWWdNalF3SUVNZ01qY3dJREkwTUNBeU56QWdNamN3SURJMU5pQXlOekFnUXlBeU5ESWdNamN3SURJME1pQXlOREFnTWpVMklESTBNQ0JhSWlCbWFXeHNQU0lqUkVOQk9EUXlJaTgrQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkxTlNJZ2NuZzlJamdpSUhKNVBTSXhOQ0lnWm1sc2JEMGlJMFpHUmpWRk1TSXZQZ29nSUR4d1lYUm9JR1E5SWswZ01UUXdJREk0TUNCUklESTFOaUF5TkRBZ016Y3lJREk0TUNCYUlpQm1hV3hzUFNJalJrWTRRell4SWk4K0NpQWdQSEpsWTNRZ2VEMGlNVEl3SWlCNVBTSXlPREFpSUhkcFpIUm9QU0l5TnpJaUlHaGxhV2RvZEQwaU1UWWlJSEo0UFNJNElpQm1hV3hzUFNJalJrWTNOVFExSWk4K0NpQWdQSEpsWTNRZ2VEMGlNak0ySWlCNVBTSXlNellpSUhkcFpIUm9QU0kwTUNJZ2FHVnBaMmgwUFNJeE1pSWdjbmc5SWpZaUlHWnBiR3c5SWlORVEwRTRORElpTHo0S0lDQThjbVZqZENCNFBTSXlORGdpSUhrOUlqSTBPQ0lnZDJsa2RHZzlJakUySWlCb1pXbG5hSFE5SWpNeUlpQm1hV3hzUFNJalJFTkJPRFF5SWk4K0NpQWdQSEJoZEdnZ1pEMGlUU0F4TXpBZ016SXdJRkVnT0RBZ016SXdJRGt3SURNMU1DSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqUkVOQk9EUXlJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqSXdJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtJQ0E4Y0dGMGFDQmtQU0pOSURNNE1pQXpNakFnVVNBME16SWdNekl3SURReU1pQXpOVEFpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaUkwUkRRVGcwTWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l5TUNJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaTgrQ2lBZ1BISmxZM1FnZUQwaU1UUXdJaUI1UFNJeU9UWWlJSGRwWkhSb1BTSXlNeklpSUdobGFXZG9kRDBpTVRRd0lpQnllRDBpTXpJaUlHWnBiR3c5SWlOR1JqYzFORFVpTHo0S0lDQThjbVZqZENCNFBTSXhOakFpSUhrOUlqTXlNQ0lnZDJsa2RHZzlJakUySWlCb1pXbG5hSFE5SWpnd0lpQnllRDBpT0NJZ1ptbHNiRDBpSTBaR09FTTJNU0lnYjNCaFkybDBlVDBpTUM0MklpOCtDand2YzNablBnPT0iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -379,6 +349,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 </head>
 <body>
 <div class="shell">
+  <!-- Sidebar -->
   <nav class="sidebar">
     <div class="sidebar-logo">저녁<br>뭐<br>먹지</div>
     <button class="nav-item active" id="snav-today" onclick="gotoPage('today')">
@@ -399,6 +370,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
   <main class="content">
 
+    <!-- ══════════ 오늘 저녁 (홈) ══════════ -->
     <div class="page active" id="page-today">
       <div class="today-greeting">
         <div class="greeting-date" id="greeting-date"></div>
@@ -421,6 +393,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
+      <!-- Family bar -->
       <div class="family-bar">
         <div class="family-info">
           <span style="font-size:1.3rem;" id="family-icon">👫</span>
@@ -434,6 +407,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
+      <!-- Sync bar (시트 연결 시만 표시) -->
       <div class="sync-bar" id="sync-bar" onclick="syncPull()" style="display:none;">
         <div class="sync-dot sync-idle" id="sync-dot"></div>
         <span class="sync-label" id="sync-label">최신 상태</span>
@@ -445,6 +419,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         <div class="expiry-alert-items" id="expiry-alert-items"></div>
       </div>
 
+      <!-- Mood collapsible -->
       <button class="mood-toggle" id="mood-toggle-btn" onclick="toggleMoodPanel()">
         <span style="color:var(--terra);">🎛</span> 오늘의 상황 선택하기
         <span class="arrow">▾</span>
@@ -466,6 +441,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         🔍 오늘 저녁 메뉴 찾기
       </button>
 
+      <!-- History -->
       <div style="margin-top:2.5rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
           <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">추천 히스토리</div>
@@ -475,6 +451,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       </div>
     </div>
 
+    <!-- ══════════ 냉장고 ══════════ -->
     <div class="page" id="page-fridge">
       <div class="page-header">
         <div class="page-header-row">
@@ -498,6 +475,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div class="fridge-grid" id="fridge-grid"></div>
     </div>
 
+    <!-- ══════════ 레시피 ══════════ -->
     <div class="page" id="page-recipe">
       <div class="page-header">
         <div class="page-header-row">
@@ -511,6 +489,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
           </div>
         </div>
       </div>
+      <!-- 검색창 -->
       <div style="position:relative;margin-bottom:1rem;">
         <input class="input" id="recipe-search" placeholder="🔍  레시피 검색 (요리명, 재료, 태그)" oninput="filterRecipes()" style="padding-left:1rem;">
         <button id="recipe-search-clear" onclick="clearRecipeSearch()" style="display:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-s);font-size:1rem;">✕</button>
@@ -521,6 +500,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </main>
 </div>
 
+<!-- Bottom nav (mobile) -->
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bnav-item active" id="bnav-today" onclick="gotoPage('today')">
@@ -539,6 +519,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
 </nav>
 
+<!-- ══ 냉장고 모달 ══ -->
 <div class="modal-back" id="fridge-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -564,6 +545,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 레시피 모달 ══ -->
 <div class="modal-back" id="recipe-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -586,6 +568,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 사진 OCR 모달 ══ -->
 <div class="modal-back" id="photo-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -593,6 +576,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <button class="modal-close" onclick="closeModal('photo-modal')">×</button>
     </div>
 
+    <!-- 사진 업로드 영역 -->
     <div class="photo-drop" id="photo-drop"
       onclick="document.getElementById('photo-file').click()"
       ondragover="event.preventDefault();this.classList.add('drag')"
@@ -603,6 +587,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
     </div>
     <input type="file" id="photo-file" accept="image/*" multiple style="display:none" onchange="onPhotoSelect(event)">
 
+    <!-- 선택된 사진 미리보기 -->
     <div id="photo-thumbs" style="display:none;margin-top:.75rem;">
       <div style="display:flex;gap:.5rem;align-items:flex-start;">
         <div id="thumb-wrap" style="display:flex;gap:.5rem;flex:1;"></div>
@@ -611,6 +596,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div style="font-size:.72rem;color:var(--ink-s);margin-top:.4rem;" id="photo-count-label"></div>
     </div>
 
+    <!-- 추출 결과 -->
     <div id="photo-result" style="display:none;margin-top:1.25rem;">
       <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;">
         <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">AI 추출 결과</div>
@@ -627,11 +613,13 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 라이트박스 ══ -->
 <div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);align-items:center;justify-content:center;" onclick="closeLightbox()">
   <img id="lightbox-img" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;" alt="">
   <button style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;" onclick="closeLightbox()">×</button>
 </div>
 
+<!-- ══ 레시피 상세 모달 ══ -->
 <div class="modal-back" id="detail-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -642,6 +630,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 오늘 저녁 확정 + 재료 체크리스트 모달 ══ -->
 <div class="modal-back" id="confirm-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -660,6 +649,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 설정 모달 ══ -->
 <div class="modal-back" id="settings-modal">
   <div class="modal-box">
     <div class="modal-head">
