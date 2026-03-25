@@ -960,7 +960,7 @@ async function recommend(){
     const body={
       contents:[{parts:[{text:prompt}]}],
       tools:[{google_search:{}}],
-      generationConfig:{temperature:0.7,maxOutputTokens:1500}
+      generationConfig:{temperature:0.7,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}
     };
     const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
@@ -970,12 +970,11 @@ async function recommend(){
     const raw=data?.candidates?.[0]?.content?.parts?.find(p=>p.text)?.text||'';
     const cleaned=raw.replace(/```json[\s\S]*?```/g,m=>m.replace(/```json|```/g,'')).replace(/```/g,'').trim();
     let r;
-    try{r=JSON.parse(cleaned);}
-    catch{
-      const match=cleaned.match(/\{[\s\S]+\}/);
-      if(!match)throw new Error('응답 파싱 실패');
-      r=JSON.parse(match[0]);
-    }
+    try{
+      const stripped=cleaned.replace(/<thinking>[\s\S]*?<\/thinking>/g,'').trim();
+      try{r=JSON.parse(stripped);}
+      catch{const match=stripped.match(/\{[\s\S]+\}/);if(!match)throw new Error('응답 파싱 실패');r=JSON.parse(match[0]);}
+    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
 
     history.unshift({id:uid(),menu:r.menu,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods]});
     history=history.slice(0,20);sv(K.history,history);
@@ -1396,14 +1395,17 @@ async function runOcr(){
     const imgParts=photos.map(p=>({inline_data:{mime_type:p.mime,data:p.base64}}));
     const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500}})
+      body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}})
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
     const data=await res.json();
     const raw=data?.candidates?.[0]?.content?.parts?.[0]?.text||'';
     let parsed;
-    try{parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());}
-    catch{const m=raw.match(/\{[\s\S]+\}/);if(!m)throw new Error('응답 파싱 실패');parsed=JSON.parse(m[0]);}
+    try{
+      const clean=raw.replace(/<thinking>[\s\S]*?<\/thinking>/g,'').replace(/```json|```/g,'').trim();
+      try{parsed=JSON.parse(clean);}
+      catch{const m=clean.match(/\{[\s\S]+\}/);if(!m)throw new Error('응답 파싱 실패');parsed=JSON.parse(m[0]);}
+    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
     $('ocr-title').value=parsed.title||'';
     $('ocr-ings').value=(parsed.ingredients||[]).join(', ');
     $('ocr-steps').value=parsed.steps||'';
