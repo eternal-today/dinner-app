@@ -4,14 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>오늘 저녁 뭐 먹지?</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZBRjZFRSIvPgogIDxwYXRoIGQ9Ik0gMjIwIDIyMCBRIDIwMCAxNzAgMjQwIDE0MCBUIDI1MCA4MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMjkwIDI0MCBRIDMzMCAxOTAgMjgwIDE2MCBUIDMxMCA5MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMzYwIDI5MCBMIDQ1MCAyNzAgUSA0NzAgMjY1IDQ3MCAyODUgTCAzNjAgMzIwIFoiIGZpbGw9IiNENEE4NDMiLz4KICA8cmVjdCB4PSIxMzYiIHk9IjI1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNTAiIHJ4PSI0MCIgZmlsbD0iI0ZGN0Y1MCIvPgogIDxwYXRoIGQ9Ik0gMTE2IDI1MCBRIDI1NiAyMjAgMzk2IDI1MCBaIiBmaWxsPSIjRkY2QjM1Ii8+CiAgPHJlY3QgeD0iMjMxIiB5PSIyMDUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjRDRBODQzIi8+CiAgPHBhdGggZD0iTSAyMzAgMzAwIEMgMjMwIDI3MCwgMjgyIDI3MCwgMjgyIDMwMCBDIDI4MiAzMjUsIDI1NiAzMzAsIDI1NiAzNTUiIHN0cm9rZT0iI0ZGRkRGNyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjM4NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRkRGNyIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMjU2IDM4NSkiLz4KPC9zdmc+">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZBRjZFRSIvPgogIDxwYXRoIGQ9Ik0gMjIwIDIyMCBRIDIwMCAxNzAgMjQwIDE0MCBUIDI1MCA4MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMjkwIDI0MCBRIDMzMCAxOTAgMjgwIDE2MCBUIDMxMCA5MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMzYwIDI5MCBMIDQ1MCAyNzAgUSA0NzAgMjY1IDQ3MCAyODUgTCAzNjAgMzIwIFoiIGZpbGw9IiNENEE4NDMiLz4KICA8cmVjdCB4PSIxMzYiIHk9IjI1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNTAiIHJ4PSI0MCIgZmlsbD0iI0ZGN0Y1MCIvPgogIDxwYXRoIGQ9Ik0gMTE2IDI1MCBRIDI1NiAyMjAgMzk2IDI1MCBaIiBmaWxsPSIjRkY2QjM1Ii8+CiAgPHJlY3QgeD0iMjMxIiB5PSIyMDUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjRDRBODQzIi8+CiAgPHBhdGggZD0iTSAyMzAgMzAwIEMgMjMwIDI3MCwgMjgyIDI3MCwgMjgyIDMwMCBDIDI4MiAzMjUsIDI1NiAzMzAsIDI1NiAzNTUiIHN0cm9rZT0iI0ZGRkRGNyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjM4NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRkRGNyIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMjU2IDM4NSkiLz4KPC9zdmc+">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi7Jik64qYIOyggOuFgSDrrZDrqLnsp4A/Iiwic2hvcnRfbmFtZSI6IuyggOuFgeutkOuoueSngCIsImRlc2NyaXB0aW9uIjoi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNGQUY2RUUiLCJ0aGVtZV9jb2xvciI6IiMyQzFGMEUiLCJvcmllbnRhdGlvbiI6InBvcnRyYWl0IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMmJ5QjRibVh1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJajRLSUNBOGNtVmpkQ0IzYVdSMGFEcGlOVEV5SWlCaFpXbG5hSFE5SWpVeE1pSWdjSGc5SWpFeE1pSWdabWxzYkQwaUkwWkJSalZGUlNJdlBnZ2dJRHh3WVhSb0lHUTlJVTBnTWpJd0lESXlNQ0ZSSURJd01DQXhOekFnTWpRd0lERTBNQ0JRSURJMU1DQTROQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJMElpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTWprd0lESTBNQ0ZSSURNek1DQXhPVEFnTWpnd0lERTJNQ0JRSURNeE1DQTVNQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJd0lpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTXpZd0lESTVNQ0JNSURRMU1DQXlOekFnVVMBME56QWdNakYxSURRM01DQXlPRFVnVENBek5qQWdNelF3SUZvSWlHWm1sc2JEMGlJMFExUVRnME15SXZQZ29nSUQweVpXTjBJSGdnTVRNMklIazlJakkxTUNJZ2QybGtkSGc5SWpJME1DSWdhR1ZwWjJoMFBTSXhOVEFpSUhKNE1UUWlJR1ptbHNiRDBpSTBaR04wWTFNaXZQZ29nSUQweGNHRjBhQ0JrUFNKTklERXhOaUF5TlRBZ1VTQXlOVFlnTWpJd0lETTVOaUF5TlRBZ1dpSWdabWxzYkQwaUkwWkZSa0l6VWlMdjRLSUNBOGNtVmpkQ0I0UFNJeU16RWlJSGs5SWpJd05TSWdkMmxrZEhnOUlqVXdJaUJoWldsbmFIUTlJakl3SWlCeWVEWGlJR1ptbHNiRDBpSTBRMVFUZzBNeUl2UGdvZ0lEMHhjR0YwYUNCa1BTSk5JREl6TUNBek1EQWdReUF5TXpBZ01qY3dMQ0F5T0RJZ01qY3dMQ0F5T0RJZ016QXdJRVEgTWpneUlETXlOU3dnTWpVMklETXpNQ0F5TlRZZ016VTFJaUJ6ZEhKdmEyVTlJbU52Ym1VaU8zTjBjbTlyWlMxd2IzVnVaQ0l2UGdvZ0lEMHhZV3hzYVhCemVTQmpPRFVpSUhKNUlISnBPRFVpSUc1dmJtVWlMdjRLUEM5emRtYysiLCJzaXplcyI6ImFueSIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+PHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+PGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+PHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIigaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNGRjc1NDUiLz48cmVjdCB4PSIyMzYiIHk9IjIzNiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI0RDQTg0MiIvPjxyZWN0IHg9IjI0OCIgeT0iMjQ4IiB3aWR0aD0iMTYiIGhlaWdodD0iMzIiIGZpbGw9IiNEQ0E4NDIiLz48cGF0aCBkPSJNIDEzMCAzMjAgUSA4MCAzMjAgOTAgMzUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNEQ0E4NDIiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0gMzgyIDMyMCBRIDQzMiAzMjAgNDIyIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSIxNDAiIHk9IjI5NiIgd2lkdGg9IjIzMiIgaGVpZ2h0PSIxNDAiIHJ4PSIzMiIgZmlsbD0iI0ZGNzU0NSIvPjxyZWN0IHg9IjE2MCIgeT0iMzIwIiB3aWR0aD0iMTYiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjRkY4QzYxIiBvcGFjaXR5PSIwLjYiLz48L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+PHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+PGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPjxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+PHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIigaGVpZ2h0PSIxNiIgcng9IjgiIGZpbGw9IiNGRjc1NDUiLz48cmVjdCB4PSIyMzYiIHk9IjIzNiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iI0RDQTg0MiIvPjxyZWN0IHg9IjI0OCIgeT0iMjQ4IiB3aWR0aD0iMTYiIGhlaWdodD0iMzIiIGZpbGw9IiNEQ0E4NDIiLz48cGF0aCBkPSJNIDEzMCAzMjAgUSA4MCAzMjAgOTAgMzUwIiBmaWxsPSJub25lIiBzdHJva2U9IiNEQ0E4NDIiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik0gMzgyIDMyMCBRIDQzMiAzMjAgNDIyIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cmVjdCB4PSIxNDAiIHk9IjI5NiIgd2lkdGg9IjIzMiIgaGVpZ2h0PSIxNDAiIHJ4PSIzMiIgZmlsbD0iI0ZGNzU0NSIvPjxyZWN0IHg9IjE2MCIgeT0iMzIwIiB3aWR0aD0iMTYiIGhlaWdodD0iODAiIHJ4PSI4IiBmaWxsPSIjRkY4QzYxIiBvcGFjaXR5PSIwLjYiLz48L3N2Zz4=">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="저녁뭐먹지">
 <meta name="theme-color" content="#2C1F0E">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuyYpOuKmCDsoIDrhYEg662QIOuoueyngD8iLCAic2hvcnRfbmFtZSI6ICLsoIDrhYHrrZDrqLnsp4AiLCAiZGVzY3JpcHRpb24iOiAi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMyQzFGMEUiLCAidGhlbWVfY29sb3IiOiAiIzJDMUYwRSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S0lDQThJUzB0SU91d3NPcXl2VG9nNjVTdzY1eTc3WldjSU8yRmpPdWR2T3k5bE8yRGdDRHNtNUR0bUpVZ0xTMCtDaUFnUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlISjRQU0l4TVRJaUlHWnBiR3c5SWlNeVF6RkdNRVVpTHo0S0NpQWdQQ0V0TFNEcnNMRHFzcjBnN0p1UUlDanJsTERybkx2dGxad2c3WUdzNjZhOEtTQXRMVDRLSUNBOFkybHlZMnhsSUdONFBTSXlOVFlpSUdONVBTSXlOVFlpSUhJOUlqRTVNQ0lnWm1sc2JEMGlJek5FTWpreE1DSXZQZ29LSUNBOElTMHRJT3V3cGV5RGdTQXZJT3lia08yWWxTRHRoWXpzbmJUcnVKUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJak14TUNJZ2NuZzlJakUxTlNJZ2NuazlJak00SWlCbWFXeHNQU0lqT0VJelJERTRJaUJ2Y0dGamFYUjVQU0l3TGpZaUx6NEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qVTJJaUJqZVQwaU16QTFJaUJ5ZUQwaU1UVTFJaUJ5ZVQwaU16Z2lJR1pwYkd3OUlpTkRORFl5TWtRaUx6NEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qVTJJaUJqZVQwaU1qazRJaUJ5ZUQwaU1UUTRJaUJ5ZVQwaU16TWlJR1pwYkd3OUlpTkZNRGRDTkRnaUx6NEtDaUFnUENFdExTRHJzS1hxdDdqcnBvY2dLT3lra2V5Vm1Ta2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkyT0NJZ2NuZzlJalV5SWlCeWVUMGlNVFlpSUdacGJHdzlJaU5HUVVZMlJVVWlJRzl3WVdOcGRIazlJakF1TVRVaUx6NEtJQ0E4Y0dGMGFDQmtQU0pOTWpBMElESTJPQ0JSTWpBMElESXpNQ0F5TlRZZ01qSTRJRkV6TURnZ01qTXdJRE13T0NBeU5qaGFJaUJtYVd4c1BTSWpSa1pHUkVZM0lpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqSTFOaUlnWTNrOUlqSTJPQ0lnY25nOUlqVXlJaUJ5ZVQwaU1UUWlJR1pwYkd3OUlpTkdNMFZFUlRBaUx6NEtJQ0E4SVMwdElPdXdwU0R0a1p6cnFiUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkyTlNJZ2NuZzlJalEwSWlCeWVUMGlNVEFpSUdacGJHdzlJaU5HUmtaRVJqY2lMejRLSUNBOElTMHRJT3V3cGV5VmpDRHRoWTNzaXFUc3NwZ2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkwTWlJZ1kzazlJakkyTXlJZ2NuZzlJalVpSUhKNVBTSXpJaUJtYVd4c1BTSWpSak5GUkVVd0lpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqSTFOaUlnWTNrOUlqSTJNQ0lnY25nOUlqVWlJSEo1UFNJeklpQm1hV3hzUFNJalJqTkZSRVV3SWk4K0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpJM01DSWdZM2s5SWpJMk15SWdjbmc5SWpVaUlISjVQU0l6SWlCbWFXeHNQU0lqUmpORlJFVXdJaTgrQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkwT1NJZ1kzazlJakkyT0NJZ2NuZzlJalFpSUhKNVBTSXlMalVpSUdacGJHdzlJaU5GT0VSRFF6Z2lMejRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNall6SWlCamVUMGlNalk0SWlCeWVEMGlOQ0lnY25rOUlqSXVOU0lnWm1sc2JEMGlJMFU0UkVORE9DSXZQZ29LSUNBOElTMHRJT3ExcmVxM3VPdW1oeUFvN0tLTTdMaWhLU0F0TFQ0S0lDQThjR0YwYUNCa1BTSk5NVFU0SURJM05TQlJNVFU0SURJMU1pQXhPRFVnTWpVd0lGRXlNVElnTWpVeUlESXhNaUF5TnpWYUlpQm1hV3hzUFNJalJrWkdSRVkzSWk4K0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpFNE5TSWdZM2s5SWpJM05TSWdjbmc5SWpJM0lpQnllVDBpT1NJZ1ptbHNiRDBpSTBZelJVUkZNQ0l2UGdvZ0lEd2hMUzBnNnJXdElPMlJuT3VwdENBdExUNEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1UZzFJaUJqZVQwaU1qY3lJaUJ5ZUQwaU1qRWlJSEo1UFNJMklpQm1hV3hzUFNJalJEUkJPRFF6SWlCdmNHRmphWFI1UFNJd0xqWWlMejRLSUNBOElTMHRJT3Vhbk9xN2tTRHNocERzbnFIc25iUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakU0TlNJZ1kzazlJakkxTUNJZ2NuZzlJakkzSWlCeWVUMGlOeUlnWm1sc2JEMGlJMFU0UkVORE9DSXZQZ29nSUR4bGJHeHBjSE5sSUdONFBTSXhPRFVpSUdONVBTSXlORGNpSUhKNFBTSTNJaUJ5ZVQwaU5DSWdabWxzYkQwaUkwTTBOakl5UkNJdlBnb0tJQ0E4SVMwdElPdXdtT3l3ckNEc29KSHNpNXdnS095YXNPeTRvU2tnTFMwK0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpNeU55SWdZM2s5SWpJM09DSWdjbmc5SWpNd0lpQnllVDBpT1NJZ1ptbHNiRDBpSTBVNFJFTkRPQ0lnYjNCaFkybDBlVDBpTUM0MUlpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqTXlOeUlnWTNrOUlqSTNNaUlnY25nOUlqSTRJaUJ5ZVQwaU9DSWdabWxzYkQwaUkwWkdSa1JHTnlJdlBnb2dJRHhsYkd4cGNITmxJR040UFNJek1qY2lJR041UFNJeU56QWlJSEo0UFNJeU1pSWdjbms5SWpVaUlHWnBiR3c5SWlOR00wVkVSVEFpTHo0S0lDQThJUzB0SU91d21PeXdyQ0FvNnJtQTdMbVlJT3VLa091Q2pDa2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJak15TUNJZ1kzazlJakkyT1NJZ2NuZzlJamNpSUhKNVBTSXpJaUJtYVd4c1BTSWpRekF6T1RKQ0lpQnZjR0ZqYVhSNVBTSXdMamNpSUhSeVlXNXpabTl5YlQwaWNtOTBZWFJsS0MweU1DQXpNakFnTWpZNUtTSXZQZ29nSUR4bGJHeHBjSE5sSUdONFBTSXpNelFpSUdONVBTSXlOamtpSUhKNFBTSTJJaUJ5ZVQwaU15SWdabWxzYkQwaUkwTXdNemt5UWlJZ2IzQmhZMmwwZVQwaU1DNDJJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d4TlNBek16UWdNalk1S1NJdlBnb0tJQ0E4SVMwdElPeWdrK3F3Z091ZHZTQW83SnF3N0xpaElPeURnZXVMcUNrZ0xTMCtDaUFnUEd4cGJtVWdlREU5SWpNMU5TSWdlVEU5SWpJd01DSWdlREk5SWpNM05TSWdlVEk5SWpJNU5TSWdjM1J5YjJ0bFBTSWpPRUkxUlRORElpQnpkSEp2YTJVdGQybGtkR2c5SWpVaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0l2UGdvZ0lEeHNhVzVsSUhneFBTSXpOamdpSUhreFBTSXhPVGdpSUhneVBTSXpPRFlpSUhreVBTSXlPVE1pSUhOMGNtOXJaVDBpSXpoQ05VVXpReUlnYzNSeWIydGxMWGRwWkhSb1BTSTFJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtDaUFnUENFdExTRHNpSi9xc0lEcm5iMGdLT3lpak95NG9Ta2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakUwTUNJZ1kzazlJakl4T0NJZ2NuZzlJakV5SWlCeWVUMGlNVFlpSUdacGJHdzlJaU5ETkVFNE9ESWlMejRLSUNBOGJHbHVaU0I0TVQwaU1UUXdJaUI1TVQwaU1qTTBJaUI0TWowaU1UUTFJaUI1TWowaU1qazFJaUJ6ZEhKdmEyVTlJaU5ETkVFNE9ESWlJSE4wY205clpTMTNhV1IwYUQwaU5pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0Nnb2dJRHdoTFMwZzdJT0I2NHVvSU91VXNPdWN1KzJWbkNEcnVac2c3WnFvNnJPOElDMHRQZ29nSUR4amFYSmpiR1VnWTNnOUlqSTFOaUlnWTNrOUlqRTRNQ0lnY2owaU16QWlJR1pwYkd3OUlpTkVORUU0TkRNaUlHOXdZV05wZEhrOUlqQXVNVElpTHo0S0lDQThZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l4T0RBaUlISTlJakUySWlCbWFXeHNQU0lqUkRSQk9EUXpJaUJ2Y0dGamFYUjVQU0l3TGpFMUlpOCtDZ29nSUR3aExTMGc2cm1BSU91cXFPdWR2ZXVxcU91ZHZTQW82N0NsNnJlNDY2YUhJT3ljaENrZ0xTMCtDaUFnUEhCaGRHZ2daRDBpVFRJME5pQXlNamdnVVRJME15QXlNVGdnTWpRMklESXhNQ0JSTWpRNUlESXdNaUF5TkRZZ01Ua3pJaUJ6ZEhKdmEyVTlJaU5HUVVZMlJVVWlJSE4wY205clpTMTNhV1IwYUQwaU15SWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWlCbWFXeHNQU0p1YjI1bElpQnZjR0ZqYVhSNVBTSXdMalFpTHo0S0lDQThjR0YwYUNCa1BTSk5NalUySURJeU5TQlJNalV6SURJeE5TQXlOVFlnTWpBM0lGRXlOVGtnTVRrNUlESTFOaUF4T1RBaUlITjBjbTlyWlQwaUkwWkJSalpGUlNJZ2MzUnliMnRsTFhkcFpIUm9QU0l6SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlJR1pwYkd3OUltNXZibVVpSUc5d1lXTnBkSGs5SWpBdU5DSXZQZ29nSUR4d1lYUm9JR1E5SWsweU5qWWdNakk0SUZFeU5qTWdNakU0SURJMk5pQXlNVEFnVVRJMk9TQXlNRElnTWpZMklERTVNeUlnYzNSeWIydGxQU0lqUmtGR05rVkZJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqTWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJZ1ptbHNiRDBpYm05dVpTSWdiM0JoWTJsMGVUMGlNQzQwSWk4K0Nqd3ZjM1puUGdvPSIsICJzaXplcyI6ICJhbnkiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuyYpOuKmCDsoIDrhYEg662QIOuoueyngD8iLCAic2hvcnRfbmFtZSI6ICLsoIDrhYHrrZDrqLnsp4AiLCAiZGVzY3JpcHRpb24iOiAi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNGRkY1RTEiLCAidGhlbWVfY29sb3IiOiAiIzJDMUYwRSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0OGNtVmpkQ0IzYVdSMGFEcGlOVEV5SWloWldsbmFIUTlJalV4TWlJZ2NIZzlJakV4TWlJZ1ptbHNiRDBpSTBaR1JqVkZNU0l2UGp4d1lYUm9JR1E5SWswZ01qY3dJREkxTUNCRElETXpNQ0F5TWpBZ01qVXdJREUyTUNBeU9UQWdNVEF3SWlCemRISnZhMlU5SWlOR1JrakdSa0lpQnpkSEp2YTJVdGQybGtkR2c5SWpJNElpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0l2UGp4d1lYUm9JR1E5SWswZ01qQXdJREUwTUNCQ0lESXdNQ0E0TUNCek1USWdPREFnTXpFeUlERTBNQ0JDSURNeE1pQTRNQ0F5TlRZZ01Ua3dJREkxTmlBeU1qQWlJSHcwY205clpUMGlJMFJEUVRnME1pSWdjM1J5YjJ0bExYZHBkR2c5SWpNMklpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaU8zSjRjR0YwYUNCZ1BTSk5JREkxTmlBeU5EQWdReUF5TnpBZ01qUXdJREkzTUNBeU56QWdNakUySURJM01DQkRJREkwTWlBeU56QWdNakF5SURJME1DQXlOVFlnTWpRd0lGb2lJR1ptbHNiRDBpSTBSRFFUZzBNaUl2UGp4bGJHeHBjSE5sSUdONFBTSXlOVFlpSUdONVBTSXlOVFVpSUhKNFBTSTRJaUJ5ZVQwaU1UUWlJR1pwYkd3OUlpTkdSa1ZWTVNJK1BIQmhZMmwwZVQwaU1TQXhOREFnTWpnd0lGQWdNakUySURJME1DQXpOeklnTWpnd0lGb2lJR1ptbHNiRDBpSTBZR09FTTJNU0krUEhKbGNYUWdlRDBpTVRJd0lHcDVPV0k0TUNCM2FXUjBhRDBpTWpjeUlpQm9aV2xuYUhROUlqRTJJaUJ5ZVQwaU1qZ2lJR1ptbHNiRDBpSTBZR056VTBOV0krUEhKbGNYUWdlRDBpTWpNMklpQjVQU0l5TXpZaUlIZHBaSFJvUFNJME1DSWdobGFXZG9kRDBpTVRJaUlISjRQU0kySWlCbWFXeHNQU0lqUkVOR09EUXlJajQ4Y21WalRDQjRQU0l5TkRnaUlIazlJakkwT0NJZ2QybGtkSGc5SWpFMklpQmhaV2xuYUhROUlqTXlJaUptYVd4c1BTSWpSRU5HT0RReUlqNDhWTEF4TXpBZ016SXdJRkFnT0RBZ016SXdJREt3SURNMU1DSWdabWxzYkQwaWJtOXVaU0lndzBjbTlyWlQwaUkwUkRRVGcwTWlJZ2MzUnliMnRsTFh4cGJtVmpZWEE5SWpJd0lpbHpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpT1p4d1lYUm9JR1E5SWswZ016Z3lJRE15TUNCUklEUXpNaUF6TWpBZ05ESXlJRE0xTUNJZ1ptbHNiRDBpYm05dVpTSWd3MGNtOXJaVDBpSTBSRFFUZzBNaUlnYzNSeWIydGxMWHhwYm1WallYQTlJakl3SWlsemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlPWnh5WldOMElIZzlJakUwTUNJZ2VUMGlNamsySWlCM2FXUjBhRDBpTWpNeUlpQm9aV2xuYUhROUlqRTBNQ0lnY2owaU16SWlJR1pwYkd3OUlpTkdSMzUwTlNJdlBqeHlaV04wSUhnOUlqRTJNaUlnZVQwaU16SXdJaUIzYVdSMGFEMGlNVFlpSUJvWldsbmFIUTlJakd3SWlCeWVEWGlJR1pwYkd3OUlpTkdSMkkyTVNJZ2IzQmhZMmwwZVQwaU1DNDJJaU84TDNOMmN6ND0iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -349,7 +348,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 </head>
 <body>
 <div class="shell">
-  <!-- Sidebar -->
   <nav class="sidebar">
     <div class="sidebar-logo">저녁<br>뭐<br>먹지</div>
     <button class="nav-item active" id="snav-today" onclick="gotoPage('today')">
@@ -370,7 +368,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
   <main class="content">
 
-    <!-- ══════════ 오늘 저녁 (홈) ══════════ -->
     <div class="page active" id="page-today">
       <div class="today-greeting">
         <div class="greeting-date" id="greeting-date"></div>
@@ -393,7 +390,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
-      <!-- Family bar -->
       <div class="family-bar">
         <div class="family-info">
           <span style="font-size:1.3rem;" id="family-icon">👫</span>
@@ -407,7 +403,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
-      <!-- Sync bar (시트 연결 시만 표시) -->
       <div class="sync-bar" id="sync-bar" onclick="syncPull()" style="display:none;">
         <div class="sync-dot sync-idle" id="sync-dot"></div>
         <span class="sync-label" id="sync-label">최신 상태</span>
@@ -419,7 +414,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         <div class="expiry-alert-items" id="expiry-alert-items"></div>
       </div>
 
-      <!-- Mood collapsible -->
       <button class="mood-toggle" id="mood-toggle-btn" onclick="toggleMoodPanel()">
         <span style="color:var(--terra);">🎛</span> 오늘의 상황 선택하기
         <span class="arrow">▾</span>
@@ -441,7 +435,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         🔍 오늘 저녁 메뉴 찾기
       </button>
 
-      <!-- History -->
       <div style="margin-top:2.5rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
           <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">추천 히스토리</div>
@@ -451,7 +444,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       </div>
     </div>
 
-    <!-- ══════════ 냉장고 ══════════ -->
     <div class="page" id="page-fridge">
       <div class="page-header">
         <div class="page-header-row">
@@ -475,7 +467,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div class="fridge-grid" id="fridge-grid"></div>
     </div>
 
-    <!-- ══════════ 레시피 ══════════ -->
     <div class="page" id="page-recipe">
       <div class="page-header">
         <div class="page-header-row">
@@ -489,7 +480,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
           </div>
         </div>
       </div>
-      <!-- 검색창 -->
       <div style="position:relative;margin-bottom:1rem;">
         <input class="input" id="recipe-search" placeholder="🔍  레시피 검색 (요리명, 재료, 태그)" oninput="filterRecipes()" style="padding-left:1rem;">
         <button id="recipe-search-clear" onclick="clearRecipeSearch()" style="display:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-s);font-size:1rem;">✕</button>
@@ -500,7 +490,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </main>
 </div>
 
-<!-- Bottom nav (mobile) -->
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bnav-item active" id="bnav-today" onclick="gotoPage('today')">
@@ -519,7 +508,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
 </nav>
 
-<!-- ══ 냉장고 모달 ══ -->
 <div class="modal-back" id="fridge-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -545,7 +533,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<!-- ══ 레시피 모달 ══ -->
 <div class="modal-back" id="recipe-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -568,7 +555,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<!-- ══ 사진 OCR 모달 ══ -->
 <div class="modal-back" id="photo-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -576,7 +562,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <button class="modal-close" onclick="closeModal('photo-modal')">×</button>
     </div>
 
-    <!-- 사진 업로드 영역 -->
     <div class="photo-drop" id="photo-drop"
       onclick="document.getElementById('photo-file').click()"
       ondragover="event.preventDefault();this.classList.add('drag')"
@@ -587,7 +572,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
     </div>
     <input type="file" id="photo-file" accept="image/*" multiple style="display:none" onchange="onPhotoSelect(event)">
 
-    <!-- 선택된 사진 미리보기 -->
     <div id="photo-thumbs" style="display:none;margin-top:.75rem;">
       <div style="display:flex;gap:.5rem;align-items:flex-start;">
         <div id="thumb-wrap" style="display:flex;gap:.5rem;flex:1;"></div>
@@ -596,7 +580,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div style="font-size:.72rem;color:var(--ink-s);margin-top:.4rem;" id="photo-count-label"></div>
     </div>
 
-    <!-- 추출 결과 -->
     <div id="photo-result" style="display:none;margin-top:1.25rem;">
       <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;">
         <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">AI 추출 결과</div>
@@ -613,13 +596,11 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<!-- ══ 라이트박스 ══ -->
 <div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);align-items:center;justify-content:center;" onclick="closeLightbox()">
   <img id="lightbox-img" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;" alt="">
   <button style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;" onclick="closeLightbox()">×</button>
 </div>
 
-<!-- ══ 레시피 상세 모달 ══ -->
 <div class="modal-back" id="detail-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -630,7 +611,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<!-- ══ 오늘 저녁 확정 + 재료 체크리스트 모달 ══ -->
 <div class="modal-back" id="confirm-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -649,7 +629,6 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<!-- ══ 설정 모달 ══ -->
 <div class="modal-back" id="settings-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -961,22 +940,29 @@ async function recommend(){
     const body={
       contents:[{parts:[{text:prompt}]}],
       tools:[{google_search:{}}],
-      generationConfig:{temperature:0.7,maxOutputTokens:1500}
+      generationConfig:{temperature:0.7,maxOutputTokens:2000}
     };
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`,{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
     const data=await res.json();
-    const raw=data?.candidates?.[0]?.content?.parts?.find(p=>p.text)?.text||'';
-    const cleaned=raw.replace(/```json[\s\S]*?```/g,m=>m.replace(/```json|```/g,'')).replace(/```/g,'').trim();
+    // Google Search Grounding 응답은 parts가 여러개 — 마지막 text part가 실제 응답
+    const parts=data?.candidates?.[0]?.content?.parts||[];
+    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||''
+    // 응답 정제: thinking태그, 마크다운 코드블록 제거 후 JSON 추출
     let r;
-    try{r=JSON.parse(cleaned);}
-    catch{
-      const match=cleaned.match(/\{[\s\S]+\}/);
-      if(!match)throw new Error('응답 파싱 실패');
-      r=JSON.parse(match[0]);
-    }
+    try{
+      const stripped=raw
+        .replace(/<thinking>[\s\S]*?<\/thinking>/gi,'')
+        .replace(/```json([\s\S]*?)```/g,'$1')
+        .replace(/```/g,'')
+        .trim();
+      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
+      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
+      r=JSON.parse(jsonMatch[0]);
+      if(!r.menu)throw new Error('메뉴 정보가 없어요');
+    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
 
     history.unshift({id:uid(),menu:r.menu,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods]});
     history=history.slice(0,20);sv(K.history,history);
@@ -1395,16 +1381,27 @@ async function runOcr(){
 {"title":"요리이름","ingredients":["재료1 분량","재료2 분량"],"steps":"1. 첫번째\n2. 두번째","tags":["태그1","태그2"]}`;
 
     const imgParts=photos.map(p=>({inline_data:{mime_type:p.mime,data:p.base64}}));
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${key}`,{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500}})
+      body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}})
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
     const data=await res.json();
     const raw=data?.candidates?.[0]?.content?.parts?.[0]?.text||'';
     let parsed;
-    try{parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());}
-    catch{const m=raw.match(/\{[\s\S]+\}/);if(!m)throw new Error('응답 파싱 실패');parsed=JSON.parse(m[0]);}
+    try{
+      const allText=(data?.candidates?.[0]?.content?.parts||[])
+        .filter(p=>p.text).map(p=>p.text).join('');
+      const stripped=allText
+        .replace(/<thinking>[\s\S]*?<\/thinking>/gi,'')
+        .replace(/```json([\s\S]*?)```/g,'$1')
+        .replace(/```/g,'')
+        .trim();
+      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
+      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
+      parsed=JSON.parse(jsonMatch[0]);
+      if(!parsed.title)throw new Error('레시피 정보가 없어요');
+    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
     $('ocr-title').value=parsed.title||'';
     $('ocr-ings').value=(parsed.ingredients||[]).join(', ');
     $('ocr-steps').value=parsed.steps||'';
@@ -1508,4 +1505,3 @@ if(getGsUrl()) syncPull();
 </script>
 </body>
 </html>
-  
