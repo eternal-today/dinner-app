@@ -4,15 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>오늘 저녁 뭐 먹지?</title>
-
 <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZBRjZFRSIvPgogIDxwYXRoIGQ9Ik0gMjIwIDIyMCBRIDIwMCAxNzAgMjQwIDE0MCBUIDI1MCA4MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMjkwIDI0MCBRIDMzMCAxOTAgMjgwIDE2MCBUIDMxMCA5MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMzYwIDI5MCBMIDQ1MCAyNzAgUSA0NzAgMjY1IDQ3MCAyODUgTCAzNjAgMzIwIFoiIGZpbGw9IiNENEE4NDMiLz4KICA8cmVjdCB4PSIxMzYiIHk9IjI1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNTAiIHJ4PSI0MCIgZmlsbD0iI0ZGN0Y1MCIvPgogIDxwYXRoIGQ9Ik0gMTE2IDI1MCBRIDI1NiAyMjAgMzk2IDI1MCBaIiBmaWxsPSIjRkY2QjM1Ii8+CiAgPHJlY3QgeD0iMjMxIiB5PSIyMDUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjRDRBODQzIi8+CiAgPHBhdGggZD0iTSAyMzAgMzAwIEMgMjMwIDI3MCwgMjgyIDI3MCwgMjgyIDMwMCBDIDI4MiAzMjUsIDI1NiAzMzAsIDI1NiAzNTUiIHN0cm9rZT0iI0ZGRkRGNyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjM4NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRkRGNyIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMjU2IDM4NSkiLz4KPC9zdmc+">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZBRjZFRSIvPgogIDxwYXRoIGQ9Ik0gMjIwIDIyMCBRIDIwMCAxNzAgMjQwIDE0MCBUIDI1MCA4MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMjkwIDI0MCBRIDMzMCAxOTAgMjgwIDE2MCBUIDMxMCA5MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiIG9wYWNpdHk9IjAuOCIvPgogIDxwYXRoIGQ9Ik0gMzYwIDI5MCBMIDQ1MCAyNzAgUSA0NzAgMjY1IDQ3MCAyODUgTCAzNjAgMzIwIFoiIGZpbGw9IiNENEE4NDMiLz4KICA8cmVjdCB4PSIxMzYiIHk9IjI1MCIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNTAiIHJ4PSI0MCIgZmlsbD0iI0ZGN0Y1MCIvPgogIDxwYXRoIGQ9Ik0gMTE2IDI1MCBRIDI1NiAyMjAgMzk2IDI1MCBaIiBmaWxsPSIjRkY2QjM1Ii8+CiAgPHJlY3QgeD0iMjMxIiB5PSIyMDUiIHdpZHRoPSI1MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiBmaWxsPSIjRDRBODQzIi8+CiAgPHBhdGggZD0iTSAyMzAgMzAwIEMgMjMwIDI3MCwgMjgyIDI3MCwgMjgyIDMwMCBDIDI4MiAzMjUsIDI1NiAzMzAsIDI1NiAzNTUiIHN0cm9rZT0iI0ZGRkRGNyIgc3Ryb2tlLXdpZHRoPSIxOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjM4NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRkRGNyIgdHJhbnNmb3JtPSJyb3RhdGUoMjAgMjU2IDM4NSkiLz4KPC9zdmc+">
-
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi7Jik64qYIOyggOuFgSDrrZDrqLnsp4A/Iiwic2hvcnRfbmFtZSI6IuyggOuFgeutkOuoueSngCIsImRlc2NyaXB0aW9uIjoi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNGQUY2RUUiLCJ0aGVtZV9jb2xvciI6IiMyQzFGMEUiLCJvcmllbnRhdGlvbiI6InBvcnRyYWl0IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMmJ5QjRibVh1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJajRLSUNBOGNtVmpkQ0IzYVdSMGFEcGlOVEV5SWlCaFpXbG5hSFE5SWpVeE1pSWdjSGc5SWpFeE1pSWdabWxzYkQwaUkwWkJSalZGUlNJdlBnZ2dJRHh3WVhSb0lHUTlJVTBnTWpJd0lESXlNQ0ZSSURJd01DQXhOekFnTWpRd0lERTBNQ0JRSURJMU1DQTROQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJMElpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTWprd0lESTBNQ0ZSSURNek1DQXhPVEFnTWpnd0lERTJNQ0JRSURNeE1DQTVNQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJd0lpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTXpZd0lESTVNQ0JNSURRMU1DQXlOekFnVVMBME56QWdNakYxSURRM01DQXlPRFVnVENBek5qQWdNelF3SUZvSWlHWm1sc2JEMGlJMFExUVRnME15SXZQZ29nSUQweVpXTjBJSGdnTVRNMklIazlJakkxTUNJZ2QybGtkSGc5SWpJME1DSWdhR1ZwWjJoMFBTSXhOVEFpSUhKNE1UUWlJR1ptbHNiRDBpSTBaR04wWTFNaXZQZ29nSUQweGNHRjBhQ0JrUFNKTklERXhOaUF5TlRBZ1VTQXlOVFlnTWpJd0lETTVOaUF5TlRBZ1dpSWdabWxzYkQwaUkwWkZSa0l6VWlMdjRLSUNBOGNtVmpkQ0I0UFNJeU16RWlJSGs5SWpJd05TSWdkMmxrZEhnOUlqVXdJaUJoWldsbmFIUTlJakl3SWlCeWVEWGlJR1ptbHNiRDBpSTBRMVFUZzBNeUl2UGdvZ0lEMHhjR0YwYUNCa1BTSk5JREl6TUNBek1EQWdReUF5TXpBZ01qY3dMQ0F5T0RJZ01qY3dMQ0F5T0RJZ016QXdJRVEgTWpneUlETXlOU3dnTWpVMklETXpNQ0F5TlRZZ016VTFJaUJ6ZEhKdmEyVTlJbU52Ym1VaU8zTjBjbTlyWlMxd2IzVnVaQ0l2UGdvZ0lEMHhZV3hzYVhCemVTQmpPRFVpSUhKNUlISnBPRFVpSUc1dmJtVWlMdjRLUEM5emRtYysiLCJzaXplcyI6ImFueSIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="저녁뭐먹지">
 <meta name="theme-color" content="#2C1F0E">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoi7Jik64qYIOyggOuFgSDrrZDrqLnsp4A/Iiwic2hvcnRfbmFtZSI6IuyggOuFgeutkOuoueSngCIsImRlc2NyaXB0aW9uIjoi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCJzdGFydF91cmwiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNGQUY2RUUiLCJ0aGVtZV9jb2xvciI6IiMyQzFGMEUiLCJvcmllbnRhdGlvbiI6InBvcnRyYWl0IiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMmJ5QjRibVh1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIWnBaWGRDYjNnOUlqQWdNQ0ExTVRJZ05URXlJajRLSUNBOGNtVmpkQ0IzYVdSMGFEcGlOVEV5SWlCaFpXbG5hSFE5SWpVeE1pSWdjSGc5SWpFeE1pSWdabWxzYkQwaUkwWkJSalZGUlNJdlBnZ2dJRHh3WVhSb0lHUTlJVTBnTWpJd0lESXlNQ0ZSSURJd01DQXhOekFnTWpRd0lERTBNQ0JRSURJMU1DQTROQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJMElpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTWprd0lESTBNQ0ZSSURNek1DQXhPVEFnTWpnd0lERTJNQ0JRSURNeE1DQTVNQ0lnYzNSeWIydGxQU0lqUmtGR1JrWkdSaUlpQnpkSEp2YTJVdGQybGtkR2c5SWpJd0lpQnpkSEp2YTJVdGJHbHVaV05oY0QwaWNtOTFibVFpSUdaaGJHdzlJbTV2Ym1VaUlHOXdZV05wZEhrOUlqQXVPQ0krdkNpQWdJRHh3WVhSb0lHUTlJVTBnTXpZd0lESTVNQ0JNSURRMU1DQXlOekFnVVMBME56QWdNakYxSURRM01DQXlPRFVnVENBek5qQWdNelF3SUZvSWlHWm1sc2JEMGlJMFExUVRnME15SXZQZ29nSUQweVpXTjBJSGdnTVRNMklIazlJakkxTUNJZ2QybGtkSGc5SWpJME1DSWdhR1ZwWjJoMFBTSXhOVEFpSUhKNE1UUWlJR1ptbHNiRDBpSTBaR04wWTFNaXZQZ29nSUQweGNHRjBhQ0JrUFNKTklERXhOaUF5TlRBZ1VTQXlOVFlnTWpJd0lETTVOaUF5TlRBZ1dpSWdabWxzYkQwaUkwWkZSa0l6VWlMdjRLSUNBOGNtVmpkQ0I0UFNJeU16RWlJSGs5SWpJd05TSWdkMmxrZEhnOUlqVXdJaUJoWldsbmFIUTlJakl3SWlCeWVEWGlJR1ptbHNiRDBpSTBRMVFUZzBNeUl2UGdvZ0lEMHhjR0YwYUNCa1BTSk5JREl6TUNBek1EQWdReUF5TXpBZ01qY3dMQ0F5T0RJZ01qY3dMQ0F5T0RJZ016QXdJRVEgTWpneUlETXlOU3dnTWpVMklETXpNQ0F5TlRZZ016VTFJaUJ6ZEhKdmEyVTlJbU52Ym1VaU8zTjBjbTlyWlMxd2IzVnVaQ0l2UGdvZ0lEMHhZV3hzYVhCemVTQmpPRFVpSUhKNUlISnBPRFVpSUc1dmJtVWlMdjRLUEM5emRtYysiLCJzaXplcyI6ImFueSIsInR5cGUiOiJpbWFnZS9zdmcreG1sIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuyYpOuKmCDsoIDrhYEg662QIOuoueyngD8iLCAic2hvcnRfbmFtZSI6ICLsoIDrhYHrrZDrqLnsp4AiLCAiZGVzY3JpcHRpb24iOiAi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMyQzFGMEUiLCAidGhlbWVfY29sb3IiOiAiIzJDMUYwRSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S0lDQThJUzB0SU91d3NPcXl2VG9nNjVTdzY1eTc3WldjSU8yRmpPdWR2T3k5bE8yRGdDRHNtNUR0bUpVZ0xTMCtDaUFnUEhKbFkzUWdkMmxrZEdnOUlqVXhNaUlnYUdWcFoyaDBQU0kxTVRJaUlISjRQU0l4TVRJaUlHWnBiR3c5SWlNeVF6RkdNRVVpTHo0S0NpQWdQQ0V0TFNEcnNMRHFzcjBnN0p1UUlDanJsTERybkx2dGxad2c3WUdzNjZhOEtTQXRMVDRLSUNBOFkybHlZMnhsSUdONFBTSXlOVFlpSUdONVBTSXlOVFlpSUhJOUlqRTVNQ0lnWm1sc2JEMGlJek5FTWpreE1DSXZQZ29LSUNBOElTMHRJT3V3cGV5RGdTQXZJT3lia08yWWxTRHRoWXpzbmJUcnVKUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJak14TUNJZ2NuZzlJakUxTlNJZ2NuazlJak00SWlCbWFXeHNQU0lqT0VJelJERTRJaUJ2Y0dGamFYUjVQU0l3TGpZaUx6NEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qVTJJaUJqZVQwaU16QTFJaUJ5ZUQwaU1UVTFJaUJ5ZVQwaU16Z2lJR1pwYkd3OUlpTkRORFl5TWtRaUx6NEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1qVTJJaUJqZVQwaU1qazRJaUJ5ZUQwaU1UUTRJaUJ5ZVQwaU16TWlJR1pwYkd3OUlpTkZNRGRDTkRnaUx6NEtDaUFnUENFdExTRHJzS1hxdDdqcnBvY2dLT3lra2V5Vm1Ta2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkyT0NJZ2NuZzlJalV5SWlCeWVUMGlNVFlpSUdacGJHdzlJaU5HUVVZMlJVVWlJRzl3WVdOcGRIazlJakF1TVRVaUx6NEtJQ0E4Y0dGMGFDQmtQU0pOTWpBMElESTJPQ0JSTWpBMElESXpNQ0F5TlRZZ01qSTRJRkV6TURnZ01qTXdJRE13T0NBeU5qaGFJaUJtYVd4c1BTSWpSa1pHUkVZM0lpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqSTFOaUlnWTNrOUlqSTJPQ0lnY25nOUlqVXlJaUJ5ZVQwaU1UUWlJR1pwYkd3OUlpTkdNMFZFUlRBaUx6NEtJQ0E4SVMwdElPdXdwU0R0a1p6cnFiUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkyTlNJZ2NuZzlJalEwSWlCeWVUMGlNVEFpSUdacGJHdzlJaU5HUmtaRVJqY2lMejRLSUNBOElTMHRJT3V3cGV5VmpDRHRoWTNzaXFUc3NwZ2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkwTWlJZ1kzazlJakkyTXlJZ2NuZzlJalVpSUhKNVBTSXpJaUJtYVd4c1BTSWpSak5GUkVVd0lpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqSTFOaUlnWTNrOUlqSTJNQ0lnY25nOUlqVWlJSEo1UFNJeklpQm1hV3hzUFNJalJqTkZSRVV3SWk4K0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpJM01DSWdZM2s5SWpJMk15SWdjbmc5SWpVaUlISjVQU0l6SWlCbWFXeHNQU0lqUmpORlJFVXdJaTgrQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkwT1NJZ1kzazlJakkyT0NJZ2NuZzlJalFpSUhKNVBTSXlMalVpSUdacGJHdzlJaU5GT0VSRFF6Z2lMejRLSUNBOFpXeHNhWEJ6WlNCamVEMGlNall6SWlCamVUMGlNalk0SWlCeWVEMGlOQ0lnY25rOUlqSXVOU0lnWm1sc2JEMGlJMFU0UkVORE9DSXZQZ29LSUNBOElTMHRJT3ExcmVxM3VPdW1oeUFvN0tLTTdMaWhLU0F0TFQ0S0lDQThjR0YwYUNCa1BTSk5NVFU0SURJM05TQlJNVFU0SURJMU1pQXhPRFVnTWpVd0lGRXlNVElnTWpVeUlESXhNaUF5TnpWYUlpQm1hV3hzUFNJalJrWkdSRVkzSWk4K0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpFNE5TSWdZM2s5SWpJM05TSWdjbmc5SWpJM0lpQnllVDBpT1NJZ1ptbHNiRDBpSTBZelJVUkZNQ0l2UGdvZ0lEd2hMUzBnNnJXdElPMlJuT3VwdENBdExUNEtJQ0E4Wld4c2FYQnpaU0JqZUQwaU1UZzFJaUJqZVQwaU1qY3lJaUJ5ZUQwaU1qRWlJSEo1UFNJMklpQm1hV3hzUFNJalJEUkJPRFF6SWlCdmNHRmphWFI1UFNJd0xqWWlMejRLSUNBOElTMHRJT3Vhbk9xN2tTRHNocERzbnFIc25iUWdMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakU0TlNJZ1kzazlJakkxTUNJZ2NuZzlJakkzSWlCeWVUMGlOeUlnWm1sc2JEMGlJMFU0UkVORE9DSXZQZ29nSUR4bGJHeHBjSE5sSUdONFBTSXhPRFVpSUdONVBTSXlORGNpSUhKNFBTSTNJaUJ5ZVQwaU5DSWdabWxzYkQwaUkwTTBOakl5UkNJdlBnb0tJQ0E4SVMwdElPdXdtT3l3ckNEc29KSHNpNXdnS095YXNPeTRvU2tnTFMwK0NpQWdQR1ZzYkdsd2MyVWdZM2c5SWpNeU55SWdZM2s5SWpJM09DSWdjbmc5SWpNd0lpQnllVDBpT1NJZ1ptbHNiRDBpSTBVNFJFTkRPQ0lnYjNCaFkybDBlVDBpTUM0MUlpOCtDaUFnUEdWc2JHbHdjMlVnWTNnOUlqTXlOeUlnWTNrOUlqSTNNaUlnY25nOUlqSTRJaUJ5ZVQwaU9DSWdabWxzYkQwaUkwWkdSa1JHTnlJdlBnb2dJRHhsYkd4cGNITmxJR040UFNJek1qY2lJR041UFNJeU56QWlJSEo0UFNJeU1pSWdjbms5SWpVaUlHWnBiR3c5SWlOR00wVkVSVEFpTHo0S0lDQThJUzB0SU91d21PeXdyQ0FvNnJtQTdMbVlJT3VLa091Q2pDa2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJak15TUNJZ1kzazlJakkyT1NJZ2NuZzlJamNpSUhKNVBTSXpJaUJtYVd4c1BTSWpRekF6T1RKQ0lpQnZjR0ZqYVhSNVBTSXdMamNpSUhSeVlXNXpabTl5YlQwaWNtOTBZWFJsS0MweU1DQXpNakFnTWpZNUtTSXZQZ29nSUR4bGJHeHBjSE5sSUdONFBTSXpNelFpSUdONVBTSXlOamtpSUhKNFBTSTJJaUJ5ZVQwaU15SWdabWxzYkQwaUkwTXdNemt5UWlJZ2IzQmhZMmwwZVQwaU1DNDJJaUIwY21GdWMyWnZjbTA5SW5KdmRHRjBaU2d4TlNBek16UWdNalk1S1NJdlBnb0tJQ0E4SVMwdElPeWdrK3F3Z091ZHZTQW83SnF3N0xpaElPeURnZXVMcUNrZ0xTMCtDaUFnUEd4cGJtVWdlREU5SWpNMU5TSWdlVEU5SWpJd01DSWdlREk5SWpNM05TSWdlVEk5SWpJNU5TSWdjM1J5YjJ0bFBTSWpPRUkxUlRORElpQnpkSEp2YTJVdGQybGtkR2c5SWpVaUlITjBjbTlyWlMxc2FXNWxZMkZ3UFNKeWIzVnVaQ0l2UGdvZ0lEeHNhVzVsSUhneFBTSXpOamdpSUhreFBTSXhPVGdpSUhneVBTSXpPRFlpSUhreVBTSXlPVE1pSUhOMGNtOXJaVDBpSXpoQ05VVXpReUlnYzNSeWIydGxMWGRwWkhSb1BTSTFJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtDaUFnUENFdExTRHNpSi9xc0lEcm5iMGdLT3lpak95NG9Ta2dMUzArQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakUwTUNJZ1kzazlJakl4T0NJZ2NuZzlJakV5SWlCeWVUMGlNVFlpSUdacGJHdzlJaU5ETkVFNE9ESWlMejRLSUNBOGJHbHVaU0I0TVQwaU1UUXdJaUI1TVQwaU1qTTBJaUI0TWowaU1UUTFJaUI1TWowaU1qazFJaUJ6ZEhKdmEyVTlJaU5ETkVFNE9ESWlJSE4wY205clpTMTNhV1IwYUQwaU5pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K0Nnb2dJRHdoTFMwZzdJT0I2NHVvSU91VXNPdWN1KzJWbkNEcnVac2c3WnFvNnJPOElDMHRQZ29nSUR4amFYSmpiR1VnWTNnOUlqSTFOaUlnWTNrOUlqRTRNQ0lnY2owaU16QWlJR1pwYkd3OUlpTkVORUU0TkRNaUlHOXdZV05wZEhrOUlqQXVNVElpTHo0S0lDQThZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l4T0RBaUlISTlJakUySWlCbWFXeHNQU0lqUkRSQk9EUXpJaUJ2Y0dGamFYUjVQU0l3TGpFMUlpOCtDZ29nSUR3aExTMGc2cm1BSU91cXFPdWR2ZXVxcU91ZHZTQW82N0NsNnJlNDY2YUhJT3ljaENrZ0xTMCtDaUFnUEhCaGRHZ2daRDBpVFRJME5pQXlNamdnVVRJME15QXlNVGdnTWpRMklESXhNQ0JSTWpRNUlESXdNaUF5TkRZZ01Ua3pJaUJ6ZEhKdmEyVTlJaU5HUVVZMlJVVWlJSE4wY205clpTMTNhV1IwYUQwaU15SWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWlCbWFXeHNQU0p1YjI1bElpQnZjR0ZqYVhSNVBTSXdMalFpTHo0S0lDQThjR0YwYUNCa1BTSk5NalUySURJeU5TQlJNalV6SURJeE5TQXlOVFlnTWpBM0lGRXlOVGtnTVRrNUlESTFOaUF4T1RBaUlITjBjbTlyWlQwaUkwWkJSalpGUlNJZ2MzUnliMnRsTFhkcFpIUm9QU0l6SWlCemRISnZhMlV0YkdsdVpXTmhjRDBpY205MWJtUWlJR1pwYkd3OUltNXZibVVpSUc5d1lXTnBkSGs5SWpBdU5DSXZQZ29nSUR4d1lYUm9JR1E5SWsweU5qWWdNakk0SUZFeU5qTWdNakU0SURJMk5pQXlNVEFnVVRJMk9TQXlNRElnTWpZMklERTVNeUlnYzNSeWIydGxQU0lqUmtGR05rVkZJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqTWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJZ1ptbHNiRDBpYm05dVpTSWdiM0JoWTJsMGVUMGlNQzQwSWk4K0Nqd3ZjM1puUGdvPSIsICJzaXplcyI6ICJhbnkiLCAidHlwZSI6ICJpbWFnZS9zdmcreG1sIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -350,6 +349,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 </head>
 <body>
 <div class="shell">
+  <!-- Sidebar -->
   <nav class="sidebar">
     <div class="sidebar-logo">저녁<br>뭐<br>먹지</div>
     <button class="nav-item active" id="snav-today" onclick="gotoPage('today')">
@@ -370,6 +370,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
   <main class="content">
 
+    <!-- ══════════ 오늘 저녁 (홈) ══════════ -->
     <div class="page active" id="page-today">
       <div class="today-greeting">
         <div class="greeting-date" id="greeting-date"></div>
@@ -392,6 +393,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
+      <!-- Family bar -->
       <div class="family-bar">
         <div class="family-info">
           <span style="font-size:1.3rem;" id="family-icon">👫</span>
@@ -405,6 +407,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         </div>
       </div>
 
+      <!-- Sync bar (시트 연결 시만 표시) -->
       <div class="sync-bar" id="sync-bar" onclick="syncPull()" style="display:none;">
         <div class="sync-dot sync-idle" id="sync-dot"></div>
         <span class="sync-label" id="sync-label">최신 상태</span>
@@ -416,6 +419,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         <div class="expiry-alert-items" id="expiry-alert-items"></div>
       </div>
 
+      <!-- Mood collapsible -->
       <button class="mood-toggle" id="mood-toggle-btn" onclick="toggleMoodPanel()">
         <span style="color:var(--terra);">🎛</span> 오늘의 상황 선택하기
         <span class="arrow">▾</span>
@@ -437,6 +441,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         🔍 오늘 저녁 메뉴 찾기
       </button>
 
+      <!-- History -->
       <div style="margin-top:2.5rem;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
           <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">추천 히스토리</div>
@@ -446,6 +451,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       </div>
     </div>
 
+    <!-- ══════════ 냉장고 ══════════ -->
     <div class="page" id="page-fridge">
       <div class="page-header">
         <div class="page-header-row">
@@ -469,6 +475,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div class="fridge-grid" id="fridge-grid"></div>
     </div>
 
+    <!-- ══════════ 레시피 ══════════ -->
     <div class="page" id="page-recipe">
       <div class="page-header">
         <div class="page-header-row">
@@ -482,6 +489,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
           </div>
         </div>
       </div>
+      <!-- 검색창 -->
       <div style="position:relative;margin-bottom:1rem;">
         <input class="input" id="recipe-search" placeholder="🔍  레시피 검색 (요리명, 재료, 태그)" oninput="filterRecipes()" style="padding-left:1rem;">
         <button id="recipe-search-clear" onclick="clearRecipeSearch()" style="display:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-s);font-size:1rem;">✕</button>
@@ -492,6 +500,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </main>
 </div>
 
+<!-- Bottom nav (mobile) -->
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bnav-item active" id="bnav-today" onclick="gotoPage('today')">
@@ -507,8 +516,10 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <span class="bn-icon">⚙️</span>설정
     </button>
   </div>
+
 </nav>
 
+<!-- ══ 냉장고 모달 ══ -->
 <div class="modal-back" id="fridge-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -534,6 +545,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 레시피 모달 ══ -->
 <div class="modal-back" id="recipe-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -556,6 +568,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 사진 OCR 모달 ══ -->
 <div class="modal-back" id="photo-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -563,6 +576,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <button class="modal-close" onclick="closeModal('photo-modal')">×</button>
     </div>
 
+    <!-- 사진 업로드 영역 -->
     <div class="photo-drop" id="photo-drop"
       onclick="document.getElementById('photo-file').click()"
       ondragover="event.preventDefault();this.classList.add('drag')"
@@ -573,6 +587,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
     </div>
     <input type="file" id="photo-file" accept="image/*" multiple style="display:none" onchange="onPhotoSelect(event)">
 
+    <!-- 선택된 사진 미리보기 -->
     <div id="photo-thumbs" style="display:none;margin-top:.75rem;">
       <div style="display:flex;gap:.5rem;align-items:flex-start;">
         <div id="thumb-wrap" style="display:flex;gap:.5rem;flex:1;"></div>
@@ -581,6 +596,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div style="font-size:.72rem;color:var(--ink-s);margin-top:.4rem;" id="photo-count-label"></div>
     </div>
 
+    <!-- 추출 결과 -->
     <div id="photo-result" style="display:none;margin-top:1.25rem;">
       <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;">
         <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">AI 추출 결과</div>
@@ -597,11 +613,13 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
-<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);align-items:center;justify-content:center;" onclick="closeLightbox()">
+<!-- ══ 라이트박스 ══ -->
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);align-items:center;justify-content:center;" onclick="closeLightbox()">
   <img id="lightbox-img" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;" alt="">
   <button style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;" onclick="closeLightbox()">×</button>
 </div>
 
+<!-- ══ 레시피 상세 모달 ══ -->
 <div class="modal-back" id="detail-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -612,6 +630,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 오늘 저녁 확정 + 재료 체크리스트 모달 ══ -->
 <div class="modal-back" id="confirm-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -630,6 +649,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </div>
 </div>
 
+<!-- ══ 설정 모달 ══ -->
 <div class="modal-back" id="settings-modal">
   <div class="modal-box">
     <div class="modal-head">
@@ -912,7 +932,7 @@ async function recommend(){
 저장된 레시피 목록: ${savedRecipes||'없음'}
 오늘 식사 인원: ${familyStr}${childWithUs&&childAge!==null?`\n※ 아이가 만 ${childAge}세이므로: 너무 맵거나 자극적인 재료 주의, 아이도 먹기 좋은 형태로 조리법 조정, 알레르기 유발 재료(갑각류 등) 언급`:''}
 오늘 선호: ${moodStr}
-최근 먹은 메뉴(겹치지 말 대): ${recent||'없음'}
+최근 먹은 메뉴(겹치지 말 것): ${recent||'없음'}
 가족 선호/제한: ${prefs||'없음'}
 
 요청사항:
@@ -1314,7 +1334,7 @@ function viewRecipe(id){
   openModal('detail-modal');
 }
 
-/* ── PHOTO OCR (멀티 사진, 라이트박스 렌더링 최적화) ── */
+/* ── PHOTO OCR (멀티 사진, 라이트박스) ── */
 let photos=[];
 
 function openRecipePhoto(){
@@ -1329,30 +1349,20 @@ function handlePhotoDrop(e){
   [...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')).slice(0,2).forEach(loadPhoto);
 }
 function onPhotoSelect(e){[...e.target.files].slice(0,2).forEach(loadPhoto);e.target.value='';}
-
 function loadPhoto(file){
   if(photos.length>=2){toast('사진은 최대 2장까지 가능해요','err');return;}
-  if(file.size>15*1024*1024){toast('15MB 이하 이미지만 가능해요','err');return;}
-
-  // 브라우저 메모리에 가상 URL 생성 (성능 최적화 및 렌더링 오류 방지)
-  const objectUrl = URL.createObjectURL(file);
-
+  if(file.size>8*1024*1024){toast('8MB 이하 이미지만 가능해요','err');return;}
   const r=new FileReader();
   r.onload=ev=>{
-    photos.push({
-      base64:ev.target.result.split(',')[1],
-      mime:file.type,
-      displayUrl: objectUrl // 화면 표시용으로는 무거운 Base64 대신 가상 URL 사용
-    });
+    photos.push({base64:ev.target.result.split(',')[1],mime:file.type,dataUrl:ev.target.result});
     renderPhotoThumbs();
   };
-  r.readAsDataURL(file); // API 전송을 위해 Base64 변환은 백그라운드에서 진행
+  r.readAsDataURL(file);
 }
-
 function renderPhotoThumbs(){
   $('thumb-wrap').innerHTML=photos.map((p,i)=>`
     <div style="position:relative;flex-shrink:0;">
-      <img src="${p.displayUrl}" onclick="openLightbox(${i})"
+      <img src="${p.dataUrl}" onclick="openLightbox('${p.dataUrl}')"
         style="width:90px;height:90px;object-fit:cover;border-radius:var(--r-md);border:1.5px solid var(--border);cursor:zoom-in;" alt="">
       <button onclick="removePhoto(${i})"
         style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--danger);color:#fff;border:none;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
@@ -1362,31 +1372,10 @@ function renderPhotoThumbs(){
     ?'사진 2장 선택됨 — AI가 합쳐서 레시피를 추출합니다'
     :`${photos.length}장 선택 · ${2-photos.length}장 더 추가 가능`;
 }
-function removePhoto(idx){
-  photos.splice(idx,1);
-  renderPhotoThumbs();
-  if(!photos.length){
-    $('photo-result').style.display='none';
-    $('ocr-save-btn').style.display='none';
-    $('ocr-btn').style.display='';
-  }
-}
-function clearPhotos(){
-  photos=[];
-  renderPhotoThumbs();
-  $('photo-result').style.display='none';
-  $('ocr-save-btn').style.display='none';
-  $('ocr-btn').style.display='';
-}
-function openLightbox(idx){
-  $('lightbox-img').src=photos[idx].displayUrl;
-  $('lightbox').style.display='flex';
-}
-function closeLightbox(){
-  $('lightbox').style.display='none';
-  $('lightbox-img').src='';
-}
-
+function removePhoto(idx){photos.splice(idx,1);renderPhotoThumbs();if(!photos.length){$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}}
+function clearPhotos(){photos=[];renderPhotoThumbs();$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}
+function openLightbox(src){$('lightbox-img').src=src;$('lightbox').style.display='flex';}
+function closeLightbox(){$('lightbox').style.display='none';$('lightbox-img').src='';}
 async function runOcr(){
   const key=localStorage.getItem(K.apiKey);
   if(!key){toast('API 키를 먼저 입력해주세요','err');return;}
@@ -1519,3 +1508,4 @@ if(getGsUrl()) syncPull();
 </script>
 </body>
 </html>
+  
