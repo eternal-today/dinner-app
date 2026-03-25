@@ -962,7 +962,7 @@ async function recommend(){
       tools:[{google_search:{}}],
       generationConfig:{temperature:0.7,maxOutputTokens:1500}
     };
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
@@ -1394,7 +1394,7 @@ async function runOcr(){
 {"title":"요리이름","ingredients":["재료1 분량","재료2 분량"],"steps":"1. 첫번째\n2. 두번째","tags":["태그1","태그2"]}`;
 
     const imgParts=photos.map(p=>({inline_data:{mime_type:p.mime,data:p.base64}}));
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500}})
     });
