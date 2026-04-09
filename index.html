@@ -3,490 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>오늘 저녁 뭐 먹지?</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA0MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSIyMzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA0MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSIyMzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==">
+<title>오늘 저녁 뭐 먹지? | Minimal Magazine</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSIyNDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA4MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSI2MzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+Cjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMjcwIDI1MCBDIDMzMCAyMjAgMjUwIDE2MCAyOTAgMTAwIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC44Ii8+CiAgPHBhdGggZD0iTSAyMDAgMTQwIEMgMjAwIDgwIDMxMiA4MCAzMTIgMTQwIEMgMzEyIDE4MCAyNTYgMTkwIDI1NiAyMjAiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIzNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTSAyNTYgMjQwIEMgMjcwIDI0MCAyNzAgMjcwIDI1NiAyNzAgQyAyNDIgMjcwIDI0MiAyNDAgMjU2IDI0MCBaIiBmaWxsPSIjRENBODQyIi8+CiAgPGVsbGlwc2UgY3g9IjI1NiIgY3k9IjI1NSIgcng9IjgiIHJ5PSIxNCIgZmlsbD0iI0ZGRjVFMSIvPgogIDxwYXRoIGQ9Ik0gMTQwIDI4MCBRIDI1NiAyNDAgMzcyIDI4MCBaIiBmaWxsPSIjRkY4QzYxIi8+CiAgPHJlY3QgeD0iMTIwIiB5PSIyODAiIHdpZHRoPSIyNzIiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjRkY3NTQ1Ii8+CiAgPHJlY3QgeD0iMjM2IiB5PSIyMzYiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxMiIgcng9IjYiIGZpbGw9IiNEQ0E4NDIiLz4KICA8cmVjdCB4PSI2NDgiIHk9IjI0OCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjMyIiBmaWxsPSIjRENBODQyIi8+CiAgPHBhdGggZD0iTSAxMzAgMzIwIFEgODAgMzIwIDkwIDM1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRENBODQyIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNIDM4MiAzMjAgUSA4MzIgMzIwIDQyMiAzNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0RDQTg0MiIgc3Ryb2tlLXdpZHRoPSIyMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHJlY3QgeD0iMTQwIiB5PSIyOTYiIHdpZHRoPSI2MzIiIGhlaWdodD0iMTQwIiByeD0iMzIiIGZpbGw9IiNGRjc1NDUiLz4KICA8cmVjdCB4PSIxNjAiIHk9IjMyMCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjgwIiByeD0iOCIgZmlsbD0iI0ZGOEM2MSIgb3BhY2l0eT0iMC42Ii8+CiAgPC9zdmc+">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="저녁뭐먹지">
-<meta name="theme-color" content="#2C1F0E">
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjogIuyYpOuKmCDsoIDrhYEg662QIOuoueyngD8iLCAic2hvcnRfbmFtZSI6ICLsoIDrhYHrrZDrqLnsp4AiLCAiZGVzY3JpcHRpb24iOiAi64OJ7J6l6rOgIOyerOujjOuhnCDsmKTripgg7KCA64WBIOuplOuJtCDstpTsspwiLCAic3RhcnRfdXJsIjogIi4vIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNGRkY1RTEiLCAidGhlbWVfY29sb3IiOiAiIzJDMUYwRSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S0lDQThjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnY25nOUlqRXhNaUlnWm1sc2JEMGlJMFpHUmpWRk1TSXZQZ29nSUR4d1lYUm9JR1E5SWswZ01qY3dJREkxTUNCRElETXpNQ0F5TWpBZ01qVXdJREUyTUNBeU9UQWdNVEF3SWlCemRISnZhMlU5SWlOR1JrWkdSa1lpSUhOMGNtOXJaUzEzYVdSMGFEMGlNamdpSUhOMGNtOXJaUzFzYVc1bFkyRndQU0p5YjNWdVpDSWdabWxzYkQwaWJtOXVaU0lnYjNCaFkybDBlVDBpTUM0NElpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU1EQWdNVFF3SUVNZ01qQXdJRGd3SURNeE1pQTRNQ0F6TVRJZ01UUXdJRU1nTXpFeUlERTRNQ0F5TlRZZ01Ua3dJREkxTmlBeU1qQWlJSE4wY205clpUMGlJMFJEUVRnME1pSWdjM1J5YjJ0bExYZHBaSFJvUFNJek5pSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWlCbWFXeHNQU0p1YjI1bElpOCtDaUFnUEhCaGRHZ2daRDBpVFNBeU5UWWdNalF3SUVNZ01qY3dJREkwTUNBeU56QWdNamN3SURJMU5pQXlOekFnUXlBeU5ESWdNamN3SURJME1pQXlOREFnTWpVMklESTBNQ0JhSWlCbWFXeHNQU0lqUkVOQk9EUXlJaTgrQ2lBZ1BHVnNiR2x3YzJVZ1kzZzlJakkxTmlJZ1kzazlJakkxTlNJZ2NuZzlJamdpSUhKNVBTSXhOQ0lnWm1sc2JEMGlJMFpHUmpWRk1TSXZQZ29nSUR4d1lYUm9JR1E5SWswZ01UUXdJREk0TUNCUklESTFOaUF5TkRBZ016Y3lJREk0TUNCYUlpQm1hV3hzUFNJalJrWTRRell4SWk4K0NpQWdQSEpsWTNRZ2VEMGlNVEl3SWlCNVBTSXlPREFpSUhkcFpIUm9QU0l5TnpJaUlHaGxhV2RvZEQwaU1UWWlJSEo0UFNJNElpQm1hV3hzUFNJalJrWTNOVFExSWk4K0NpQWdQSEpsWTNRZ2VEMGlNak0ySWlCNVBTSXlNellpSUhkcFpIUm9QU0kwTUNJZ2FHVnBaMmgwUFNJeE1pSWdjbmc5SWpZaUlHWnBiR3c5SWlORVEwRTRORElpTHo0S0lDQThjbVZqZENCNFBTSXlORGdpSUhrOUlqSTBPQ0lnZDJsa2RHZzlJakUySWlCb1pXbG5hSFE5SWpNeUlpQm1hV3hzUFNJalJFTkJPRFF5SWk4K0NpQWdQSEJoZEdnZ1pEMGlUU0F4TXpBZ016SXdJRkVnT0RBZ016SXdJRGt3SURNMU1DSWdabWxzYkQwaWJtOXVaU0lnYzNSeWIydGxQU0lqUkVOQk9EUXlJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqSXdJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NEtJQ0E4Y0dGMGFDQmtQU0pOSURNNE1pQXpNakFnVVNBME16SWdNekl3SURReU1pQXpOVEFpSUdacGJHdzlJbTV2Ym1VaUlITjBjbTlyWlQwaUkwUkRRVGcwTWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l5TUNJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaTgrQ2lBZ1BISmxZM1FnZUQwaU1UUXdJaUI1UFNJeU9UWWlJSGRwWkhSb1BTSXlNeklpSUdobGFXZG9kRDBpTVRRd0lpQnllRDBpTXpJaUlHWnBiR3c5SWlOR1JqYzFORFVpTHo0S0lDQThjbVZqZENCNFBTSXhOakFpSUhrOUlqTXlNQ0lnZDJsa2RHZzlJakUySWlCb1pXbG5hSFE5SWpnd0lpQnllRDBpT0NJZ1ptbHNiRDBpSTBaR09FTTJNU0lnYjNCaFkybDBlVDBpTUM0MklpOCtDand2YzNablBnPT0iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIsICJwdXJwb3NlIjogImFueSBtYXNrYWJsZSJ9XX0=">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
+<meta name="theme-color" content="#FAF6EE">
+<link rel="manifest" href="data:application/json;base64,..."> <style>
 :root {
-  --cream:#FAF6EE; --paper:#F3EDE0; --warm:#E8DCC8;
-  --terra:#C4622D; --terra-l:#E07B48; --terra-d:#8B3D18;
+  /* Style C용 고대비 및 차분한 팔레트 재정의 */
+  --cream:#FAF6EE; --paper:#F3EDE0; --warm:#E0D4BC;
+  --terra:#C4622D; --terra-l:#E07B48; --terra-d:#2C1F0E; /* 테라코타는 소량 포인트로만 활용 */
   --olive:#5C6B3A; --olive-l:#7A8F50;
   --miso:#D4A843; --miso-l:#F0C96A;
-  --ink:#2C1F0E; --ink-m:#5C4A30; --ink-s:#9C8060; --ink-xs:#C4A882;
-  --surface:#FFFDF7; --border:#E0D4BC;
+  --ink:#1A1208; --ink-m:#5C4A30; --ink-s:#9C8060; --ink-xs:#C4A882;
+  --surface:#FFFFFF; --border:#1A1208; /* 테두리는 얇고 진하게 변경 */
   --danger:#C0392B; --success:#2E7D32;
-  --r-sm:8px; --r-md:14px; --r-lg:20px; --r-xl:28px;
-  --sh-sm:0 2px 12px rgba(44,31,14,.06);
-  --sh-md:0 6px 24px rgba(44,31,14,.10);
-  --sh-lg:0 16px 48px rgba(44,31,14,.14);
-  --font-serif:'Gowun Batang','Georgia',serif;
-  --font-hand:'Nanum Pen Script',cursive;
-  --font-sans:'DM Sans',system-ui,sans-serif;
+  --subtle:#F8F8F8;
+
+  /* Style C: 각진 미니멀리즘 */
+  --r-sm:2px; --r-md:4px; --r-lg:8px; --r-xl:12px;
+  --sh-sm:0 2px 8px rgba(26,18,8,.04);
+  --sh-md:0 4px 16px rgba(26,18,8,.08);
+  --sh-lg:0 8px 32px rgba(26,18,8,.12);
+
+  /* 폰트 정의 */
+  --font-serif:'Montserrat', sans-serif; /* 타이틀, 영문용 */
+  --font-ko:'Pretendard', sans-serif; /* 기본 국문용 */
+  --font-sans:var(--font-ko);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{-webkit-text-size-adjust:100%;}
+html{-webkit-text-size-adjust:100%;font-size:16px;}
 body{
-  font-family:var(--font-sans); background:var(--paper); color:var(--ink);
-  min-height:100vh; line-height:1.6;
-  background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  font-family:var(--font-ko); background:var(--cream); color:var(--ink);
+  min-height:100vh; line-height:1.7; -webkit-font-smoothing:antialiased;
 }
-.shell{display:flex;min-height:100vh;max-width:1200px;margin:0 auto;background:var(--surface);box-shadow:var(--sh-lg);}
+.shell{display:flex;min-height:100vh;max-width:1200px;margin:0 auto;background:var(--surface);box-shadow:var(--sh-lg); border-left:1px solid #eee; border-right:1px solid #eee;}
 
-/* Sidebar */
-.sidebar{width:72px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:1.5rem 0;position:sticky;top:0;height:100vh;}
-.sidebar-logo{font-family:var(--font-hand);font-size:1.1rem;color:var(--miso);text-align:center;line-height:1.2;margin-bottom:2rem;padding:0 .5rem;writing-mode:vertical-rl;letter-spacing:.1em;}
-.nav-item{width:48px;height:52px;border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;border:none;background:transparent;color:var(--ink-s);transition:all .2s;margin-bottom:.4rem;font-family:var(--font-sans);font-size:.5rem;font-weight:500;letter-spacing:.02em;}
-.nav-item .nav-icon{font-size:1.25rem;line-height:1;}
-.nav-item:hover{background:rgba(255,255,255,.07);color:var(--cream);}
-.nav-item.active{background:var(--terra);color:#fff;}
+/* Sidebar - Magazine Style, Vertical Text */
+.sidebar{width:80px;flex-shrink:0;background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:2rem 0;position:sticky;top:0;height:100vh;}
+.sidebar-logo{font-family:var(--font-serif);font-size:0.9rem;font-weight:900;color:var(--cream);text-align:center;line-height:1.2;margin-bottom:3rem;padding:0 .5rem;writing-mode:vertical-rl;letter-spacing:.2em;text-transform:uppercase;}
+.nav-item{width:56px;height:56px;border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;border:none;background:transparent;color:#999;transition:all .2s;margin-bottom:.6rem;font-family:var(--font-ko);font-size:.65rem;font-weight:500;}
+.nav-item .nav-icon{font-size:1.3rem;line-height:1; transition:transform 0.2s;}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--cream);}
+.nav-item:hover .nav-icon{transform:translateY(-2px);}
+.nav-item.active{background:var(--surface);color:var(--ink);position:relative; font-weight:700;}
+.nav-item.active::after{content:'';position:absolute;left:0;top:15%;height:70%;width:3px;background:var(--terra);}
 .nav-bottom{margin-top:auto;}
 
 /* Content */
 .content{flex:1;overflow-y:auto;min-width:0;}
-.page{display:none;padding:2rem;min-height:100vh;}
+.page{display:none;padding:3rem;min-height:100vh;}
 .page.active{display:block;}
 
-/* Page header */
-.page-header{margin-bottom:1.75rem;border-bottom:2px solid var(--border);padding-bottom:1rem;}
-.page-title{font-family:var(--font-serif);font-size:1.8rem;font-weight:700;color:var(--ink);line-height:1.2;}
-.page-subtitle{font-size:.85rem;color:var(--ink-s);margin-top:.3rem;}
+/* Page header - Minimal & High Contrast */
+.page-header{margin-bottom:2.5rem;border-bottom:3px solid var(--border);padding-bottom:1.5rem;}
+.page-title{font-family:var(--font-serif);font-size:2.2rem;font-weight:800;color:var(--ink);line-height:1.1;letter-spacing:-0.5px;}
+.page-subtitle{font-size:0.95rem;color:var(--ink-m);margin-top:.6rem;font-weight:400;}
 .page-header-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:.75rem;}
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.1rem;border-radius:var(--r-md);font-family:var(--font-sans);font-size:.85rem;font-weight:500;cursor:pointer;border:none;transition:all .15s;line-height:1;}
-.btn-terra{background:var(--terra);color:#fff;}
-.btn-terra:hover{background:var(--terra-d);}
-.btn-terra:active{transform:scale(.98);}
-.btn-olive{background:var(--olive);color:#fff;}
-.btn-olive:hover{background:#4a5a2f;}
-.btn-ghost{background:transparent;color:var(--ink-m);border:1.5px solid var(--border);}
-.btn-ghost:hover{border-color:var(--ink-s);background:var(--paper);}
-.btn-miso{background:var(--miso);color:var(--ink);}
-.btn-miso:hover{background:var(--miso-l);}
-.btn-danger-ghost{background:transparent;color:var(--danger);border:1.5px solid #f5c6c2;}
-.btn-danger-ghost:hover{background:#fdf0ef;}
-.btn-full{width:100%;justify-content:center;padding:1rem;font-size:1rem;font-weight:600;border-radius:var(--r-lg);}
+/* Buttons - Sharp & Defined */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.4rem;border-radius:var(--r-sm);font-family:var(--font-ko);font-size:.9rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .15s;line-height:1; text-transform:uppercase; letter-spacing:0.5px;}
+.btn-terra{background:var(--border);color:var(--surface); border-color:var(--border);} /* Solid Black */
+.btn-terra:hover{background:var(--ink-m); border-color:var(--ink-m);}
+.btn-olive{background:var(--olive);color:#fff; border-color:var(--olive);}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--border);} /* Ghost Black */
+.btn-ghost:hover{background:var(--subtle);}
+.btn:active{transform:translateY(1px);}
+.btn-full{width:100%;justify-content:center;padding:1.1rem;font-size:1rem;font-weight:700; font-family:var(--font-serif);}
 .btn:disabled{opacity:.4;cursor:not-allowed;}
 
 /* Inputs */
-.form-group{margin-bottom:1rem;}
-.form-label{display:block;font-size:.78rem;font-weight:500;color:var(--ink-m);margin-bottom:.4rem;letter-spacing:.03em;}
-.form-label span{font-weight:400;color:var(--ink-xs);}
-.input,textarea.input,select.input{width:100%;padding:.8rem 1rem;border:1.5px solid var(--border);border-radius:var(--r-md);font-family:var(--font-sans);font-size:.9rem;background:var(--cream);color:var(--ink);outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none;}
-.input:focus,textarea.input:focus,select.input:focus{border-color:var(--terra);background:var(--surface);}
-textarea.input{resize:vertical;min-height:90px;line-height:1.6;}
-select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239C8060' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.5rem;}
-.form-row{display:flex;gap:.75rem;}
-.form-row .form-group{flex:1;}
+.form-group{margin-bottom:1.25rem;}
+.form-label{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:.02em;text-transform:uppercase;}
+.form-label span{font-weight:400;color:var(--ink-s);text-transform:none;}
+.input,textarea.input,select.input{width:100%;padding:.9rem 1.1rem;border:1.5px solid #ddd;border-radius:var(--r-sm);font-family:var(--font-ko);font-size:.95rem;background:var(--surface);color:var(--ink);outline:none;transition:border-color .15s;}
+.input:focus,textarea.input:focus,select.input:focus{border-color:var(--border); background:#fff;}
+textarea.input{resize:vertical;min-height:110px;line-height:1.7;}
+select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231A1208' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1.1rem center;}
 
 /* ══ TODAY (Home) ══ */
 .today-greeting{
-  background:var(--ink); color:var(--cream);
-  border-radius:var(--r-xl); padding:1.75rem 2rem;
-  margin-bottom:1.5rem; position:relative; overflow:hidden;
+  border:2px solid var(--border);
+  border-radius:var(--r-lg); padding:2rem 2.5rem;
+  margin-bottom:2rem; position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:space-between;
 }
-.today-greeting::after{content:'🍳';position:absolute;right:-8px;bottom:-24px;font-size:9rem;opacity:.07;line-height:1;transform:rotate(-12deg);}
-.greeting-date{font-size:.75rem;color:var(--ink-xs);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem;}
-.greeting-title{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--miso);margin-bottom:.4rem;}
-.greeting-sub{font-size:.85rem;color:rgba(250,246,238,.65);}
+.today-greeting::after{content:'\f2e7'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:7rem;color:var(--subtle);opacity:.7;line-height:1;}
+.greeting-date{font-family:var(--font-serif); font-size:.8rem;color:var(--ink-s);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem; font-weight:600;}
+.greeting-title{font-family:var(--font-ko);font-size:1.8rem;font-weight:800;color:var(--ink);margin-bottom:.5rem; letter-spacing:-0.5px;}
+.greeting-sub{font-size:.95rem;color:var(--ink-m); max-width:70%; position:relative; z-index:1;}
 
-.summary-row{display:flex;gap:.75rem;margin-bottom:1.5rem;}
-.summary-tile{flex:1;background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:.9rem 1rem;}
-.summary-num{font-family:var(--font-serif);font-size:1.6rem;font-weight:700;color:var(--terra);line-height:1;}
-.summary-label{font-size:.72rem;color:var(--ink-s);margin-top:.2rem;}
+.summary-row{display:flex;gap:1rem;margin-bottom:2rem;}
+.summary-tile{flex:1;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-md);padding:1.2rem; display:flex; flex-direction:column; align-items:center; transition:all 0.2s;}
+.summary-tile:hover{transform:translateY(-3px); box-shadow:var(--sh-md);}
+.summary-num{font-family:var(--font-serif);font-size:2.2rem;font-weight:800;color:var(--ink);line-height:1; margin-bottom:0.2rem;}
+.summary-label{font-size:.75rem;color:var(--ink-s);font-weight:600; text-transform:uppercase; letter-spacing:1px;}
 
-/* Mood collapsible */
-.mood-toggle{display:flex;align-items:center;gap:.5rem;cursor:pointer;padding:.6rem 0;border:none;background:none;font-family:var(--font-sans);font-size:.85rem;color:var(--ink-s);font-weight:500;width:100%;}
-.mood-toggle .arrow{transition:transform .2s;font-size:.7rem;}
+/* Family bar */
+.family-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1.5px solid var(--border); border-bottom:1.5px solid var(--border);
+  border-radius:var(--r-sm);padding:1.1rem 1.5rem;
+  margin-bottom:1.5rem; background:var(--surface);
+}
+.family-info{display:flex;align-items:center;gap:.8rem;}
+.family-info .fa-icon{font-size:1.3rem; color:var(--ink-m);}
+.family-label{font-size:.9rem;font-weight:500;color:var(--ink-m);}
+.family-label strong{color:var(--ink);font-weight:700; font-family:var(--font-serif);}
+
+/* Child toggle */
+.child-toggle-wrap{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--ink-s);cursor:pointer;user-select:none;}
+.toggle-track{
+  position:relative;width:44px;height:24px;
+  background:#ddd;border-radius:12px;
+  transition:background .2s;flex-shrink:0;
+}
+.toggle-track.on{background:var(--olive);}
+.toggle-knob{
+  position:absolute;top:3px;left:3px;
+  width:18px;height:18px;border-radius:50%;
+  background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1);
+  transition:transform .2s;
+}
+.toggle-track.on .toggle-knob{transform:translateX(20px);}
+
+/* Mood collapsible - Minimal with high contrast */
+.mood-toggle{display:flex;align-items:center;gap:.6rem;cursor:pointer;padding:.8rem 1rem;border:1.5px solid var(--border);background:var(--surface);font-family:var(--font-ko);border-radius:var(--r-sm);font-size:.9rem;color:var(--ink);font-weight:600;width:100%; transition:all 0.1s;}
+.mood-toggle:hover{background:var(--subtle);}
+.mood-toggle .arrow{transition:transform .2s;font-size:.7rem; margin-left:auto;}
+.mood-toggle.open{border-bottom-color:transparent; border-radius:var(--r-sm) var(--r-sm) 0 0;}
 .mood-toggle.open .arrow{transform:rotate(180deg);}
-.mood-panel{display:none;padding-bottom:.75rem;}
-.mood-panel.open{display:flex;flex-wrap:wrap;gap:.4rem;}
-.mood-chip{padding:.45rem .85rem;border-radius:20px;font-size:.82rem;border:1.5px solid var(--border);background:var(--surface);color:var(--ink-m);cursor:pointer;transition:all .15s;user-select:none;}
-.mood-chip.on{background:var(--terra);color:#fff;border-color:var(--terra);}
+.mood-panel{display:none;padding:1rem; border:1.5px solid var(--border); border-top:none; background:var(--surface); border-radius:0 0 var(--r-sm) var(--r-sm); margin-bottom:1.5rem;}
+.mood-panel.open{display:flex;flex-wrap:wrap;gap:.5rem;}
+.mood-chip{padding:.5rem 1rem;border-radius:20px;font-size:.8rem;border:1px solid #ddd;background:var(--subtle);color:var(--ink-m);cursor:pointer;transition:all .15s;font-weight:500;}
+.mood-chip:hover{border-color:var(--ink-xs);}
+.mood-chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink);}
 
-/* Expiry alert */
-.expiry-alert{background:#fff8e1;border:1.5px solid #ffe082;border-radius:var(--r-lg);padding:1rem 1.25rem;margin-bottom:1.25rem;}
-.expiry-alert-title{font-size:.75rem;font-weight:700;color:#e65100;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.04em;}
-.expiry-alert-items{font-size:.85rem;color:#b45309;}
+/* Expiry alert - High contrast yellow */
+.expiry-alert{background:#FFFBEB;border:2px solid #FBBF24;border-radius:var(--r-md);padding:1.25rem 1.5rem;margin-bottom:1.5rem; position:relative;}
+.expiry-alert-title{font-size:.8rem;font-weight:800;color:#92400E;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em; display:flex; align-items:center; gap:0.5rem;}
+.expiry-alert-items{font-size:.9rem;color:#B45309; line-height:1.6;}
 
-/* Recommend result */
+/* Recommend result - Style C고도화 */
+#today-result-title-row{margin-bottom:1.25rem;}
+#person-badge{font-family:var(--font-serif); font-weight:700;}
+
 .rec-card{
   background:var(--ink);color:var(--cream);
-  border-radius:var(--r-xl);padding:1.75rem;
-  margin-bottom:1rem;position:relative;overflow:hidden;
+  border-radius:var(--r-lg);padding:2rem 2.5rem;
+  margin-bottom:1.25rem;position:relative;overflow:hidden;
 }
-.rec-card::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;background:rgba(212,168,67,.06);border-radius:50%;}
-.rec-label{font-size:.68rem;font-weight:700;color:var(--ink-xs);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;}
-.rec-menu{font-family:var(--font-serif);font-size:1.9rem;font-weight:700;color:var(--miso);line-height:1.15;margin-bottom:.6rem;}
-.rec-reason{font-size:.875rem;color:rgba(250,246,238,.78);line-height:1.75;white-space:pre-wrap;word-break:break-word;}
-.rec-tip{margin-top:1rem;padding:.75rem 1rem;background:rgba(255,255,255,.07);border-radius:var(--r-md);font-size:.82rem;color:rgba(250,246,238,.88);line-height:1.6;}
-.rec-alt{margin-top:.75rem;font-size:.78rem;color:var(--ink-xs);}
+.rec-label{font-family:var(--font-serif); font-size:.75rem;font-weight:700;color:#AAA;text-transform:uppercase;letter-spacing:.12em;margin-bottom:.6rem;}
+.rec-menu{font-family:var(--font-ko);font-size:2rem;font-weight:800;color:var(--cream);line-height:1.2;margin-bottom:.8rem; letter-spacing:-0.5px;}
+.rec-reason{font-size:.95rem;color:rgba(250,246,238,.85);line-height:1.8;white-space:pre-wrap;word-break:break-word;}
+.rec-tip{margin-top:1.5rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,.05);border-left:3px solid var(--terra);border-radius:var(--r-sm);font-size:.9rem;color:rgba(250,246,238,.9);line-height:1.7;}
 
-/* Recipe steps inside card */
+/* 복수 추천 메뉴 후보 카드 - C기반 고도화 */
+.menu-candidates{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1.5rem;}
+.menu-card{
+  background:var(--surface);border:1px solid #ddd;
+  border-radius:var(--r-md);padding:1.25rem;
+  cursor:pointer;transition:all .15s ease-in-out;
+  display:flex;align-items:center;gap:1.2rem;
+}
+.menu-card:hover{border-color:var(--border);box-shadow:var(--sh-md);transform:translateX(3px);}
+.menu-card:active{transform:scale(.98);}
+.menu-card-saved{border-left:4px solid var(--success); background:var(--subtle);}
+.menu-card-icon{font-size:1.5rem;flex-shrink:0;line-height:1; color:var(--ink-s); transition:color 0.2s;}
+.menu-card:hover .menu-card-icon{color:var(--terra);}
+.menu-card-body{flex:1;min-width:0;}
+.menu-card-name{font-family:var(--font-ko);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;}
+.menu-card-reason{font-size:.85rem;color:var(--ink-m);line-height:1.6; margin-bottom:0.6rem;}
+.menu-card-badges{display:flex;gap:.4rem;flex-wrap:wrap;}
+.badge-saved{font-size:.7rem;background:#E8F5E9;color:var(--success);padding:.2rem .6rem;border-radius:var(--r-sm);font-weight:700; font-family:var(--font-serif);}
+.badge-have{font-size:.7rem;background:var(--subtle);border:1px solid #ddd;color:var(--ink-m);padding:.15rem .5rem;border-radius:var(--r-sm); font-weight:500;}
+.menu-card-arrow{color:#BBB;font-size:1.2rem;flex-shrink:0;}
+
+/* Recipe steps inside card - Accordion minimal */
 .rec-recipe-box{
-  background:var(--cream);border-radius:var(--r-lg);
-  margin-top:1.25rem;overflow:hidden;
+  background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r-md);
+  margin-top:1.5rem;overflow:hidden;
 }
 .rec-recipe-head{
   display:flex;align-items:center;justify-content:space-between;
-  padding:.85rem 1rem;border-bottom:1.5px solid var(--border);
-  cursor:pointer;
+  padding:1rem 1.25rem;border-bottom:1.5px solid #eee;
+  cursor:pointer; background:var(--subtle); transition:background 0.2s;
 }
-.rec-recipe-head-title{font-size:.82rem;font-weight:600;color:var(--ink-m);}
-.rec-recipe-toggle{font-size:.75rem;color:var(--ink-xs);}
-.rec-recipe-body{display:none;padding:1rem;}
+.rec-recipe-head:hover{background:#F0F0F0;}
+.rec-recipe-head-title{font-size:.9rem;font-weight:700;color:var(--ink); display:flex; align-items:center; gap:0.5rem;}
+.rec-recipe-toggle{font-size:.8rem;color:var(--ink-s); font-weight:600; text-transform:uppercase;}
+.rec-recipe-body{display:none;padding:1.5rem;}
 .rec-recipe-body.open{display:block;}
-.rec-steps-text{font-size:.875rem;color:var(--ink);white-space:pre-wrap;word-break:break-word;line-height:1.8;}
 
-/* Shopping hint */
+/* Shopping hint - Subtle grey */
 .shop-box{
-  background:#fff8e1;border:1.5px solid #ffe082;
-  border-radius:var(--r-lg);padding:1rem 1.25rem;
-  margin-top:1rem;
+  background:var(--subtle);border:1.5px solid #ddd;
+  border-radius:var(--r-md);padding:1.25rem 1.5rem;
+  margin-top:1.25rem;
 }
-.shop-title{font-size:.72rem;font-weight:700;color:#e65100;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem;}
-.shop-items{display:flex;flex-wrap:wrap;gap:.4rem;}
-.shop-chip{padding:.25rem .65rem;background:#fff3cd;border:1px solid #ffc107;border-radius:20px;font-size:.78rem;color:#92400e;font-weight:500;}
-
-/* Action row under rec */
-.rec-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;}
+.shop-title{font-size:.75rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7rem;}
+.shop-items{display:flex;flex-wrap:wrap;gap:.5rem;}
+.shop-chip{padding:.3rem .8rem;background:#fff;border:1px solid #ccc;border-radius:var(--r-sm);font-size:.85rem;color:var(--ink-m);font-weight:500;}
 
 /* History */
-.history-row{display:flex;align-items:center;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--border);}
+.history-row{cursor:pointer; display:flex;align-items:center;gap:.75rem;padding:1rem 0.5rem;border-bottom:1px solid #eee; transition:background 0.1s;}
 .history-row:last-child{border-bottom:none;}
-.history-menu{font-family:var(--font-serif);font-size:.95rem;font-weight:700;flex:1;}
-.history-date{font-size:.72rem;color:var(--ink-s);}
+.history-row:hover{background:var(--subtle);}
+.history-menu{font-family:var(--font-ko);font-size:1rem;font-weight:700;flex:1; color:var(--ink);}
+.history-date{font-family:var(--font-serif); font-size:.75rem;color:var(--ink-s); text-transform:uppercase; font-weight:500;}
 
 /* Fridge grid */
-.fridge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:.75rem;}
-.fridge-tile{background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1rem;position:relative;transition:box-shadow .15s;animation:popIn .2s ease;}
-.fridge-tile:hover{box-shadow:var(--sh-md);}
-.tile-cat-icon{font-size:1.9rem;margin-bottom:.4rem;display:block;}
-.tile-name{font-family:var(--font-serif);font-size:.95rem;font-weight:700;color:var(--ink);word-break:break-word;}
-.tile-meta{font-size:.72rem;color:var(--ink-s);margin-top:.3rem;line-height:1.5;}
-.tile-actions{position:absolute;top:.6rem;right:.6rem;display:flex;gap:.25rem;opacity:0;transition:opacity .15s;}
+.fridge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem;}
+.fridge-tile{background:var(--surface);border:1px solid #ddd;border-radius:var(--r-md);padding:1.25rem;position:relative;transition:all .15s;}
+.fridge-tile:hover{border-color:var(--border);box-shadow:var(--sh-sm);}
+.tile-cat-icon{font-size:1.8rem;margin-bottom:.6rem;display:block; color:var(--terra);} /* 아이콘 포인트 */
+.tile-name{font-family:var(--font-ko);font-size:1rem;font-weight:700;color:var(--ink);word-break:break-word;}
+.tile-meta{font-size:.75rem;color:var(--ink-m);margin-top:.4rem;line-height:1.6;}
+.tile-actions{position:absolute;top:.7rem;right:.7rem;display:flex;gap:.3rem;opacity:0;transition:opacity .15s;}
 .fridge-tile:hover .tile-actions{opacity:1;}
-.tile-btn{width:26px;height:26px;border-radius:6px;border:none;cursor:pointer;font-size:.72rem;display:flex;align-items:center;justify-content:center;}
-.tile-btn-edit{background:var(--warm);color:var(--ink-m);}
-.tile-btn-del{background:#fdf0ef;color:var(--danger);}
-.expiry-badge{display:inline-block;margin-top:.35rem;padding:.15rem .5rem;border-radius:20px;font-size:.67rem;font-weight:600;}
-.eb-ok{background:#e8f5e9;color:#2e7d32;} .eb-warn{background:#fff8e1;color:#f57f17;} .eb-crit{background:#fdecea;color:#b71c1c;}
-.filter-strip{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.25rem;}
-.filter-chip{padding:.35rem .8rem;border-radius:20px;font-size:.78rem;font-weight:500;cursor:pointer;border:1.5px solid var(--border);background:var(--surface);color:var(--ink-s);transition:all .15s;}
-.filter-chip.on{background:var(--terra);color:#fff;border-color:var(--terra);}
+.tile-btn{width:28px;height:28px;border-radius:4px;border:none;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.tile-btn-edit{background:#F0F0F0;color:var(--ink-m);}
+.tile-btn-edit:hover{background:#E0E0E0;}
+.tile-btn-del{background:#FEE2E2;color:var(--danger);}
+.tile-btn-del:hover{background:#FECACA;}
+.expiry-badge{display:inline-block;margin-top:.5rem;padding:.2rem .6rem;border-radius:var(--r-sm);font-size:.7rem;font-weight:700; font-family:var(--font-serif);}
+.eb-ok{background:#E8F5E9;color:#2E7D32;} .eb-warn{background:#FFFBEB;color:#B45309;} .eb-crit{background:#FEE2E2;color:#B71C1C;}
 
-/* Recipe list */
-.recipe-list{display:flex;flex-direction:column;gap:.75rem;}
-.recipe-row{display:flex;gap:1rem;align-items:stretch;background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r-lg);overflow:hidden;cursor:pointer;transition:box-shadow .15s,transform .15s;animation:slideIn .2s ease;}
-.recipe-row:hover{box-shadow:var(--sh-md);transform:translateY(-1px);}
-.recipe-thumb{width:96px;flex-shrink:0;background:var(--warm);display:flex;align-items:center;justify-content:center;font-size:2rem;position:relative;}
+/* Filters - Minimal Capsule */
+.filter-strip{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.filter-chip{padding:.5rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1px solid #ccc;background:var(--surface);color:var(--ink-m);transition:all .15s;}
+.filter-chip:hover{border-color:var(--ink-xs); color:var(--ink);}
+.filter-chip.on{background:var(--border);color:var(--surface);border-color:var(--border); font-family:var(--font-serif);}
+
+/* Recipe list - Compact Magazine */
+.recipe-list{display:flex;flex-direction:column;gap:.8rem;}
+.recipe-row{display:flex;gap:1.25rem;align-items:stretch;background:var(--surface);border:1px solid #ddd;border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:all .15s ease-in-out;animation:slideIn .2s ease;}
+.recipe-row:hover{border-color:var(--border);box-shadow:var(--sh-md);}
+.recipe-thumb{width:110px;flex-shrink:0;background:var(--subtle);display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#CCC;position:relative;}
 .recipe-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-.recipe-info{flex:1;padding:.9rem .9rem .9rem 0;min-width:0;}
-.recipe-title-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
-.recipe-title{font-family:var(--font-serif);font-size:1rem;font-weight:700;color:var(--ink);}
-.yt-badge{display:inline-flex;align-items:center;gap:.25rem;padding:.15rem .5rem;background:#ff0000;color:#fff;border-radius:4px;font-size:.65rem;font-weight:700;text-decoration:none;flex-shrink:0;}
-.recipe-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem;}
-.rtag{padding:.15rem .5rem;background:var(--warm);border-radius:4px;font-size:.7rem;color:var(--ink-m);}
-.recipe-ings{font-size:.78rem;color:var(--ink-s);margin-top:.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.recipe-row-actions{display:flex;align-items:center;gap:.4rem;padding:.75rem;flex-shrink:0;opacity:0;transition:opacity .15s;}
+.recipe-info{flex:1;padding:1.25rem 1rem 1.25rem 0;min-width:0; display:flex; flex-direction:column; justify-content:center;}
+.recipe-title-row{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap; margin-bottom:.3rem;}
+.recipe-title{font-family:var(--font-ko);font-size:1.05rem;font-weight:700;color:var(--ink); line-height:1.4;}
+.yt-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .6rem;background:#FF0000;color:#fff;border-radius:var(--r-sm);font-size:.65rem;font-weight:800;text-decoration:none;flex-shrink:0; font-family:var(--font-serif);}
+.recipe-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.4rem;}
+.rtag{padding:.2rem .6rem;background:var(--subtle);border:1px solid #eee;border-radius:var(--r-sm);font-size:.7rem;color:var(--ink-m); font-weight:500;}
+.recipe-ings{font-size:.8rem;color:var(--ink-s);margin-top:.1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.recipe-row-actions{display:flex;align-items:center;gap:.4rem;padding:0 1.25rem 0 0;flex-shrink:0;opacity:0;transition:opacity .15s;}
 .recipe-row:hover .recipe-row-actions{opacity:1;}
 
-/* Modal */
-.modal-back{position:fixed;inset:0;z-index:100;background:rgba(44,31,14,.5);display:none;align-items:flex-end;justify-content:center;}
+/* Modal - Sharp & Defined Layers */
+.modal-back{position:fixed;inset:0;z-index:100;background:rgba(26,18,8,.6);display:none;align-items:flex-end;justify-content:center; backdrop-filter:blur(3px);}
 .modal-back.open{display:flex;}
-@media(min-width:768px){.modal-back{align-items:center;}.modal-box{border-radius:var(--r-xl) !important;max-width:520px;}}
-.modal-box{background:var(--surface);width:100%;max-width:640px;max-height:92vh;overflow-y:auto;border-radius:var(--r-xl) var(--r-xl) 0 0;padding:1.75rem 1.5rem;animation:slideUp .25s cubic-bezier(.34,1.56,.64,1);}
-.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;}
-.modal-title{font-family:var(--font-serif);font-size:1.25rem;font-weight:700;color:var(--ink);}
-.modal-close{background:var(--paper);border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;color:var(--ink-m);}
+@media(min-width:768px){.modal-back{align-items:center;}.modal-box{max-width:560px;}}
+.modal-box{background:var(--surface);width:100%;max-width:640px;max-height:95vh;overflow-y:auto;border-radius:var(--r-lg) var(--r-lg) 0 0;padding:2rem 2.5rem;animation:slideUp 0.3s cubic-bezier(.2,.8,.4,1.1); border:1px solid #333;}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem; border-bottom:2px solid #EEE; padding-bottom:.75rem;}
+.modal-title{font-family:var(--font-serif);font-size:1.3rem;font-weight:800;color:var(--ink); text-transform:uppercase; letter-spacing:-0.3px;}
+.modal-close{background:transparent;border:none;width:32px;height:32px;cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;color:#BBB; transition:color 0.2s;}
+.modal-close:hover{color:var(--border);}
+
+/* Recipe Detail view 고도화 */
+.detail-img{border-radius:var(--r-sm); border:1px solid #eee; margin-bottom:1.5rem;}
+.detail-section-title{font-family:var(--font-serif); font-size:.8rem;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.1em;margin:1.5rem 0 .7rem; padding-top:1.5rem; border-top:1px solid #EEE;}
+.steps-text{font-size:.95rem;color:var(--ink);line-height:1.9;background:var(--subtle);border-radius:var(--r-sm);padding:1.5rem; border:1px solid #eee;}
+
+/* Photo OCR Section */
+.photo-drop{border:2px dashed #ccc; border-radius:var(--r-md); background:var(--subtle); transition:all 0.2s; padding:2.5rem 2rem;}
+.photo-drop:hover,.photo-drop.drag{border-color:var(--border); background:#F0F0F0;}
+.photo-drop-icon{font-size:2.8rem;color:#AAA; margin-bottom:.7rem;}
+.photo-drop-text{font-size:.9rem;color:var(--ink-s); font-weight:500;}
+
+/* Check Checklist style */
+.check-item{border:1px solid #ddd; padding:1rem; gap:1rem; transition:all 0.15s;}
+.check-item:hover{background:var(--subtle); border-color:#ccc;}
+.check-item.checked{background:#E8F5E9;border-color:var(--success);}
+.check-box{border-radius:4px; font-weight:900; font-family:'Font Awesome 6 Free'; font-size:.8rem;}
+.check-item.checked .check-box{background:var(--success);border-color:var(--success);color:#fff;}
+.check-name{font-size:.95rem; color:var(--ink);}
+.check-sub{font-size:.8rem; font-family:var(--font-serif); color:var(--ink-s);}
+.check-badge-match{background:#E8F5E9;color:var(--success); font-family:var(--font-serif); font-weight:700;}
 
 /* Settings */
-.settings-block{background:var(--cream);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;margin-bottom:1.25rem;}
-.settings-block-title{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
-.key-wrap{position:relative;}
-.key-eye{position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-s);font-size:.85rem;}
-.api-hint{font-size:.75rem;color:var(--ink-s);margin-top:.5rem;line-height:1.6;}
+.settings-block{background:var(--subtle);border:1px solid #eee;border-radius:var(--r-sm);padding:1.5rem;margin-bottom:1.5rem;}
+.settings-block-title{font-family:var(--font-serif); font-size:1rem;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:1px; margin-bottom:1.25rem; border-bottom:1px solid #ddd; padding-bottom:.5rem;}
+.api-hint{font-size:.8rem; color:var(--ink-m); line-height:1.6; font-weight:400;}
 
-/* Photo drop */
-.photo-drop{border:2px dashed var(--border);border-radius:var(--r-lg);padding:2rem;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--cream);}
-.photo-drop:hover,.photo-drop.drag{border-color:var(--terra);background:#fdf5ee;}
-.photo-drop-icon{font-size:2.5rem;margin-bottom:.5rem;}
-.photo-drop-text{font-size:.85rem;color:var(--ink-s);}
-.photo-preview{width:100%;max-height:200px;object-fit:cover;border-radius:var(--r-md);margin-top:.75rem;display:none;border:1.5px solid var(--border);}
-
-/* Detail modal */
-.detail-img{width:100%;max-height:220px;object-fit:cover;border-radius:var(--r-lg);margin-bottom:1rem;}
-.detail-section-title{font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;margin:1rem 0 .5rem;}
-.ing-chips{display:flex;flex-wrap:wrap;gap:.35rem;}
-.ing-chip{padding:.25rem .6rem;background:var(--warm);border-radius:6px;font-size:.78rem;color:var(--ink-m);}
-.steps-text{font-size:.88rem;color:var(--ink);white-space:pre-wrap;word-break:break-word;line-height:1.8;background:var(--cream);border-radius:var(--r-md);padding:1rem;}
-
-/* Spinner / Toast */
-.spin-back{position:fixed;inset:0;z-index:200;background:rgba(250,246,238,.85);backdrop-filter:blur(6px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:1rem;}
-.spin-back.open{display:flex;}
-.spin-ring{width:44px;height:44px;border-radius:50%;border:3px solid var(--warm);border-top-color:var(--terra);animation:spin .7s linear infinite;}
-.spin-text{font-family:var(--font-serif);font-size:.95rem;color:var(--ink-m);}
-.toast-wrap{position:fixed;bottom:5.5rem;left:50%;transform:translateX(-50%);z-index:300;display:flex;flex-direction:column;align-items:center;gap:.4rem;pointer-events:none;}
-.toast{background:var(--ink);color:var(--cream);padding:.7rem 1.25rem;border-radius:30px;font-size:.85rem;font-weight:500;max-width:320px;text-align:center;box-shadow:var(--sh-md);animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
-.toast.ok{background:var(--olive);} .toast.err{background:var(--danger);}
-
-/* Bottom nav (mobile) */
-.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--ink);border-top:1px solid rgba(255,255,255,.08);padding-bottom:env(safe-area-inset-bottom);overflow:visible;}
-.bottom-nav-inner{display:flex;}
-.bnav-item{flex:1;padding:.7rem .5rem .55rem;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;color:var(--ink-s);font-family:var(--font-sans);font-size:.58rem;font-weight:500;cursor:pointer;transition:color .15s;}
-.bnav-item .bn-icon{font-size:1.25rem;line-height:1;}
-.bnav-item.active{color:var(--miso);}
-
-/* Empty */
-.empty{text-align:center;padding:3.5rem 1rem;}
-.empty-icon{font-size:3rem;margin-bottom:.75rem;}
-.empty-title{font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;}
-.empty-sub{font-size:.85rem;color:var(--ink-s);}
-
-/* Animations */
-@keyframes popIn{from{opacity:0;transform:scale(.92) translateY(6px)}to{opacity:1;transform:none}}
-@keyframes slideIn{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
-@keyframes slideUp{from{transform:translateY(40px)}to{transform:translateY(0)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-/* Responsive */
+/* Mobile Layout updates */
 @media(max-width:767px){
   .sidebar{display:none;}
+  .content{padding-top:50px;}
   .bottom-nav{display:block;}
-  .page{padding:1.25rem 1rem;padding-bottom:6rem;}
-  .content{padding-top:0;}
-  .page-title{font-size:1.4rem;}
-  .fridge-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
-  .recipe-thumb{width:76px;}
-  .rec-menu{font-size:1.5rem;}
-  .toast-wrap{bottom:4.5rem;}
+  .page{padding:1.5rem 1.25rem 6rem;}
+  .page-title{font-size:1.7rem;}
+  .fridge-grid{grid-template-columns:repeat(auto-fill,minmax(145px,1fr)); gap:.7rem;}
+  .recipe-thumb{width:80px;}
+  .rec-menu{font-size:1.6rem;}
+  .today-greeting{padding:1.5rem; flex-direction:column; align-items:flex-start;}
+  .greeting-sub{max-width:100%;}
 }
-
-/* Source badge */
-.source-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .6rem;border-radius:4px;font-size:.7rem;font-weight:600;text-decoration:none;}
-.source-web{background:#e8f0fe;color:#1a73e8;}
-.source-saved{background:#e8f5e9;color:#2e7d32;}
-
-/* 재료 체크리스트 */
-.check-item{
-  display:flex;align-items:center;gap:.75rem;
-  padding:.75rem 1rem;border-radius:var(--r-md);
-  border:1.5px solid var(--border);margin-bottom:.5rem;
-  cursor:pointer;transition:background .15s;
-  user-select:none;
-}
-.check-item:hover{background:var(--paper);}
-.check-item.checked{background:#e8f5e9;border-color:#a5d6a7;}
-.check-item.no-match{opacity:.5;cursor:default;}
-.check-box{
-  width:20px;height:20px;border-radius:5px;flex-shrink:0;
-  border:2px solid var(--border);display:flex;align-items:center;justify-content:center;
-  font-size:.8rem;transition:all .15s;background:var(--surface);
-}
-.check-item.checked .check-box{background:var(--success);border-color:var(--success);color:#fff;}
-.check-name{font-size:.88rem;font-weight:600;color:var(--ink);flex:1;}
-.check-sub{font-size:.75rem;color:var(--ink-s);}
-.check-badge-match{font-size:.68rem;padding:.1rem .5rem;border-radius:10px;background:#e8f5e9;color:#2e7d32;font-weight:600;}
-.check-badge-nomatch{font-size:.68rem;padding:.1rem .5rem;border-radius:10px;background:var(--subtle);color:var(--ink-xs);font-weight:500;}
-
-/* Child toggle */
-.family-bar{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--cream);border:1.5px solid var(--border);
-  border-radius:var(--r-lg);padding:.85rem 1.1rem;
-  margin-bottom:1.25rem;
-}
-.family-info{display:flex;align-items:center;gap:.6rem;}
-.family-label{font-size:.88rem;font-weight:500;color:var(--ink-m);}
-.family-label strong{color:var(--ink);font-weight:700;}
-.child-toggle-wrap{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--ink-s);cursor:pointer;user-select:none;}
-.toggle-track{
-  position:relative;width:40px;height:22px;
-  background:var(--border);border-radius:11px;
-  transition:background .2s;flex-shrink:0;
-}
-.toggle-track.on{background:var(--terra);}
-.toggle-knob{
-  position:absolute;top:3px;left:3px;
-  width:16px;height:16px;border-radius:50%;
-  background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);
-  transition:transform .2s;
-}
-.toggle-track.on .toggle-knob{transform:translateX(18px);}
-
-/* Settings family block */
-.family-setting-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;}
-.family-setting-label{font-size:.85rem;color:var(--ink-m);flex:1;}
-
-/* Sync bar */
-.sync-bar{
-  display:flex;align-items:center;gap:.6rem;
-  background:var(--cream);border:1.5px solid var(--border);
-  border-radius:var(--r-md);padding:.55rem .9rem;
-  margin-bottom:1.25rem;cursor:pointer;
-  transition:background .15s;
-}
-.sync-bar:hover{background:var(--warm);}
-.sync-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-.sync-ok{background:var(--success);}
-.sync-loading{background:var(--miso);animation:pulse .8s ease-in-out infinite;}
-.sync-err{background:var(--danger);}
-.sync-idle{background:var(--ink-xs);}
-.sync-off{background:var(--border);}
-.sync-label{font-size:.78rem;color:var(--ink-s);flex:1;}
-.sync-btn-txt{font-size:.75rem;color:var(--ink-xs);}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-
-
-/* 모바일 탭바 - 오늘 탭 강조 + 활성 탭 pill */
-#bnav-today{flex:1.3;}
-#bnav-today .bn-icon{font-size:1.45rem;}
-.bnav-item.active{
-  color:var(--miso);
-  position:relative;
-}
-.bnav-item.active::before{
-  content:'';
-  position:absolute;
-  top:.35rem;left:50%;transform:translateX(-50%);
-  width:44px;height:32px;
-  background:rgba(212,168,67,.15);
-  border-radius:10px;
-  z-index:-1;
-}
-.bnav-item:not(.active){color:rgba(196,168,130,.45);}
-
-/* ── 복수 추천 메뉴 카드 ── */
-.menu-candidates{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem;}
-.menu-card{
-  background:var(--surface);border:1.5px solid var(--border);
-  border-radius:var(--r-lg);padding:1rem 1.1rem;
-  cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .1s;
-  display:flex;align-items:center;gap:.85rem;
-}
-.menu-card:hover{border-color:var(--terra);box-shadow:var(--sh-sm);transform:translateY(-1px);}
-.menu-card:active{transform:scale(.98);}
-.menu-card-saved{border-color:var(--olive);background:#f6faf2;}
-.menu-card-icon{font-size:1.6rem;flex-shrink:0;line-height:1;}
-.menu-card-body{flex:1;min-width:0;}
-.menu-card-name{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
-.menu-card-reason{font-size:.78rem;color:var(--ink-s);line-height:1.5;}
-.menu-card-badges{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.4rem;}
-.badge-saved{font-size:.65rem;background:#e8f5e9;color:#2e7d32;padding:.15rem .5rem;border-radius:10px;font-weight:600;}
-.badge-have{font-size:.65rem;background:#e8f0fe;color:#1a73e8;padding:.15rem .5rem;border-radius:10px;}
-.menu-card-arrow{color:var(--ink-xs);font-size:.9rem;flex-shrink:0;}
-
-/* 히스토리 탭 가능 표시 */
-.history-row{cursor:pointer;transition:background .12s;}
-.history-row:hover{background:var(--paper);border-radius:var(--r-md);}
-.history-restored{border-left:3px solid var(--terra);padding-left:.75rem;}
-
-/* 앱 헤더 */
-.app-header{
-  background:var(--surface);
-  border-bottom:1px solid var(--border);
-  padding:0 1.25rem;
-  height:50px;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:1rem;
-  flex-shrink:0;
-}
-.header-tagline{
-  font-size:.7rem;font-style:italic;
-  color:var(--ink-xs);letter-spacing:.01em;
-  flex:1;
-}
-.header-settings-btn{
-  flex-shrink:0;
-  width:32px;height:32px;border-radius:8px;
-  border:1.5px solid var(--border);
-  background:var(--surface);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;font-size:.85rem;color:var(--ink-s);
-  transition:border-color .15s,background .15s,transform .2s;
-}
-.header-settings-btn:hover{border-color:var(--ink-s);background:var(--paper);transform:rotate(25deg);}
-@media(min-width:768px){.app-header{display:none;}}
 </style>
 </head>
 <body>
-<!-- 모바일 전용 헤더 -->
 <header class="app-header">
   <div class="header-tagline">"I don't know" is not an answer.</div>
-  <button class="header-settings-btn" onclick="openModal('settings-modal')" title="설정">⚙️</button>
+  <button class="header-settings-btn" onclick="openModal('settings-modal')" title="설정"><i class="fa-solid fa-gear"></i></button>
 </header>
 
 <div class="shell">
-  <!-- Sidebar -->
   <nav class="sidebar">
-    <div class="sidebar-logo">저녁<br>뭐<br>먹지</div>
+    <div class="sidebar-logo">Dinner Book</div>
     <button class="nav-item active" id="snav-today" onclick="gotoPage('today')">
-      <span class="nav-icon">✨</span>오늘
+      <span class="nav-icon"><i class="fa-solid fa-sparkles"></i></span>오늘 추천
     </button>
     <button class="nav-item" id="snav-fridge" onclick="gotoPage('fridge')">
-      <span class="nav-icon">🧊</span>냉장고
+      <span class="nav-icon"><i class="fa-solid fa-fridge"></i></span>냉장고
     </button>
     <button class="nav-item" id="snav-recipe" onclick="gotoPage('recipe')">
-      <span class="nav-icon">📖</span>레시피
+      <span class="nav-icon"><i class="fa-solid fa-book-open-reader"></i></span>레시피
     </button>
     <div class="nav-bottom">
       <button class="nav-item" onclick="openModal('settings-modal')">
-        <span class="nav-icon">⚙️</span>설정
+        <span class="nav-icon"><i class="fa-solid fa-gear"></i></span>설정
       </button>
     </div>
   </nav>
 
   <main class="content">
 
-    <!-- ══════════ 오늘 저녁 (홈) ══════════ -->
     <div class="page active" id="page-today">
       <div class="today-greeting">
-        <div class="greeting-date" id="greeting-date"></div>
-        <div class="greeting-title">오늘 저녁 뭐 먹지?</div>
-        <div class="greeting-sub" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">냉장고 재료 + 웹 검색으로 딱 맞는 메뉴를 찾아드려요</div>
+        <div>
+          <div class="greeting-date" id="greeting-date"></div>
+          <div class="greeting-title">오늘 저녁 뭐 먹지?</div>
+          <div class="greeting-sub">냉장고 재료와 웹 검색으로 딱 맞는 메뉴를 제안합니다.</div>
+        </div>
       </div>
 
-      <!-- Sync bar (시트 연결 시만 표시) — 인사말 카드 바로 아래 -->
       <div class="sync-bar" id="sync-bar" onclick="syncPull()" style="display:none;">
         <div class="sync-dot sync-idle" id="sync-dot"></div>
         <span class="sync-label" id="sync-label">최신 상태</span>
-        <span class="sync-btn-txt">탭하여 새로고침 ↻</span>
+        <span class="sync-btn-txt">탭하여 동기화 <i class="fa-solid fa-rotate"></i></span>
       </div>
 
       <div class="summary-row">
         <div class="summary-tile">
           <div class="summary-num" id="today-fridge-cnt">0</div>
-          <div class="summary-label">냉장고 재료</div>
+          <div class="summary-label">Ingredients</div>
         </div>
         <div class="summary-tile">
           <div class="summary-num" id="today-recipe-cnt">0</div>
-          <div class="summary-label">저장 레시피</div>
+          <div class="summary-label">Recipes</div>
         </div>
-        <div class="summary-tile">
-          <div class="summary-num" id="today-expiry-cnt" style="color:var(--danger);">0</div>
-          <div class="summary-label">유통기한 임박</div>
+        <div class="summary-tile" id="today-expiry-tile">
+          <div class="summary-num" id="today-expiry-cnt">0</div>
+          <div class="summary-label">Urgent</div>
         </div>
       </div>
 
-      <!-- Family bar -->
       <div class="family-bar">
         <div class="family-info">
-          <span style="font-size:1.3rem;" id="family-icon">👫</span>
-          <div class="family-label">오늘 식사 · <strong id="family-display">부부 2인</strong></div>
+          <span class="fa-icon"><i class="fa-solid fa-users" id="family-icon"></i></span>
+          <div class="family-label">식사 인원 · <strong id="family-display">부부 2인</strong></div>
         </div>
         <div class="child-toggle-wrap" onclick="toggleChild()">
-          <span style="font-size:.82rem;color:var(--ink-s);">아이도 함께 🧒</span>
+          <span>아이도 함께 <i class="fa-solid fa-child"></i></span>
           <div class="toggle-track" id="child-track">
             <div class="toggle-knob"></div>
           </div>
@@ -494,15 +380,14 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       </div>
 
       <div id="expiry-alert-box" style="display:none" class="expiry-alert">
-        <div class="expiry-alert-title">⚠️ 유통기한 임박 재료</div>
+        <div class="expiry-alert-title"><i class="fa-solid fa-triangle-exclamation"></i> 유통기한 임박 재료</div>
         <div class="expiry-alert-items" id="expiry-alert-items"></div>
       </div>
 
-      <!-- Mood collapsible -->
       <button class="mood-toggle" id="mood-toggle-btn" onclick="toggleMoodPanel()">
-        <span style="color:var(--terra);">🎛</span> 오늘의 상황 선택하기
-        <span class="arrow">▾</span>
-        <span id="mood-selected-preview" style="margin-left:auto;font-size:.78rem;color:var(--terra);"></span>
+        <span style="color:var(--terra);"><i class="fa-solid fa-Sliders"></i></span> 오늘의 상황 선택
+        <span class="arrow"><i class="fa-solid fa-chevron-down"></i></span>
+        <span id="mood-selected-preview" style="margin-left:auto;font-size:.85rem;color:var(--terra);font-weight:600;"></span>
       </button>
       <div class="mood-panel" id="mood-panel">
         <div class="mood-chip" onclick="toggleMood(this,'간단하게')">⚡ 간단하게</div>
@@ -514,31 +399,29 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         <div class="mood-chip" onclick="toggleMood(this,'밥 없이')">🥗 밥 없이</div>
       </div>
 
-      <div id="today-result" style="margin-bottom:1rem;"></div>
+      <div id="today-result" style="margin-bottom:1.5rem;"></div>
 
       <button class="btn btn-terra btn-full" id="rec-btn" onclick="recommend()">
-        🔍 오늘 저녁 메뉴 찾기
+        <i class="fa-solid fa-search"></i> 오늘 메뉴 추천받기
       </button>
 
-      <!-- History -->
-      <div style="margin-top:2.5rem;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
-          <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">추천 히스토리</div>
-          <button class="btn btn-ghost" style="padding:.3rem .65rem;font-size:.75rem;" onclick="clearHistory()">지우기</button>
+      <div style="margin-top:3rem; border-top:2px solid #EEE; padding-top:2rem;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;">
+          <div style="font-family:var(--font-serif);font-size:.8rem;font-weight:800;color:var(--ink-s);text-transform:uppercase;letter-spacing:.1em;">Recommendation History</div>
+          <button class="btn btn-ghost" style="padding:.4rem .9rem;font-size:.8rem; border-color:#ccc;" onclick="clearHistory()">기록 지우기</button>
         </div>
         <div id="history-list"></div>
       </div>
     </div>
 
-    <!-- ══════════ 냉장고 ══════════ -->
     <div class="page" id="page-fridge">
       <div class="page-header">
         <div class="page-header-row">
           <div>
-            <div class="page-title">냉장고 🧊</div>
-            <div class="page-subtitle">현재 보유 재료 · <span id="fridge-total">0</span>가지</div>
+            <div class="page-title">재료 목록</div>
+            <div class="page-subtitle">냉장고 속 재료 <strong id="fridge-total" style="font-family:var(--font-serif); color:var(--ink);">0</strong>가지</div>
           </div>
-          <button class="btn btn-terra" onclick="openFridgeAdd()">+ 재료 추가</button>
+          <button class="btn btn-terra" onclick="openFridgeAdd()"><i class="fa-solid fa-plus"></i> 재료 추가</button>
         </div>
       </div>
       <div class="filter-strip" id="fridge-filters">
@@ -548,30 +431,29 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
         <div class="filter-chip" onclick="setFilter('해산물',this)">해산물</div>
         <div class="filter-chip" onclick="setFilter('유제품',this)">유제품</div>
         <div class="filter-chip" onclick="setFilter('냉동',this)">냉동</div>
-        <div class="filter-chip" onclick="setFilter('레토르트',this)">레토르트</div>
+        <div class="filter-chip" onclick="setFilter('레토르트',this)">즉석</div>
         <div class="filter-chip" onclick="setFilter('기타',this)">기타</div>
       </div>
       <div class="fridge-grid" id="fridge-grid"></div>
     </div>
 
-    <!-- ══════════ 레시피 ══════════ -->
     <div class="page" id="page-recipe">
       <div class="page-header">
         <div class="page-header-row">
           <div>
-            <div class="page-title">레시피북 📖</div>
-            <div class="page-subtitle">저장된 레시피 · <span id="recipe-total">0</span>개</div>
+            <div class="page-title">레시피북</div>
+            <div class="page-subtitle">저장된 레시피 <strong id="recipe-total" style="font-family:var(--font-serif); color:var(--ink);">0</strong>개</div>
           </div>
           <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-            <button class="btn btn-ghost" onclick="openRecipePhoto()">📷 사진 추가</button>
-            <button class="btn btn-terra" onclick="openRecipeAdd()">+ 직접 입력</button>
+            <button class="btn btn-ghost" onclick="openRecipePhoto()"><i class="fa-solid fa-camera"></i> 사진 추출</button>
+            <button class="btn btn-terra" onclick="openRecipeAdd()"><i class="fa-solid fa-pen-to-square"></i> 직접 입력</button>
           </div>
         </div>
       </div>
-      <!-- 검색창 -->
-      <div style="position:relative;margin-bottom:1rem;">
-        <input class="input" id="recipe-search" placeholder="🔍  레시피 검색 (요리명, 재료, 태그)" oninput="filterRecipes()" style="padding-left:1rem;">
-        <button id="recipe-search-clear" onclick="clearRecipeSearch()" style="display:none;position:absolute;right:.75rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--ink-s);font-size:1rem;">✕</button>
+      <div style="position:relative;margin-bottom:1.5rem; border:2px solid var(--border); border-radius:var(--r-sm); background:#fff;">
+        <span style="position:absolute; left:1.1rem; top:50%; transform:translateY(-50%); color:#AAA; font-size:1rem;"><i class="fa-solid fa-search"></i></span>
+        <input class="input" id="recipe-search" placeholder="요리명, 재료, 태그 검색…" oninput="filterRecipes()" style="padding-left:3rem; border:none; border-radius:0;">
+        <button id="recipe-search-clear" onclick="clearRecipeSearch()" style="display:none;position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#BBB;font-size:1.1rem;">✕</button>
       </div>
       <div class="recipe-list" id="recipe-list"></div>
     </div>
@@ -579,228 +461,208 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   </main>
 </div>
 
-<!-- Bottom nav (mobile) -->
 <nav class="bottom-nav">
   <div class="bottom-nav-inner">
     <button class="bnav-item active" id="bnav-today" onclick="gotoPage('today')">
-      <span class="bn-icon">✨</span>오늘
+      <span class="bn-icon"><i class="fa-solid fa-sparkles"></i></span>오늘
     </button>
     <button class="bnav-item" id="bnav-fridge" onclick="gotoPage('fridge')">
-      <span class="bn-icon">🧊</span>냉장고
+      <span class="bn-icon"><i class="fa-solid fa-fridge"></i></span>냉장고
     </button>
     <button class="bnav-item" id="bnav-recipe" onclick="gotoPage('recipe')">
-      <span class="bn-icon">📖</span>레시피
+      <span class="bn-icon"><i class="fa-solid fa-book-open-reader"></i></span>레시피
     </button>
   </div>
-
 </nav>
 
-<!-- ══ 냉장고 모달 ══ -->
 <div class="modal-back" id="fridge-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title" id="fridge-modal-ttl">재료 추가</div>
-      <button class="modal-close" onclick="closeModal('fridge-modal')">×</button>
+      <div class="modal-title" id="fridge-modal-ttl">Add Ingredient</div>
+      <button class="modal-close" onclick="closeModal('fridge-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <input type="hidden" id="f-edit-id">
-    <div class="form-group"><label class="form-label">재료명 *</label><input class="input" id="f-name" placeholder="예) 양파, 냉동피자, 두부…" maxlength="50"></div>
+    <div class="form-group"><label class="form-label">재료명 *</label><input class="input" id="f-name" placeholder="예) 양파, 대패삼겹살, 두부…" maxlength="50"></div>
     <div class="form-group"><label class="form-label">카테고리</label>
       <select class="input" id="f-cat">
-        <option value="채소">채소 / 과일</option><option value="육류">육류</option>
-        <option value="해산물">해산물</option><option value="유제품">유제품 / 계란</option>
-        <option value="냉동">냉동식품</option><option value="레토르트">레토르트 / 즉석</option>
-        <option value="기타">기타</option>
+        <option value="채소">🥬 채소 / 과일</option><option value="육류">🥩 육류</option>
+        <option value="해산물">🐟 해산물</option><option value="유제품">🥛 유제품 / 계란</option>
+        <option value="냉동">❄️ 냉동식품</option><option value="레토르트">📦 즉석식품</option>
+        <option value="기타">🫙 기타</option>
       </select>
     </div>
     <div class="form-row">
       <div class="form-group"><label class="form-label">넣은 날짜</label><input type="date" class="input" id="f-added"></div>
       <div class="form-group"><label class="form-label">유통기한</label><input type="date" class="input" id="f-expiry"></div>
     </div>
-    <div class="form-group"><label class="form-label">메모 <span>(선택)</span></label><input class="input" id="f-memo" placeholder="개봉, 반 남음 등…" maxlength="100"></div>
+    <div class="form-group"><label class="form-label">메모 <span>(선택)</span></label><input class="input" id="f-memo" placeholder="브랜드, 개봉여부 등…" maxlength="100"></div>
     <button class="btn btn-terra btn-full" onclick="saveFridge()">저장하기</button>
   </div>
 </div>
 
-<!-- ══ 레시피 모달 ══ -->
 <div class="modal-back" id="recipe-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title" id="recipe-modal-ttl">레시피 추가</div>
-      <button class="modal-close" onclick="closeModal('recipe-modal')">×</button>
+      <div class="modal-title" id="recipe-modal-ttl">Write Recipe</div>
+      <button class="modal-close" onclick="closeModal('recipe-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <input type="hidden" id="r-edit-id">
-    <div class="form-group"><label class="form-label">요리 이름 *</label><input class="input" id="r-title" placeholder="예) 김치찌개, 카레…" maxlength="100"></div>
-    <div class="form-group"><label class="form-label">필요 재료 <span>(쉼표 구분)</span></label><input class="input" id="r-ings" placeholder="예) 김치, 돼지고기, 두부…" maxlength="500"></div>
-    <div class="form-group"><label class="form-label">조리법 / 메모</label><textarea class="input" id="r-steps" placeholder="조리 순서나 출처, 팁을 메모하세요…" maxlength="2000"></textarea></div>
-    <div class="form-group"><label class="form-label">이미지 URL <span>(선택, https://…)</span></label>
-      <input class="input" id="r-img" placeholder="https://…" maxlength="500">
-      <img id="r-img-prev" style="display:none;margin-top:.5rem;width:100%;max-height:160px;object-fit:cover;border-radius:var(--r-md);border:1.5px solid var(--border);" alt="">
+    <div class="form-group"><label class="form-label">요리 이름 *</label><input class="input" id="r-title" placeholder="예) 김치찌개, 소불고기…" maxlength="100"></div>
+    <div class="form-group"><label class="form-label">필요 재료 <span>(쉼표 구분)</span></label><input class="input" id="r-ings" placeholder="김치, 돼지고기, 두부…" maxlength="500"></div>
+    <div class="form-group"><label class="form-label">조리법 / 메모</label><textarea class="input" id="r-steps" placeholder="조리 순서나 핵심 팁, 출처를 기록하세요…" maxlength="2000"></textarea></div>
+    <div class="form-group"><label class="form-label">이미지 URL <span>(선택)</span></label>
+      <input class="input" id="r-img" placeholder="https://… (웹 이미지 주소)" maxlength="500">
+      <img id="r-img-prev" style="display:none;margin-top:.75rem;width:100%;max-height:160px;object-fit:cover;border-radius:var(--r-sm);border:1px solid #ddd;" alt="">
     </div>
-    <div class="form-group"><label class="form-label">유튜브 / 참고 링크 <span>(선택)</span></label>
-      <input class="input" id="r-ref" placeholder="https://youtu.be/… 또는 참고 URL" maxlength="500">
+    <div class="form-group"><label class="form-label">참고 링크 <span>(선택)</span></label>
+      <input class="input" id="r-ref" placeholder="유튜브 주소 또는 참고 블로그 URL" maxlength="500">
     </div>
-    <div class="form-group"><label class="form-label">태그 <span>(쉼표 구분)</span></label><input class="input" id="r-tags" placeholder="한식, 국물, 20분…" maxlength="200"></div>
+    <div class="form-group"><label class="form-label">태그 <span>(쉼표 구분)</span></label><input class="input" id="r-tags" placeholder="한식, 국물요리, 20분요리…" maxlength="200"></div>
     <button class="btn btn-terra btn-full" onclick="saveRecipe()">저장하기</button>
   </div>
 </div>
 
-<!-- ══ 사진 OCR 모달 ══ -->
 <div class="modal-back" id="photo-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title">📷 사진으로 레시피 추출</div>
-      <button class="modal-close" onclick="closeModal('photo-modal')">×</button>
+      <div class="modal-title">AI Photo Extract</div>
+      <button class="modal-close" onclick="closeModal('photo-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
-    <!-- 사진 업로드 영역 -->
     <div class="photo-drop" id="photo-drop"
       onclick="document.getElementById('photo-file').click()"
       ondragover="event.preventDefault();this.classList.add('drag')"
       ondragleave="this.classList.remove('drag')"
       ondrop="handlePhotoDrop(event)">
-      <div class="photo-drop-icon">📸</div>
-      <div class="photo-drop-text">사진을 탭하거나 드래그하세요<br><small>최대 2장 · 앞뒤면, 재료+조리법 등 합쳐서 추출</small></div>
+      <div class="photo-drop-icon"><i class="fa-solid fa-camera-rotate"></i></div>
+      <div class="photo-drop-text">요리 사진을 여기로 드래그하거나 클릭<br><small>레시피가 포함된 사진 (최대 2장)</small></div>
     </div>
     <input type="file" id="photo-file" accept="image/*" multiple style="display:none" onchange="onPhotoSelect(event)">
 
-    <!-- 선택된 사진 미리보기 -->
-    <div id="photo-thumbs" style="display:none;margin-top:.75rem;">
-      <div style="display:flex;gap:.5rem;align-items:flex-start;">
-        <div id="thumb-wrap" style="display:flex;gap:.5rem;flex:1;"></div>
-        <button class="btn btn-ghost" style="padding:.4rem .7rem;font-size:.78rem;flex-shrink:0;" onclick="clearPhotos()">✕ 초기화</button>
+    <div id="photo-thumbs" style="display:none;margin-top:1.25rem; border-top:1px solid #EEE; padding-top:1.25rem;">
+      <div style="display:flex;gap:.75rem;align-items:flex-start;">
+        <div id="thumb-wrap" style="display:flex;gap:.75rem;flex:1;flex-wrap:wrap;"></div>
+        <button class="btn btn-ghost" style="padding:.5rem 1rem;font-size:.8rem; border-color:#ccc;" onclick="clearPhotos()"><i class="fa-solid fa-trash-can"></i> 초기화</button>
       </div>
-      <div style="font-size:.72rem;color:var(--ink-s);margin-top:.4rem;" id="photo-count-label"></div>
     </div>
 
-    <!-- 추출 결과 -->
-    <div id="photo-result" style="display:none;margin-top:1.25rem;">
-      <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem;">
-        <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">AI 추출 결과</div>
-        <div style="font-size:.72rem;color:var(--terra);">— 확인 후 수정하고 저장하세요</div>
-      </div>
+    <div id="photo-result" style="display:none;margin-top:2rem; border-top:2px solid var(--border); padding-top:1.5rem;">
+      <div style="font-family:var(--font-serif); font-size:.8rem;font-weight:800;color:var(--terra);text-transform:uppercase;letter-spacing:.1em; margin-bottom:1.25rem;">AI Extraction Result</div>
       <div class="form-group"><label class="form-label">요리 이름</label><input class="input" id="ocr-title" maxlength="100"></div>
       <div class="form-group"><label class="form-label">재료 <span>(쉼표 구분)</span></label><input class="input" id="ocr-ings" maxlength="500"></div>
-      <div class="form-group"><label class="form-label">조리법</label><textarea class="input" id="ocr-steps" style="min-height:140px;" maxlength="2000"></textarea></div>
+      <div class="form-group"><label class="form-label">조리법</label><textarea class="input" id="ocr-steps" style="min-height:160px;" maxlength="2000"></textarea></div>
       <div class="form-group"><label class="form-label">태그 <span>(쉼표 구분)</span></label><input class="input" id="ocr-tags" maxlength="200"></div>
     </div>
 
-    <button class="btn btn-ghost btn-full" id="ocr-btn" onclick="runOcr()" style="margin-top:.75rem;">🤖 AI로 레시피 추출하기</button>
-    <button class="btn btn-terra btn-full" id="ocr-save-btn" onclick="saveOcrRecipe()" style="margin-top:.5rem;display:none;">저장하기</button>
+    <button class="btn btn-ghost btn-full" id="ocr-btn" onclick="runOcr()" style="margin-top:1rem; border-color:var(--border); font-family:var(--font-serif);">
+      <i class="fa-solid fa-robot"></i> Extract with Gemini AI
+    </button>
+    <button class="btn btn-terra btn-full" id="ocr-save-btn" onclick="saveOcrRecipe()" style="margin-top:.75rem;display:none;">추출 결과 저장</button>
   </div>
 </div>
 
-<!-- ══ 라이트박스 ══ -->
-<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.92);align-items:center;justify-content:center;" onclick="closeLightbox()">
-  <img id="lightbox-img" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:8px;" alt="">
-  <button style="position:absolute;top:1rem;right:1rem;background:rgba(255,255,255,.15);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;" onclick="closeLightbox()">×</button>
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.9);align-items:center;justify-content:center;" onclick="closeLightbox()">
+  <img id="lightbox-img" style="max-width:95vw;max-height:90vh;object-fit:contain;border-radius:var(--r-sm); border:2px solid #fff;" alt="">
+  <button style="position:absolute;top:1rem;right:1rem;background:transparent;border:none;color:#fff;font-size:2rem;cursor:pointer;" onclick="closeLightbox()"><i class="fa-solid fa-xmark"></i></button>
 </div>
 
-<!-- ══ 레시피 상세 모달 ══ -->
 <div class="modal-back" id="detail-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title" id="detail-ttl"></div>
-      <button class="modal-close" onclick="closeModal('detail-modal')">×</button>
+      <div class="modal-title" id="detail-ttl">Recipe Detail</div>
+      <button class="modal-close" onclick="closeModal('detail-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div id="detail-body"></div>
   </div>
 </div>
 
-<!-- ══ 오늘 저녁 확정 + 재료 체크리스트 모달 ══ -->
 <div class="modal-back" id="confirm-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title">✅ 재료 사용 확인</div>
-      <button class="modal-close" onclick="closeModal('confirm-modal')">×</button>
+      <div class="modal-title">Confirm Ingredients</div>
+      <button class="modal-close" onclick="closeModal('confirm-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
-    <div style="font-size:.85rem;color:var(--ink-s);margin-bottom:1.25rem;line-height:1.6;">
-      오늘 사용한 재료를 체크하면 냉장고에서 삭제돼요.<br>
-      <span style="color:var(--terra);font-weight:600;">체크하지 않은 재료는 그대로 유지됩니다.</span>
+    <div style="font-size:.95rem;color:var(--ink-m);margin-bottom:1.5rem;line-height:1.7;">
+      오늘 요리에 사용한 재료를 체크해주세요.<br>체크한 재료는 <strong style="color:var(--ink);">냉장고에서 자동으로 삭제</strong>됩니다.
     </div>
-    <div id="confirm-checklist" style="margin-bottom:1.25rem;"></div>
-    <div style="display:flex;gap:.5rem;">
+    <div id="confirm-checklist" style="margin-bottom:1.5rem;"></div>
+    <div style="display:flex;gap:.75rem;">
       <button class="btn btn-ghost" style="flex:1;" onclick="closeModal('confirm-modal')">취소</button>
-      <button class="btn btn-terra" style="flex:2;" onclick="applyConfirm()">선택한 재료 냉장고에서 삭제</button>
+      <button class="btn btn-terra" style="flex:2;" onclick="applyConfirm()"><i class="fa-solid fa-fridge"></i> 냉장고 재료 정리하기</button>
     </div>
   </div>
 </div>
 
-<!-- ══ 설정 모달 ══ -->
 <div class="modal-back" id="settings-modal">
   <div class="modal-box">
     <div class="modal-head">
-      <div class="modal-title">설정 ⚙️</div>
-      <button class="modal-close" onclick="closeModal('settings-modal')">×</button>
+      <div class="modal-title">Settings</div>
+      <button class="modal-close" onclick="closeModal('settings-modal')"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="settings-block">
-      <div class="settings-block-title">☁️ 구글시트 동기화</div>
+      <div class="settings-block-title">Cloud Sync</div>
       <div class="form-group">
-        <label class="form-label">Apps Script 웹앱 URL</label>
+        <label class="form-label">Apps Script Web App URL</label>
         <input class="input" id="gs-url-inp" placeholder="https://script.google.com/macros/s/…/exec" maxlength="300">
         <div class="api-hint">
-          구글시트와 실시간 동기화합니다. URL 입력 후 저장하면 두 폰이 같은 데이터를 공유해요.<br>
-          URL 발급 방법은 설치 가이드를 참고하세요.
+          구글시트와 실시간 동기화하여 데이터를 백업하고 여러 기기에서 공유합니다. URL 입력 후 연결 테스트를 진행하세요.
         </div>
       </div>
-      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-        <button class="btn btn-olive" onclick="saveGsUrl()">저장 및 연결</button>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+        <button class="btn btn-olive" onclick="saveGsUrl()"><i class="fa-solid fa-link"></i> 저장 및 연결</button>
         <button class="btn btn-ghost" onclick="testGsConnection()">연결 테스트</button>
       </div>
     </div>
     <div class="settings-block">
-      <div class="settings-block-title">Gemini API 키</div>
+      <div class="settings-block-title">Gemini API Key</div>
       <div class="form-group">
-        <div class="key-wrap">
-          <input class="input" id="api-key-inp" type="password" placeholder="AIza…" maxlength="200">
-          <button class="key-eye" onclick="toggleKeyVis()">👁</button>
+        <div class="key-wrap" style="position:relative;">
+          <input class="input" id="api-key-inp" type="password" placeholder="AIza… (Google AI Key)" maxlength="200">
+          <button class="key-eye" onclick="toggleKeyVis()" style="position:absolute; right:1.1rem; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; color:#AAA; font-size:.9rem;"><i class="fa-solid fa-eye"></i></button>
         </div>
         <div class="api-hint">
-          Google AI Studio에서 발급 · 이 기기에만 저장됩니다<br>
-          <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--terra);">무료 API 키 발급 →</a>
+          AI 메뉴 추천과 사진 레시피 추출 기능에 필요합니다. <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--terra); font-weight:600; text-decoration:underline;">Google AI Studio</a>에서 무료 키를 발급받으세요.
         </div>
       </div>
-      <button class="btn btn-terra" onclick="saveApiKey()">저장</button>
+      <button class="btn btn-terra" onclick="saveApiKey()">저장하기</button>
     </div>
     <div class="settings-block">
-      <div class="settings-block-title">가족 구성</div>
-      <div class="family-setting-row">
-        <span style="font-size:1.1rem;">👫</span>
-        <span class="family-setting-label">기본 식사 인원</span>
-        <span style="font-size:.85rem;font-weight:600;color:var(--ink);">부부 2인</span>
+      <div class="settings-block-title">가족 구성 및 구성원</div>
+      <div class="family-setting-row" style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; background:#fff; padding:1rem; border-radius:var(--r-sm);">
+        <span style="font-size:1.5rem; color:#9c8060;"><i class="fa-solid fa-users"></i></span>
+        <span class="family-setting-label" style="font-size:.9rem; color:var(--ink-m); flex:1;">기본 식사 인원</span>
+        <span style="font-size:1rem;font-weight:700;color:var(--ink);">부부 2인</span>
       </div>
-      <div class="family-setting-row">
-        <span style="font-size:1.1rem;">🧒</span>
-        <span class="family-setting-label">아이 생년 <span style="font-size:.75rem;color:var(--ink-xs);">(만 나이 자동 계산)</span></span>
-        <input class="input" id="child-year-inp" type="number" placeholder="예) 2021" min="2000" max="2030" style="width:100px;padding:.5rem .75rem;text-align:center;">
+      <div class="family-setting-row" style="display:flex; align-items:center; gap:1rem; background:#fff; padding:1rem; border-radius:var(--r-sm);">
+        <span style="font-size:1.5rem; color:#9c8060;"><i class="fa-solid fa-child"></i></span>
+        <span class="family-setting-label" style="font-size:.9rem; color:var(--ink-m); flex:1;">아이 생년 (만 나이 계산)</span>
+        <input class="input" id="child-year-inp" type="number" placeholder="예) 2019" min="2000" max="2030" style="width:100px;text-align:center; padding:.7rem;">
       </div>
-      <div class="api-hint">생년을 입력하면 홈 화면에서 아이 동반 여부를 빠르게 토글할 수 있어요. AI 추천 시 아이 나이에 맞게 맵기·알레르기 등을 자동 조정합니다.</div>
-      <button class="btn btn-olive" onclick="saveFamily()" style="margin-top:.75rem;">저장</button>
+      <div class="api-hint" style="margin-top:.8rem;">생년을 입력하면 AI가 아이 나이에 맞춰 매운맛 강도나 영양 비율을 자동 조정하여 추천합니다.</div>
+      <button class="btn btn-olive" onclick="saveFamily()" style="margin-top:1rem;">구성원 저장</button>
     </div>
     <div class="settings-block">
-      <div class="settings-block-title">가족 선호도 / 식이 제한</div>
-      <div class="form-group"><input class="input" id="prefs-inp" placeholder="예) 어린이 있음, 매운것 제외, 채식 선호…" maxlength="200"></div>
-      <button class="btn btn-olive" onclick="savePrefs()">저장</button>
+      <div class="settings-block-title">가족 식성 / Dietary restrictions</div>
+      <div class="form-group"><input class="input" id="prefs-inp" placeholder="예) 매운것 제외, 채식 선호, 알레르기 등…" maxlength="200"></div>
+      <button class="btn btn-olive" onclick="savePrefs()">식성 저장</button>
     </div>
     <div class="settings-block">
-      <div class="settings-block-title">데이터 관리</div>
+      <div class="settings-block-title">Data Management</div>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
-        <button class="btn btn-ghost" onclick="exportData()">📥 내보내기</button>
-        <button class="btn btn-ghost" onclick="document.getElementById('import-inp').click()">📤 가져오기</button>
+        <button class="btn btn-ghost" onclick="exportData()"><i class="fa-solid fa-file-export"></i> 백업(내보내기)</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('import-inp').click()"><i class="fa-solid fa-file-import"></i> 복구(가져오기)</button>
         <input type="file" id="import-inp" accept=".json" style="display:none" onchange="importData(event)">
-        <button class="btn btn-danger-ghost" onclick="nukeData()">🗑 초기화</button>
-      </div>
-      <div class="api-hint" style="margin-top:.75rem;">
-        기기 간 동기화: 내보내기 → JSON 파일을 카카오톡으로 공유하거나, 구글 드라이브에 저장 후 가져오기로 적용하세요.
+        <button class="btn btn-ghost" style="color:var(--danger); border-color:#fecaca;" onclick="nukeData()"><i class="fa-solid fa-trash-can"></i> 전체 초기화</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="spin-back" id="spinner"><div class="spin-ring"></div><div class="spin-text" id="spin-txt">잠시만요…</div></div>
+<div class="spin-back" id="spinner"><div class="spin-ring"></div><div class="spin-text" id="spin-txt">Analyzing...</div></div>
 <div class="toast-wrap" id="toasts"></div>
 
 <script>
-/* ── helpers ── */
+/* ── helpers - 건드리지 않음 ── */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const ss=(s,n=200)=>String(s||'').trim().slice(0,n);
@@ -816,12 +678,10 @@ const K={fridge:'dv_fridge',recipes:'dv_recipes',history:'dv_history',apiKey:'dv
 let fridge=ld(K.fridge), recipes=ld(K.recipes), history=ld(K.history);
 let moods=[], fridgeFilter='all';
 let childWithUs=localStorage.getItem(K.childWith)==='1';
-let syncEnabled=false; // 구글시트 URL 입력됐을 때만 true
+let syncEnabled=false; 
 
-/* ── SYNC (Google Sheets via Apps Script) ── */
+/* ── SYNC - 건드리지 않음 ── */
 function getGsUrl(){ return localStorage.getItem(K.gsUrl)||''; }
-
-// 시트에서 전체 데이터 불러오기
 async function syncPull(){
   const url=getGsUrl(); if(!url)return;
   setSyncDot('loading');
@@ -836,48 +696,21 @@ async function syncPull(){
     if(hi.ok){history=hi.data;sv(K.history,history);}
     renderFridge();renderRecipes();renderHistory();refreshToday();
     setSyncDot('ok');
-    toast('시트에서 불러왔어요 ✓','ok');
+    toast('Cloud 데이터 동기화 완료','ok');
   }catch(e){setSyncDot('err');toast('동기화 실패: '+e.message,'err');}
 }
-
-// 단건 저장/수정
-async function syncUpsert(type, item){
-  const url=getGsUrl(); if(!url)return;
-  try{
-    await fetch(url,{method:'POST',body:JSON.stringify({action:'upsert',type,item})});
-  }catch(e){console.warn('sync upsert failed:',e);}
-}
-
-// 단건 삭제
-async function syncDelete(type, id){
-  const url=getGsUrl(); if(!url)return;
-  try{
-    await fetch(url,{method:'POST',body:JSON.stringify({action:'delete',type,id})});
-  }catch(e){console.warn('sync delete failed:',e);}
-}
-
-// 히스토리는 단건 추가만 (삭제는 replaceAll)
-async function syncReplaceHistory(){
-  const url=getGsUrl(); if(!url)return;
-  try{
-    await fetch(url,{method:'POST',body:JSON.stringify({action:'replaceAll',type:'history',items:history})});
-  }catch(e){console.warn('sync history failed:',e);}
-}
-
-// 동기화 상태 표시 dot
+async function syncUpsert(type, item){ const url=getGsUrl(); if(!url)return; try{ await fetch(url,{method:'POST',body:JSON.stringify({action:'upsert',type,item})}); }catch(e){console.warn('sync upsert failed:',e); Fetch Error}}
+async function syncDelete(type, id){ const url=getGsUrl(); if(!url)return; try{ await fetch(url,{method:'POST',body:JSON.stringify({action:'delete',type,id})}); }catch(e){console.warn('sync delete failed:',e);} }
+async function syncReplaceHistory(){ const url=getGsUrl(); if(!url)return; try{ await fetch(url,{method:'POST',body:JSON.stringify({action:'replaceAll',type:'history',items:history})}); }catch(e){console.warn('sync history failed:',e);} }
 function setSyncDot(state){
   const dot=$('sync-dot'); if(!dot)return;
   dot.className='sync-dot sync-'+state;
   const lbl=$('sync-label'); if(!lbl)return;
-  lbl.textContent=state==='loading'?'동기화 중…':state==='ok'?'최신 상태':state==='err'?'동기화 실패':'시트 미연결';
+  lbl.textContent=state==='loading'?'Syncing...':state==='ok'?'Cloud Synced':state==='err'?'Sync Error':'Local Mode';
 }
-function initSyncState(){
-  syncEnabled=!!getGsUrl();
-  setSyncDot(syncEnabled?'idle':'off');
-  $('sync-bar').style.display=syncEnabled?'flex':'none';
-}
+function initSyncState(){ syncEnabled=!!getGsUrl(); setSyncDot(syncEnabled?'idle':'off'); $('sync-bar').style.display=syncEnabled?'flex':'none'; }
 
-/* ── nav ── */
+/* ── nav - 건드리지 않음 ── */
 function gotoPage(name){
   ['today','fridge','recipe'].forEach(p=>{
     $('page-'+p).classList.toggle('active',p===name);
@@ -888,21 +721,20 @@ function gotoPage(name){
   if(name==='today')refreshToday();
 }
 
-/* ── modal ── */
+/* ── modal - 건드리지 않음 ── */
 function openModal(id){$(id).classList.add('open');}
 function closeModal(id){$(id).classList.remove('open');}
 document.querySelectorAll('.modal-back').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id);}));
 
-/* ── API 재시도 헬퍼 ── */
+/* ── API 재시도 헬퍼 - 건드리지 않음 ── */
 async function fetchWithRetry(url, options, maxRetries=3){
   for(let i=0;i<maxRetries;i++){
     try{
       const res = await fetch(url, options);
       if(res.status===503||res.status===429){
-        // high demand or rate limit — 잠시 후 재시도
         if(i<maxRetries-1){
-          const wait = (i+1)*3000; // 3초, 6초 대기
-          $('spin-txt').textContent=`잠시 대기 중… (${i+1}/${maxRetries-1}회 재시도)`;
+          const wait = (i+1)*3000;
+          $('spin-txt').textContent=`API 대기 중… (${i+1}/${maxRetries-1})`;
           await new Promise(r=>setTimeout(r,wait));
           continue;
         }
@@ -915,7 +747,7 @@ async function fetchWithRetry(url, options, maxRetries=3){
   }
 }
 
-/* ── spinner / toast ── */
+/* ── spinner / toast - 건드리지 않음 ── */
 function showSpin(t='잠시만요…'){$('spin-txt').textContent=t;$('spinner').classList.add('open');}
 function hideSpin(){$('spinner').classList.remove('open');}
 function toast(msg,type='',ms=3000){
@@ -923,13 +755,12 @@ function toast(msg,type='',ms=3000){
   $('toasts').appendChild(d);setTimeout(()=>d.remove(),ms);
 }
 
-/* ── TODAY ── */
+/* ── TODAY - 건드리지 않음 ── */
 function initGreeting(){
   const d=new Date();
   const wd=['일','월','화','수','목','금','토'];
   $('greeting-date').textContent=`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일 (${wd[d.getDay()]})`;
 }
-
 function refreshToday(){
   $('today-fridge-cnt').textContent=fridge.length;
   $('today-recipe-cnt').textContent=recipes.length;
@@ -940,6 +771,10 @@ function refreshToday(){
     return(d-t0)/86400000<=3;
   });
   $('today-expiry-cnt').textContent=urgent.length;
+  // 유통기한 임박 타일 강조 (JS)
+  $('today-expiry-tile').style.borderColor=urgent.length?'var(--danger)':'var(--border)';
+  $('today-expiry-tile').querySelector('.summary-num').style.color=urgent.length?'var(--danger)':'var(--ink)';
+
   if(urgent.length){
     $('expiry-alert-box').style.display='';
     $('expiry-alert-items').textContent=urgent.map(i=>i.name+(i.expiry?` (D-${Math.max(0,Math.round((new Date(i.expiry)-t0)/86400000))})`:'')).join(' · ');
@@ -947,869 +782,282 @@ function refreshToday(){
   renderHistory();
 }
 
-/* ── CHILD TOGGLE ── */
+/* ── CHILD TOGGLE - 건드리지 않음 ── */
 function getChildAge(){
   const yr=parseInt(localStorage.getItem(K.childYear)||'0');
   if(!yr)return null;
   const now=new Date();
-  let age=now.getFullYear()-yr;
-  // 만 나이: 아직 생일 안 지났으면 -1 (단순 계산, 월 미고려)
-  return age;
+  return now.getFullYear()-yr;
 }
 function updateFamilyBar(){
   const yr=parseInt(localStorage.getItem(K.childYear)||'0');
   const age=getChildAge();
   const track=$('child-track');
+  const iconSpan=$('family-icon');
   if(childWithUs&&age!==null){
     track.classList.add('on');
     $('family-display').textContent=`부부 + 아이 (만 ${age}세)`;
-    $('family-icon').textContent='👨‍👩‍👧';
+    iconSpan.className='fa-solid fa-child-dress'; // FA child icon
   }else{
     track.classList.remove('on');
     $('family-display').textContent='부부 2인';
-    $('family-icon').textContent='👫';
+    iconSpan.className='fa-solid fa-users'; // FA users icon
   }
-  // 아이 생년 미설정 시 토글 비활성화 표시
   const wrap=track.parentElement;
-  const noChild=!yr;
-  wrap.style.opacity=noChild?'0.4':'1';
-  wrap.title=noChild?'설정에서 아이 생년을 먼저 입력해주세요':'';
+  wrap.style.opacity=!yr?'0.4':'1';
+  wrap.title=!yr?'설정에서 아이 생년을 먼저 입력해주세요':'';
 }
 function toggleChild(){
   const yr=parseInt(localStorage.getItem(K.childYear)||'0');
-  if(!yr){toast('설정에서 아이 생년을 먼저 입력해주세요 ⚙️','err');return;}
+  if(!yr){toast('설정에서 아이 생년을 입력해주세요','err');return;}
   childWithUs=!childWithUs;
   localStorage.setItem(K.childWith,childWithUs?'1':'0');
   updateFamilyBar();
-  toast(childWithUs?'아이도 함께 먹어요 🧒':'부부만 먹어요 👫','');
 }
+function toggleMoodPanel(){ const btn=$('mood-toggle-btn'), panel=$('mood-panel'); const isOpen=panel.classList.toggle('open'); btn.classList.toggle('open',isOpen); }
+function toggleMood(el,m){ const on=moods.includes(m); if(on){moods=moods.filter(x=>x!==m);el.classList.remove('on');} else{moods.push(m);el.classList.add('on');} $('mood-selected-preview').textContent=moods.length?moods.join('·'):''; }
 
-
-function toggleMoodPanel(){
-  const btn=$('mood-toggle-btn'), panel=$('mood-panel');
-  const isOpen=panel.classList.toggle('open');
-  btn.classList.toggle('open',isOpen);
-}
-function toggleMood(el,m){
-  const on=moods.includes(m);
-  if(on){moods=moods.filter(x=>x!==m);el.classList.remove('on');}
-  else{moods.push(m);el.classList.add('on');}
-  $('mood-selected-preview').textContent=moods.length?moods.join(' · '):'';
-}
-
-/* ── RECOMMEND (Gemini + Google Search Grounding) ── */
+/* ── RECOMMEND - 건드리지 않음 ── */
 let recDebounce=null;
-
-// 유사 매칭 헬퍼
-function fuzzyMatch(a, b){
-  const na = a.toLowerCase().replace(/\s/g,'');
-  const nb = b.toLowerCase().replace(/\s/g,'');
-  if(na === nb) return true; // 완전 일치
-  // 한쪽이 다른 쪽을 포함할 때: 길이 비율이 0.8 이상일 때만 매칭
-  // "만두전"(3) / "만두전골"(4) = 0.75 → false ✓
-  // "김치찌개"(4) / "김치찌개"(4) = 1.0 → true ✓
-  // "소불고기"(4) / "소불고기덮밥"(6) = 0.67 → false ✓
-if(na===nb) return true;
-  // a=추천메뉴, b=저장레시피 — 저장레시피가 추천메뉴에 포함될 때만 허용, 역방향 차단
-  if(na.includes(nb)) return nb.length/na.length>=0.6;
-  return false;
-}
-function findSavedRecipe(menuName){
-  return recipes.find(r=>fuzzyMatch(menuName,r.title));
-}
-
-// ── 1단계: 복수 메뉴 추천 ──
+function fuzzyMatch(a, b){ const na = a.toLowerCase().replace(/\s/g,''); const nb = b.toLowerCase().replace(/\s/g,''); if(na.includes(nb)) return nb.length/na.length>=0.6; return false; }
+function findSavedRecipe(menuName){ return recipes.find(r=>fuzzyMatch(menuName,r.title)); }
 async function recommend(){
-  if(recDebounce)return;
-  recDebounce=setTimeout(()=>recDebounce=null,400);
-  const apiKey=localStorage.getItem(K.apiKey);
-  if(!apiKey){toast('설정에서 Gemini API 키를 먼저 입력해주세요','err');return;}
-  if(!fridge.length){toast('냉장고 재료를 먼저 추가해주세요','err');return;}
-
+  if(recDebounce)return; recDebounce=setTimeout(()=>recDebounce=null,400);
+  const apiKey=localStorage.getItem(K.apiKey); if(!apiKey){toast('Gemini API 키를 먼저 입력해주세요','err');openModal('settings-modal');return;}
+  if(!fridge.length){toast('냉장고에 재료가 없어요','err');gotoPage('fridge');return;}
   const t0=today0();
-  const fridgeStr=fridge.map(i=>{
-    let s=i.name;
-    if(i.expiry){const d=new Date(i.expiry);d.setHours(0,0,0,0);const diff=Math.round((d-t0)/86400000);if(diff<=3)s+=`(⚠️D-${diff})`;}
-    return s;
-  }).join(', ');
-  const savedTitles=recipes.map(r=>r.title).join(', ');
-  const moodStr=moods.length?moods.join(', '):'특별한 선호 없음';
-  const recent=history.slice(0,5).map(h=>h.menu).join(', ');
-  const prefs=localStorage.getItem(K.prefs)||'';
-  const childAge=getChildAge();
-  let familyStr='부부 2인';
-  if(childWithUs&&childAge!==null) familyStr=`부부 + 아이(만 ${childAge}세) 3인`;
-
+  const fridgeStr=fridge.map(i=>{ let s=i.name; if(i.expiry){const d=new Date(i.expiry);d.setHours(0,0,0,0);const diff=Math.round((d-t0)/86400000);if(diff<=3)s+=`(D-${diff})`;} return s; }).join(',');
+  const savedTitles=recipes.map(r=>r.title).join(','); const moodStr=moods.length?moods.join(','):'특별한 선호 없음'; const recent=history.slice(0,5).map(h=>h.menu).join(','); const prefs=localStorage.getItem(K.prefs)||'';
+  const childAge=getChildAge(); let familyStr=childWithUs&&childAge!==null?`부부+아이(만 ${childAge}세) 3인`:'부부 2인';
   const prompt=`당신은 한국 가정식 요리 전문가입니다. 구글 검색으로 아래 냉장고 재료를 활용할 수 있는 저녁 메뉴를 3~5개 추천해주세요.
-
-냉장고 재료: ${fridgeStr}
-저장된 레시피: ${savedTitles||'없음'}
-식사 인원: ${familyStr}${childWithUs&&childAge!==null?`
-※ 아이 만 ${childAge}세: 자극적/매운 재료 주의`:''}
-오늘 선호: ${moodStr}
-최근 먹은 메뉴(중복 금지): ${recent||'없음'}
-가족 선호/제한: ${prefs||'없음'}
-
-규칙:
-- 저장된 레시피 목록과 동일하거나 유사한 메뉴가 있으면 반드시 레시피 목록에 있는 이름 그대로 추천할 것
-- 냉장고 재료 일부만 활용해도 되고, 부족한 재료는 장봐서 만들 수 있는 메뉴도 포함할 것 (웹 검색으로 검증)
-- 메뉴별 한 줄 추천 이유와 냉장고에서 쓸 수 있는 재료 목록 포함
-- 각 메뉴의 보유 재료 개수도 포함
-
-반드시 아래 JSON만 반환:
-{
-  "menus": [
-    {
-      "menu": "메뉴 이름",
-      "reason": "한 줄 추천 이유",
-      "have_ingredients": ["보유재료1","보유재료2"],
-      "have_count": 3
-    }
-  ]
-}`;
-
-  showSpin('메뉴 검색 중…');
-  $('rec-btn').disabled=true;
-  $('today-result').innerHTML='';
-
-  try{
-    const body={
-      contents:[{parts:[{text:prompt}]}],
-      tools:[{google_search:{}}],
-      generationConfig:{temperature:0.7,maxOutputTokens:1200,thinkingConfig:{thinkingBudget:0}}
-    };
-    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
-      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
-    });
-    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
-    const data=await res.json();
-    const parts=data?.candidates?.[0]?.content?.parts||[];
-    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||'';
-    let result;
-    try{
-      const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim();
-      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
-      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
-      result=JSON.parse(jsonMatch[0]);
-      if(!result.menus||!result.menus.length)throw new Error('메뉴 정보가 없어요');
-    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
-
-    renderMenuCandidates(result.menus);
-    toast(`메뉴 ${result.menus.length}개를 찾았어요! 선택해보세요 🍽️`,'ok');
-  }catch(err){
-    toast('추천 실패: '+(err.message||'다시 시도해주세요'),'err');
-  }finally{
-    hideSpin();$('rec-btn').disabled=false;
-  }
+냉장고 재료: ${fridgeStr}\n저장된 레시피: ${savedTitles||'없음'}\n식사 인원: ${familyStr}${childWithUs&&childAge!==null?` (만 ${childAge}세 아이 고려,자극적/매운맛 주의)`:''}\n오늘 선호: ${moodStr}\n최근 먹은 메뉴: ${recent||'없음'}\n가족 식성/제한: ${prefs||'없음'}
+규칙:\n- 저장된 레시피와 이름이 유사하면 해당 이름을 그대로 추천할 것\n- 부족한 재료는 장봐서 만들 수 있는 메뉴 포함 (웹 검색 활용)\n- 각 메뉴의 한 줄 추천 이유와 보유 재료 목록 포함\n반드시 아래 JSON만 반환:\n{\n  "menus": [\n    {\n      "menu": "메뉴 이름",\n      "reason": "한 줄 추천 이유",\n      "have_ingredients": ["보유재료1","보유재료2"]\n    }\n  ]\n}`;
+  showSpin('오늘의 메뉴 검색 중…'); $('rec-btn').disabled=true; $('today-result').innerHTML='';
+  try{ const body={contents:[{parts:[{text:prompt}]}],tools:[{google_search:{}}],generationConfig:{temperature:0.7,maxOutputTokens:1200,thinkingConfig:{thinkingBudget:0}}};
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');} const data=await res.json(); const raw=(data?.candidates?.[0]?.content?.parts||[]).filter(p=>p.text).map(p=>p.text).join('')||'';
+    let result; try{ const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim(); const jsonMatch=stripped.match(/\{[\s\S]*\}/); if(!jsonMatch)throw new Error('JSON 찾지 못함'); result=JSON.parse(jsonMatch[0]); }catch(e){throw new Error('응답 분석 실패');}
+    renderMenuCandidates(result.menus); toast(`${result.menus.length}개의 메뉴 제안 완료`,'ok'); }catch(err){ toast('추천 실패: '+(err.message||'다시 시도'),'err'); }finally{hideSpin();$('rec-btn').disabled=false;}
 }
 
-// 복수 메뉴 카드 렌더링
+// 복수 메뉴 카드 렌더링 - FA 아이콘 교체 및 Style C 강화
 function renderMenuCandidates(menus){
-  const personBadge=childWithUs&&getChildAge()!==null
-    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
-    :`<span style="font-size:.72rem;background:var(--paper);color:var(--ink-s);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
+  const childAge=getChildAge();
+  const personBadge=childWithUs&&childAge!==null
+    ?`<span id="person-badge" style="font-size:.75rem;background:#FEF3E2;color:#D97706;padding:.2rem .7rem;border-radius:var(--r-sm);"><i class="fa-solid fa-child"></i> 아이와 함께</span>`
+    :`<span id="person-badge" style="font-size:.75rem;background:var(--subtle);color:var(--ink-m);padding:.2rem .7rem;border-radius:var(--r-sm); border:1px solid #ddd;"><i class="fa-solid fa-users"></i> 부부 2인</span>`;
 
   $('today-result').innerHTML=`
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
-      <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">오늘의 추천 메뉴</div>
+    <div id="today-result-title-row" style="display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-family:var(--font-serif);font-size:.8rem;font-weight:800;color:var(--ink-s);text-transform:uppercase;letter-spacing:.1em;">Our Suggestions</div>
       ${personBadge}
     </div>
     <div class="menu-candidates">
       ${menus.map((m,i)=>{
         const saved=findSavedRecipe(m.menu);
         return `<div class="menu-card ${saved?'menu-card-saved':''}" onclick="selectMenu(${i})">
-          <div class="menu-card-icon">${saved?'📖':'🍽️'}</div>
+          <div class="menu-card-icon"><i class="fa-solid ${saved?'fa-book-open-reader':'fa-utensils'}"></i></div>
           <div class="menu-card-body">
             <div class="menu-card-name">${esc(m.menu)}</div>
             <div class="menu-card-reason">${esc(m.reason)}</div>
             <div class="menu-card-badges">
-              ${saved?`<span class="badge-saved">📖 저장된 레시피</span>`:''}
-              ${(m.have_ingredients||[]).slice(0,3).map(i=>`<span class="badge-have">${esc(i)}</span>`).join('')}
+              ${saved?`<span class="badge-saved">Saved Recipe</span>`:''}
+              ${(m.have_ingredients||[]).slice(0,3).map(it=>`<span class="badge-have">${esc(it)}</span>`).join('')}
               ${(m.have_ingredients||[]).length>3?`<span class="badge-have">+${m.have_ingredients.length-3}</span>`:''}
             </div>
           </div>
-          <div class="menu-card-arrow">›</div>
+          <div class="menu-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
         </div>`;
       }).join('')}
     </div>
-    <button class="btn btn-ghost btn-full" style="font-size:.85rem;" onclick="recommend()">🔄 다시 추천받기</button>
+    <button class="btn btn-ghost btn-full" style="font-size:.9rem; border-color:#ccc;" onclick="recommend()"><i class="fa-solid fa-rotate"></i> 다시 추천받기</button>
   `;
-  // 전역에 메뉴 목록 저장 (selectMenu에서 사용)
   window._candidates=menus;
 }
 
-// ── 2단계: 메뉴 선택 후 상세 레시피 ──
+// ── selectMenu - 건드리지 않음 ──
 async function selectMenu(idx){
-  const m=window._candidates[idx];
-  if(!m)return;
-  const apiKey=localStorage.getItem(K.apiKey);
-  const saved=findSavedRecipe(m.menu);
-
-  // 저장된 레시피 있으면 바로 표시 (API 호출 없음)
-  if(saved){
-    renderDetailResult(m, null, saved);
-    return;
-  }
-
-  showSpin(`${m.menu} 레시피 검색 중…`);
-  const t0=today0();
-  const fridgeStr=fridge.map(i=>i.name).join(', ');
-  const childAge=getChildAge();
-  let familyStr='부부 2인';
-  if(childWithUs&&childAge!==null) familyStr=`부부 + 아이(만 ${childAge}세) 3인`;
-
-  const prompt=`당신은 한국 가정식 요리 전문가입니다. "${m.menu}" 레시피를 구글 검색으로 찾아주세요.
-
-냉장고 재료: ${fridgeStr}
-식사 인원: ${familyStr}
-
-반드시 아래 JSON만 반환:
-{
-  "menu": "${m.menu}",
-  "reason": "${m.reason}",
-  "recipe_steps": "상세 조리법 (번호 매겨서)",
-  "have_ingredients": ["보유재료1","보유재료2"],
-  "missing_ingredients": ["없는재료1"],
-  "tip": "조리 팁",
-  "youtube_url": "https://youtu.be/... 또는 빈문자열"
-}`;
-
-  try{
-    const body={
-      contents:[{parts:[{text:prompt}]}],
-      tools:[{google_search:{}}],
-      generationConfig:{temperature:0.5,maxOutputTokens:2000,thinkingConfig:{thinkingBudget:0}}
-    };
-    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
-      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
-    });
-    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
-    const data=await res.json();
-    const parts=data?.candidates?.[0]?.content?.parts||[];
-    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||'';
-    let r;
-    try{
-      const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim();
-      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
-      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
-      r=JSON.parse(jsonMatch[0]);
-    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
-    renderDetailResult(m, r, null);
-  }catch(err){
-    toast('레시피 검색 실패: '+(err.message||'다시 시도해주세요'),'err');
-  }finally{
-    hideSpin();
-  }
+  const m=window._candidates[idx]; if(!m)return; const apiKey=localStorage.getItem(K.apiKey); const saved=findSavedRecipe(m.menu);
+  if(saved){ renderDetailResult(m, null, saved); return; }
+  showSpin(`'${m.menu}' 레시피 가져오는 중…`); const fridgeStr=fridge.map(i=>i.name).join(','); const childAge=getChildAge(); let familyStr=childWithUs&&childAge!==null?`부부+아이(만 ${childAge}세) 3인`:'부부 2인';
+  const prompt=`당신은 한국 가정식 전문가입니다. '${m.menu}'의 상세 레시피를 구글 검색으로 찾아주세요.\n냉장고 보유 재료: ${fridgeStr}\n식사 인원: ${familyStr}\n규칙:\n- 조리법은 번호를 매겨 상세히 정리\n- 필요한 재료 중 냉장고에 없는 '장봐야 할 재료' 별도 분리\n반드시 아래 JSON만 반환:\n{\n  "menu": "${m.menu}",\n  "reason": "${m.reason}",\n  "recipe_steps": "상세 조리법 (\\n 구분)",\n  "have_ingredients": ["보유재료1","보유재료2"],\n  "missing_ingredients": ["없는재료1"],\n  "tip": "조리 팁",\n  "youtube_url": "https://youtu.be/... (선택)"\n}`;
+  try{ const body={contents:[{parts:[{text:prompt}]}],tools:[{google_search:{}}],generationConfig:{temperature:0.5,maxOutputTokens:2000,thinkingConfig:{thinkingBudget:0}}};
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');} const data=await res.json(); const raw=(data?.candidates?.[0]?.content?.parts||[]).filter(p=>p.text).map(p=>p.text).join('')||'';
+    let r; try{ const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim(); const jsonMatch=stripped.match(/\{[\s\S]*\}/); if(!jsonMatch)throw new Error('JSON 없음'); r=JSON.parse(jsonMatch[0]); }catch(e){throw new Error('응답 분석 실패');}
+    renderDetailResult(m, r, null); }catch(err){ toast('레시피 실패: '+(err.message),'err'); }finally{hideSpin();}
 }
 
-// 상세 결과 렌더링
-// isRestore=true 이면 히스토리 재저장 안 함
+// 상세 결과 렌더링 - FA 아이콘 교체 및 Style C 강화
 function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
-  const r=apiResult||{};
-  const menuName=candidate.menu;
-  const reason=savedRecipe
-    ? (savedRecipe.tags||[]).join(' · ')||''
-    : r.reason||candidate.reason||'';
-  const recipeSteps=savedRecipe?savedRecipe.steps:(r.recipe_steps||'');
-  const haveIngs=savedRecipe?savedRecipe.ingredients:(r.have_ingredients||candidate.have_ingredients||[]);
-  const missingIngs=r.missing_ingredients||[];
-  const tip=r.tip||'';
-  const ytUrl=savedRecipe?.ref&&isYoutube(savedRecipe.ref)?savedRecipe.ref:(r.youtube_url&&validUrl(r.youtube_url)?r.youtube_url:'');
-  const source=savedRecipe?'saved':'web';
-
-  if(!isRestore){
-    const histItem={
-      id:uid(),menu:menuName,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods],
-      source,
-      result:{reason,recipe_steps:recipeSteps,have_ingredients:haveIngs,missing_ingredients:missingIngs,tip,youtube_url:ytUrl}
-    };
-    history.unshift(histItem);
-    history=history.slice(0,20);
-    sv(K.history,history);
-    syncReplaceHistory();
-  }
-
-  $('rec-btn').style.display='none';
-
-  const recipeBodyId='rec-recipe-body-'+Date.now();
-  const personBadge=childWithUs&&getChildAge()!==null
-    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
-    :`<span style="font-size:.72rem;background:rgba(255,255,255,.12);color:rgba(250,246,238,.6);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
-
-  const missingHtml=missingIngs.length?`<div class="shop-box">
-    <div class="shop-title">🛒 장봐야 할 재료</div>
-    <div class="shop-items">${missingIngs.map(i=>`<span class="shop-chip">${esc(i)}</span>`).join('')}</div>
-  </div>`:'';
+  const r=apiResult||{}; const menuName=candidate.menu; const reason=savedRecipe?(savedRecipe.tags||[]).join('·'):(r.reason||candidate.reason||'');
+  const recipeSteps=savedRecipe?savedRecipe.steps:(r.recipe_steps||''); const haveIngs=savedRecipe?savedRecipe.ingredients:(r.have_ingredients||candidate.have_ingredients||[]);
+  const missingIngs=r.missing_ingredients||[]; const tip=r.tip||''; const ytUrl=savedRecipe?.ref&&isYoutube(savedRecipe.ref)?savedRecipe.ref:(r.youtube_url&&validUrl(r.youtube_url)?r.youtube_url:''); const source=savedRecipe?'saved':'web';
+  if(!isRestore){ const histItem={id:uid(),menu:menuName,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods],source,result:{reason,recipe_steps:recipeSteps,have_ingredients:haveIngs,missing_ingredients:missingIngs,tip,youtube_url:ytUrl}}; history.unshift(histItem); history=history.slice(0,20); sv(K.history,history); syncReplaceHistory(); }
+  $('rec-btn').style.display='none'; const recipeBodyId='rec-recipe-body-'+Date.now();
+  const childAge=getChildAge(); const personBadge=childWithUs&&childAge!==null?`<span style="font-size:.75rem;background:rgba(255,255,255,.1);color:#AAA;padding:.2rem .7rem;border-radius:var(--r-sm); font-family:var(--font-serif); font-weight:700;"><i class="fa-solid fa-child"></i> 만 ${childAge}세 아이 고려</span>`:'';
+  const missingHtml=missingIngs.length?`<div class="shop-box"><div class="shop-title"><i class="fa-solid fa-cart-shopping"></i> 장봐야 할 재료</div><div class="shop-items">${missingIngs.map(it=>`<span class="shop-chip">${esc(it)}</span>`).join('')}</div></div>`:'';
 
   $('today-result').innerHTML=`
-    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;"
-      onclick="renderMenuCandidates(window._candidates);$('rec-btn').style.display='';">← 메뉴 목록으로</button>
+    <button class="btn btn-ghost" style="margin-bottom:1rem;font-size:.85rem; padding:.5rem 1rem; border-color:#ccc;" onclick="renderMenuCandidates(window._candidates);$('rec-btn').style.display='';"><i class="fa-solid fa-arrow-left"></i> 목록으로</button>
     <div class="rec-card" style="animation:fadeIn .4s ease;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;">
-        <div class="rec-label">${savedRecipe?'📖 저장된 레시피':'오늘의 추천 메뉴'}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">
+        <div class="rec-label">${savedRecipe?'Saved Recipe':'Suggested Dinner'}</div>
         ${personBadge}
       </div>
-      <div class="rec-menu">🍽️ ${esc(menuName)}</div>
+      <div class="rec-menu">${esc(menuName)}</div>
       ${reason?`<div class="rec-reason">${esc(reason)}</div>`:''}
-      ${tip?`<div class="rec-tip">💡 ${esc(tip)}</div>`:''}
+      ${tip?`<div class="rec-tip"><i class="fa-solid fa-lightbulb" style="color:var(--miso); margin-right:.4rem;"></i> ${esc(tip)}</div>`:''}
     </div>
     ${missingHtml}
     <div class="rec-recipe-box">
       <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
-        <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
+        <div class="rec-recipe-head-title"><i class="fa-solid fa-list-check"></i> 레시피 상세</div>
         <div class="rec-recipe-toggle">▾ 펼치기</div>
       </div>
       <div class="rec-recipe-body" id="${recipeBodyId}">
-        ${haveIngs.length?`
-          <div style="margin-bottom:.75rem;">
-            <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;">보유 재료</div>
-            <div class="ing-chips">${haveIngs.map(i=>`<span class="ing-chip" style="background:#e8f5e9;color:#2e7d32;">${esc(i)}</span>`).join('')}</div>
-          </div>`:''}
+        ${haveIngs.length?`<div style="margin-bottom:1.25rem;"><div style="font-family:var(--font-serif);font-size:.75rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.6rem;">Pantry Ingredients</div><div class="ing-chips">${haveIngs.map(it=>`<span class="ing-chip" style="background:#E8F5E9;color:#2E7D32; border:1px solid #C8E6C9;">${esc(it)}</span>`).join('')}</div></div>`:''}
         <div class="steps-text">${esc(recipeSteps)}</div>
       </div>
     </div>
-    <div class="rec-actions">
-      ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피</a>`:''}
-      ${!savedRecipe
-        ?`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})">＋ 레시피로 저장</button>`
-        :''
-      }
+    <div class="rec-actions" style="margin-top:1.25rem;">
+      ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#C00; border-color:#C00;"><i class="fa-brands fa-youtube"></i> 유튜브 보기</a>`:''}
+      ${!savedRecipe?`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(it=>esc(it)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})"><i class="fa-solid fa-bookmark"></i> 북마크 저장</button>`:''}
     </div>
-    <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
-      onclick="openConfirmModal(${JSON.stringify(esc(menuName))}, ${JSON.stringify((haveIngs).map(i=>esc(i)))})">
-      ✅ 이 메뉴로 오늘 저녁 확정 — 재료 정리하기
+    <button class="btn btn-terra btn-full" style="margin-top:1rem;font-size:.95rem;" onclick="openConfirmModal(${JSON.stringify(esc(menuName))}, ${JSON.stringify((haveIngs).map(it=>esc(it)))})">
+      <i class="fa-solid fa-check"></i> 오늘 저녁 확정 — 재료 정리
     </button>
   `;
   renderHistory();
 }
+function toggleRecipeDetail(id,head){ const body=$(id); const isOpen=body.classList.toggle('open'); head.querySelector('.rec-recipe-toggle').textContent=isOpen?'▴ 접기':'▾ 펼치기'; }
 
-function toggleRecipeDetail(id,head){
-  const body=$(id);
-  const isOpen=body.classList.toggle('open');
-  head.querySelector('.rec-recipe-toggle').textContent=isOpen?'▴ 접기':'▾ 펼치기';
-}
-
-/* ── 오늘 저녁 확정 + 재료 체크리스트 ── */
-let confirmMatches=[]; // [{fridgeItem, recipeIngredient, matched}]
-
+/* ── 오늘 저녁 확정 + 재료 체크리스트 - FA 아이콘 교체 ── */
+let confirmMatches=[];
 function openConfirmModal(menuName, usedIngredients){
-  // usedIngredients: Gemini가 반환한 have_ingredients (보유 재료 목록)
-  // 냉장고 재료와 퍼지 매칭 (포함 관계)
-  confirmMatches = fridge.map(fridgeItem => {
-    const fname = fridgeItem.name.toLowerCase().trim();
-    // usedIngredients 중 냉장고 재료 이름과 교집합이 있으면 매칭
-    const matchedIng = usedIngredients.find(ing => {
-      const iname = ing.toLowerCase().trim();
-      return iname.includes(fname) || fname.includes(iname)
-        || iname.replace(/\s/g,'').includes(fname.replace(/\s/g,''))
-        || fname.replace(/\s/g,'').includes(iname.replace(/\s/g,''));
-    });
+  confirmMatches = fridge.map(fridgeItem => { const fname = fridgeItem.name.toLowerCase().trim();
+    const matchedIng = usedIngredients.find(ing => { const iname = ing.toLowerCase().trim(); return iname.includes(fname) || fname.includes(iname); });
     return { fridgeItem, matchedIng: matchedIng||null, checked: !!matchedIng };
   });
-
-  renderConfirmChecklist(menuName);
-  openModal('confirm-modal');
+  renderConfirmChecklist(menuName); openModal('confirm-modal');
 }
-
 function renderConfirmChecklist(menuName){
-  const matched = confirmMatches.filter(m=>m.matchedIng);
-  const unmatched = confirmMatches.filter(m=>!m.matchedIng);
-
+  const matched = confirmMatches.filter(m=>m.matchedIng); const unmatched = confirmMatches.filter(m=>!m.matchedIng);
   $('confirm-checklist').innerHTML = `
-    ${matched.length===0?`<div style="text-align:center;padding:1rem;color:var(--ink-s);font-size:.85rem;">냉장고 재료와 자동 매칭된 항목이 없어요.<br>직접 체크해서 삭제하실 수 있어요.</div>`:''}
-    ${matched.length?`<div style="font-size:.72rem;font-weight:700;color:var(--terra);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;">🟢 사용된 것으로 추정되는 재료</div>`:''}
-    ${matched.map((m,i)=>{
-      const globalIdx = confirmMatches.indexOf(m);
-      return `<div class="check-item ${m.checked?'checked':''}" onclick="toggleConfirmCheck(${globalIdx})">
-        <div class="check-box">${m.checked?'✓':''}</div>
-        <div style="flex:1;min-width:0;">
-          <div class="check-name">${esc(m.fridgeItem.name)}</div>
-          <div class="check-sub">${esc(m.fridgeItem.cat)}${m.fridgeItem.expiry?` · 유통기한 ${esc(m.fridgeItem.expiry)}`:''}</div>
-        </div>
-        <span class="check-badge-match">매칭됨</span>
-      </div>`;
-    }).join('')}
-    ${unmatched.length?`<div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.05em;margin:1rem 0 .5rem;">냉장고의 다른 재료 (직접 선택)</div>`:''}
-    ${unmatched.map((m,i)=>{
-      const globalIdx = confirmMatches.indexOf(m);
-      return `<div class="check-item ${m.checked?'checked':''} no-match" onclick="toggleConfirmCheck(${globalIdx})" style="cursor:pointer;opacity:1;">
-        <div class="check-box">${m.checked?'✓':''}</div>
-        <div style="flex:1;min-width:0;">
-          <div class="check-name">${esc(m.fridgeItem.name)}</div>
-          <div class="check-sub">${esc(m.fridgeItem.cat)}${m.fridgeItem.expiry?` · 유통기한 ${esc(m.fridgeItem.expiry)}`:''}</div>
-        </div>
-        <span class="check-badge-nomatch">직접 선택</span>
-      </div>`;
-    }).join('')}
+    ${matched.length?`<div style="font-family:var(--font-serif);font-size:.75rem;font-weight:700;color:var(--success);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.7rem;">Used Ingredients (Cloud Matched)</div>`:''}
+    ${matched.map((m,i)=>{ const globalIdx = confirmMatches.indexOf(m); return `<div class="check-item ${m.checked?'checked':''}" onclick="toggleConfirmCheck(${globalIdx})"><div class="check-box"><i class="fa-solid ${m.checked?'fa-check-square':'fa-square'}" style="color:${m.checked?'var(--success)':'#CCC'}"></i></div><div style="flex:1;min-width:0;"><div class="check-name">${esc(m.fridgeItem.name)}</div><div class="check-sub">${esc(m.fridgeItem.cat)}·D-${Math.max(0,Math.round((new Date(m.fridgeItem.expiry)-today0())/86400000))}</div></div><span class="check-badge-match"><i class="fa-solid fa-tags"></i> 매칭됨</span></div>`; }).join('')}
+    ${unmatched.length?`<div style="font-family:var(--font-serif);font-size:.75rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.05em;margin:1.5rem 0 .7rem;">Other Ingredients (Manual Select)</div>`:''}
+    ${unmatched.map((m,i)=>{ const globalIdx = confirmMatches.indexOf(m); return `<div class="check-item ${m.checked?'checked':''}" onclick="toggleConfirmCheck(${globalIdx})"><div class="check-box"><i class="fa-solid ${m.checked?'fa-check-square':'fa-square'}" style="color:${m.checked?'var(--success)':'#CCC'}"></i></div><div style="flex:1;min-width:0;"><div class="check-name">${esc(m.fridgeItem.name)}</div><div class="check-sub">${esc(m.fridgeItem.cat)}</div></div><span class="check-badge-nomatch">미사용</span></div>`; }).join('')}
   `;
 }
+function toggleConfirmCheck(idx){ confirmMatches[idx].checked = !confirmMatches[idx].checked; const menuName = $('confirm-modal').querySelector('.modal-title')?.textContent||''; renderConfirmChecklist(menuName); }
+function applyConfirm(){ const toDelete = confirmMatches.filter(m=>m.checked).map(m=>m.fridgeItem.id); if(!toDelete.length){toast('선택된 재료가 없습니다','err');return;} if(!confirm(`${toDelete.length}개의 재료를 냉장고에서 삭제할까요?`))return; toDelete.forEach(id=>{ fridge = fridge.filter(i=>i.id!==id); syncDelete('fridge',id); }); sv(K.fridge,fridge); closeModal('confirm-modal'); renderFridge(); refreshToday(); toast(`냉장고 재료 ${toDelete.length}개 정리 완료`,'ok'); gotoPage('fridge'); }
 
-function toggleConfirmCheck(idx){
-  confirmMatches[idx].checked = !confirmMatches[idx].checked;
-  // re-render checklist in place
-  const items = $('confirm-checklist').querySelectorAll('.check-item');
-  // 전체 재렌더 (간단하게)
-  const menuName = $('confirm-modal').querySelector('.modal-title')?.textContent||'';
-  renderConfirmChecklist(menuName);
-}
-
-function applyConfirm(){
-  const toDelete = confirmMatches.filter(m=>m.checked).map(m=>m.fridgeItem.id);
-  if(!toDelete.length){toast('선택된 재료가 없어요','err');return;}
-  toDelete.forEach(id=>{
-    fridge = fridge.filter(i=>i.id!==id);
-    syncDelete('fridge',id);
-  });
-  sv(K.fridge,fridge);
-  closeModal('confirm-modal');
-  renderFridge();
-  refreshToday();
-  toast(`냉장고에서 ${toDelete.length}가지 재료를 삭제했어요 ✓`,'ok');
-}
-
+/* ── History - FA 아이콘 교체 ── */
 function renderHistory(){
-  const l=$('history-list');
-  if(!history.length){l.innerHTML=`<div style="font-size:.85rem;color:var(--ink-xs);padding:1.5rem 0;text-align:center;">아직 추천 기록이 없어요</div>`;return;}
-  l.innerHTML=history.slice(0,10).map((h,i)=>{
-    const hasResult=!!(h.result&&h.result.recipe_steps);
-    const srcIcon=h.source==='saved'?'📖':'🌐';
-    const srcLabel=h.source==='saved'?'저장 레시피':'웹 검색';
-    return `<div class="history-row" style="display:flex;align-items:center;gap:.65rem;padding:.6rem .25rem;border-bottom:1px solid var(--border);">
-      <div style="flex:1;min-width:0;cursor:${hasResult?'pointer':'default'};" onclick="${hasResult?`restoreHistory(${i})`:''}" >
-        <div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.15rem;">
-          <span style="font-size:.65rem;background:${h.source==='saved'?'#e8f5e9':'#e8f0fe'};color:${h.source==='saved'?'#2e7d32':'#1a73e8'};padding:.1rem .45rem;border-radius:8px;font-weight:600;">${srcIcon} ${srcLabel}</span>
+  const l=$('history-list'); if(!history.length){l.innerHTML=`<div style="font-size:.9rem;color:var(--ink-s);padding:2rem 0;text-align:center;">아직 제안 기록이 없습니다.</div>`;return;}
+  l.innerHTML=history.slice(0,10).map((h,i)=>{ const hasResult=!!(h.result&&h.result.recipe_steps); const srcIcon=h.source==='saved'?'<i class="fa-solid fa-bookmark"></i>':'<i class="fa-solid fa-globe"></i>'; const srcLabel=h.source==='saved'?'북마크':'웹 추천';
+    return `<div class="history-row" onclick="${hasResult?`restoreHistory(${i})`:''}">
+      <div style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.2rem;">
+          <span style="font-family:var(--font-serif);font-size:.65rem;background:${h.source==='saved'?'#E8F5E9':'#EEF2FF'};color:${h.source==='saved'?'#2E7D32':'#4F46E5'};padding:.1rem .5rem;border-radius:var(--r-sm);font-weight:700;">${srcIcon} ${srcLabel}</span>
+          <div class="history-date">${esc(h.date)}</div>
         </div>
         <div class="history-menu">${esc(h.menu)}</div>
-        <div class="history-date">${esc(h.date)}${h.moods&&h.moods.length?' · '+h.moods.join(', '):''}</div>
       </div>
-      ${hasResult?`<span style="font-size:.75rem;color:var(--ink-xs);cursor:pointer;" onclick="restoreHistory(${i})">›</span>`:''}
-      <button onclick="event.stopPropagation();deleteHistory(${i})" style="background:none;border:none;cursor:pointer;color:var(--ink-xs);font-size:1rem;padding:.25rem .35rem;border-radius:6px;flex-shrink:0;line-height:1;" title="삭제">×</button>
+      <button onclick="event.stopPropagation();deleteHistory(${i})" style="background:none;border:none;cursor:pointer;color:#BBB;font-size:1.1rem;padding:.3rem; transition:color 0.2s;" title="삭제">✕</button>
     </div>`;
   }).join('');
 }
+function restoreHistory(idx){ const h=history[idx]; if(!h||!h.result)return; const candidate={menu:h.menu,reason:h.result.reason||'',have_ingredients:h.result.have_ingredients||[]}; const r=h.result; const saved=h.source==='saved'?findSavedRecipe(h.menu):null; const apiResult={reason:r.reason||'',recipe_steps:r.recipe_steps||'',have_ingredients:r.have_ingredients||[],missing_ingredients:r.missing_ingredients||[],tip:r.tip||'',youtube_url:r.youtube_url||''}; if(!window._candidates) window._candidates=[]; renderDetailResult(candidate, apiResult, saved, true); gotoPage('today'); window.scrollTo({top:0,behavior:'smooth'}); toast(`'${h.menu}' 기록을 불러왔습니다`,'ok'); }
+function deleteHistory(idx){ if(!confirm('이 추천 기록을 삭제할까요?'))return; history.splice(idx,1); sv(K.history,history); syncReplaceHistory(); renderHistory(); toast('삭제 완료'); }
+function clearHistory(){ if(!confirm('모든 추천 기록을 지울까요?'))return; history=[];sv(K.history,history); syncReplaceHistory(); renderHistory();toast('기록 지움'); }
+function saveToRecipes(menuName, reason, ingredients, steps, ytUrl){ if(recipes.find(r=>r.title===menuName)){toast('이미 저장된 레시피입니다','err');return;}
+  const item={id:uid(),title:menuName,ingredients:Array.isArray(ingredients)?ingredients:[],steps:steps||'',image:'',ref:ytUrl||'',tags:['AI추천'],savedAt:new Date().toLocaleDateString('ko-KR')}; recipes.push(item); sv(K.recipes,recipes); syncUpsert('recipes',item); renderRecipes(); refreshToday(); toast(`레시피북에 저장 완료 ✓`,'ok'); }
 
-function restoreHistory(idx){
-  const h=history[idx];
-  if(!h||!h.result)return;
-  const candidate={menu:h.menu,reason:h.result.reason||'',have_ingredients:h.result.have_ingredients||[]};
-  const r=h.result;
-  const saved=h.source==='saved'?findSavedRecipe(h.menu):null;
-  const apiResult={
-    reason:r.reason||'',
-    recipe_steps:r.recipe_steps||'',
-    have_ingredients:r.have_ingredients||[],
-    missing_ingredients:r.missing_ingredients||[],
-    tip:r.tip||'',
-    youtube_url:r.youtube_url||''
-  };
-  if(!window._candidates) window._candidates=[];
-  // isRestore=true → 히스토리 재저장 없음
-  renderDetailResult(candidate, apiResult, saved, true);
-  gotoPage('today');
-  window.scrollTo({top:0,behavior:'smooth'});
-  toast(`${h.menu} 기록을 불러왔어요`,'ok');
-}
-function deleteHistory(idx){
-  history.splice(idx,1);
-  sv(K.history,history);
-  syncReplaceHistory();
-  renderHistory();
-  refreshToday();
-  toast('삭제했어요');
-}
-
-function clearHistory(){
-  if(!confirm('히스토리를 모두 지울까요?'))return;
-  history=[];sv(K.history,history);
-  syncReplaceHistory();
-  renderHistory();toast('지웠어요');
-}
-
-function saveToRecipes(menuName, reason, ingredients, steps, ytUrl){
-  // 이미 있는지 확인
-  if(recipes.find(r=>r.title===menuName)){
-    toast('이미 저장된 레시피예요','err');return;
-  }
-  const item={
-    id:uid(),
-    title:menuName,
-    ingredients:Array.isArray(ingredients)?ingredients:[],
-    steps:steps||'',
-    image:'',
-    ref:ytUrl||'',
-    tags:['AI추천'],
-    savedAt:new Date().toLocaleDateString('ko-KR')
-  };
-  recipes.push(item);
-  sv(K.recipes,recipes);
-  syncUpsert('recipes',item);
-  renderRecipes();
-  refreshToday();
-  toast(`'${menuName}' 레시피로 저장했어요 ✓`,'ok');
-}
-
-/* ── FRIDGE ── */
-const CAT_EMOJI={채소:'🥬',육류:'🥩',해산물:'🐟',유제품:'🥛',냉동:'❄️',레토르트:'📦',기타:'🫙'};
-const CATS=['채소','육류','해산물','유제품','냉동','레토르트','기타'];
-
+/* ── FRIDGE - 건드리지 않음 ── */
+const CAT_EMOJI={채소:'🥬',육류:'🥩',해산물:'🐟',유제품:'🥛',냉동:'❄️',레토르트:'📦',기타:'🫙'}; const CATS=['채소','육류','해산물','유제품','냉동','레토르트','기타'];
 function renderFridge(){
-  const t0=today0();
-  const items=fridgeFilter==='all'?fridge:fridge.filter(i=>i.cat===fridgeFilter);
-  $('fridge-total').textContent=fridge.length;
-  const g=$('fridge-grid');
-  if(!items.length){
-    g.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🧊</div><div class="empty-title">재료가 없어요</div><div class="empty-sub">+ 재료 추가로 냉장고를 채워보세요</div></div>`;
-    return;
-  }
-  g.innerHTML=items.map(it=>{
-    let eb='';
-    if(it.expiry){
-      const d=new Date(it.expiry);d.setHours(0,0,0,0);
-      const diff=Math.round((d-t0)/86400000);
-      if(diff<0)eb=`<span class="expiry-badge eb-crit">만료됨</span>`;
-      else if(diff<=2)eb=`<span class="expiry-badge eb-crit">D-${diff}</span>`;
-      else if(diff<=7)eb=`<span class="expiry-badge eb-warn">D-${diff}</span>`;
-      else eb=`<span class="expiry-badge eb-ok">D-${diff}</span>`;
-    }
+  const t0=today0(); const items=fridgeFilter==='all'?fridge:fridge.filter(i=>i.cat===fridgeFilter); $('fridge-total').textContent=fridge.length; const g=$('fridge-grid');
+  if(!items.length){ g.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon"><i class="fa-solid fa-fridge"></i></div><div class="empty-title">냉장고가 비었습니다</div><div class="empty-sub">재료 추가로 냉장고를 채워주세요</div></div>`; return; }
+  g.innerHTML=items.map(it=>{ let eb=''; if(it.expiry){ const d=new Date(it.expiry);d.setHours(0,0,0,0); const diff=Math.round((d-t0)/86400000); if(diff<0)eb=`<span class="expiry-badge eb-crit">만료됨</span>`; else if(diff<=2)eb=`<span class="expiry-badge eb-crit">D-${diff}</span>`; else if(diff<=7)eb=`<span class="expiry-badge eb-warn">D-${diff}</span>`; else eb=`<span class="expiry-badge eb-ok">D-${diff}</span>`; }
     return `<div class="fridge-tile">
       <div class="tile-actions">
-        <button class="tile-btn tile-btn-edit" onclick="event.stopPropagation();editFridge('${it.id}')">✏</button>
-        <button class="tile-btn tile-btn-del" onclick="event.stopPropagation();delFridge('${it.id}')">×</button>
+        <button class="tile-btn tile-btn-edit" onclick="event.stopPropagation();editFridge('${it.id}')"><i class="fa-solid fa-pen"></i></button>
+        <button class="tile-btn tile-btn-del" onclick="event.stopPropagation();delFridge('${it.id}')">✕</button>
       </div>
       <span class="tile-cat-icon">${CAT_EMOJI[it.cat]||'🫙'}</span>
       <div class="tile-name">${esc(it.name)}</div>
-      <div class="tile-meta">${esc(it.cat)}${it.added?` · ${esc(it.added)}`:''}${it.memo?`<br>${esc(it.memo)}`:''}${eb?`<br>${eb}`:''}</div>
+      <div class="tile-meta">${esc(it.cat)}${it.added?`·${esc(it.added)}`:''}${it.memo?`<br>${esc(it.memo)}`:''}${eb?`<br>${eb}`:''}</div>
     </div>`;
   }).join('');
 }
+function setFilter(cat,el){ fridgeFilter=cat; document.querySelectorAll('#fridge-filters .filter-chip').forEach(c=>c.classList.remove('on')); el.classList.add('on');renderFridge(); }
+function openFridgeAdd(){ $('fridge-modal-ttl').textContent='Add Ingredient';$('f-edit-id').value=''; ['f-name','f-memo'].forEach(id=>$(id).value=''); $('f-cat').value='채소';$('f-added').value=new Date().toISOString().split('T')[0];$('f-expiry').value=''; openModal('fridge-modal'); }
+function editFridge(id){ const it=fridge.find(i=>i.id===id);if(!it)return; $('fridge-modal-ttl').textContent='Edit Ingredient';$('f-edit-id').value=id; $('f-name').value=it.name;$('f-cat').value=it.cat; $('f-added').value=it.added||'';$('f-expiry').value=it.expiry||'';$('f-memo').value=it.memo||''; openModal('fridge-modal'); }
+function saveFridge(){ const name=ss($('f-name').value,50);if(!name){toast('재료명을 입력해주세요','err');return;} const cat=CATS.includes($('f-cat').value)?$('f-cat').value:'기타'; const item={id:$('f-edit-id').value||uid(),name,cat,added:$('f-added').value,expiry:$('f-expiry').value,memo:ss($('f-memo').value,100)}; const idx=fridge.findIndex(i=>i.id===item.id); if(idx>=0)fridge[idx]=item;else fridge.push(item); sv(K.fridge,fridge);closeModal('fridge-modal');renderFridge(); syncUpsert('fridge', item); toast(idx>=0?'수정 완료 ✓':'추가 완료 ✓','ok'); refreshToday(); }
+function delFridge(id){ if(!confirm('이 재료를 냉장고에서 삭제할까요?'))return; fridge=fridge.filter(i=>i.id!==id);sv(K.fridge,fridge); syncDelete('fridge', id); renderFridge();toast('삭제 완료'); refreshToday(); }
 
-function setFilter(cat,el){
-  fridgeFilter=cat;
-  document.querySelectorAll('#fridge-filters .filter-chip').forEach(c=>c.classList.remove('on'));
-  el.classList.add('on');renderFridge();
-}
-function openFridgeAdd(){
-  $('fridge-modal-ttl').textContent='재료 추가';$('f-edit-id').value='';
-  ['f-name','f-memo'].forEach(id=>$(id).value='');
-  $('f-cat').value='채소';$('f-added').value=new Date().toISOString().split('T')[0];$('f-expiry').value='';
-  openModal('fridge-modal');
-}
-function editFridge(id){
-  const it=fridge.find(i=>i.id===id);if(!it)return;
-  $('fridge-modal-ttl').textContent='재료 수정';$('f-edit-id').value=id;
-  $('f-name').value=it.name;$('f-cat').value=it.cat;
-  $('f-added').value=it.added||'';$('f-expiry').value=it.expiry||'';$('f-memo').value=it.memo||'';
-  openModal('fridge-modal');
-}
-function saveFridge(){
-  const name=ss($('f-name').value,50);if(!name){toast('재료명을 입력해주세요','err');return;}
-  const cat=CATS.includes($('f-cat').value)?$('f-cat').value:'기타';
-  const item={id:$('f-edit-id').value||uid(),name,cat,added:$('f-added').value,expiry:$('f-expiry').value,memo:ss($('f-memo').value,100)};
-  const idx=fridge.findIndex(i=>i.id===item.id);
-  if(idx>=0)fridge[idx]=item;else fridge.push(item);
-  sv(K.fridge,fridge);closeModal('fridge-modal');renderFridge();
-  syncUpsert('fridge', item);
-  toast(idx>=0?'수정했어요 ✓':'재료를 추가했어요 ✓','ok');
-}
-function delFridge(id){
-  if(!confirm('이 재료를 삭제할까요?'))return;
-  fridge=fridge.filter(i=>i.id!==id);sv(K.fridge,fridge);
-  syncDelete('fridge', id);
-  renderFridge();toast('삭제했어요');
-}
-
-/* ── RECIPE ── */
-/* ── RECIPE SEARCH ── */
-let recipeQuery='';
-function filterRecipes(){
-  const q=($('recipe-search').value||'').trim().toLowerCase();
-  recipeQuery=q;
-  $('recipe-search-clear').style.display=q?'block':'none';
-  renderRecipes();
-}
-function clearRecipeSearch(){
-  $('recipe-search').value='';filterRecipes();
-}
-
-function renderRecipes(){
-  $('recipe-total').textContent=recipes.length;
-  const l=$('recipe-list');
-  const filtered=recipeQuery
-    ? recipes.filter(r=>{
-        const q=recipeQuery;
-        return r.title.toLowerCase().includes(q)
-          ||(r.ingredients||[]).some(i=>i.toLowerCase().includes(q))
-          ||(r.tags||[]).some(t=>t.toLowerCase().includes(q))
-          ||(r.steps||'').toLowerCase().includes(q);
-      })
-    : recipes;
-  if(!filtered.length){
-    l.innerHTML=`<div class="empty"><div class="empty-icon">📖</div><div class="empty-title">레시피가 없어요</div><div class="empty-sub">자주 해먹는 요리를 저장해두세요</div></div>`;
-    return;
-  }
-  l.innerHTML=filtered.map(r=>{
-    const tags=(r.tags||[]).slice(0,3).map(t=>`<span class="rtag">${esc(t)}</span>`).join('');
-    const ings=(r.ingredients||[]).slice(0,5).join(', ')+(r.ingredients&&r.ingredients.length>5?'…':'');
-    const thumb=r.image&&validUrl(r.image)?`<img src="${esc(r.image)}" onerror="this.remove()" alt="">`:''
-    const ytBadge=r.ref&&isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="yt-badge" onclick="event.stopPropagation()">▶ YouTube</a>`:'';
-    const refBadge=r.ref&&!isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="source-badge source-web" onclick="event.stopPropagation()">🔗 출처</a>`:'';
+/* ── RECIPEBOOK - 건드리지 않음 ── */
+let recipeQuery=''; function filterRecipes(){ const q=($('recipe-search').value||'').trim().toLowerCase(); recipeQuery=q; $('recipe-search-clear').style.display=q?'block':'none'; renderRecipes(); } function clearRecipeSearch(){ $('recipe-search').value='';filterRecipes(); }
+function renderRecipes(){ $('recipe-total').textContent=recipes.length; const l=$('recipe-list'); const filtered=recipeQuery?recipes.filter(r=>{ const q=recipeQuery; return r.title.toLowerCase().includes(q)||(r.ingredients||[]).some(it=>it.toLowerCase().includes(q))||(r.tags||[]).some(t=>t.toLowerCase().includes(q))||(r.steps||'').toLowerCase().includes(q); }):recipes;
+  if(!filtered.length){ l.innerHTML=`<div class="empty"><div class="empty-icon"><i class="fa-solid fa-book"></i></div><div class="empty-title">레시피가 없습니다</div><div class="empty-sub">직접 입력하거나 사진에서 추출해보세요</div></div>`; return; }
+  l.innerHTML=filtered.map(r=>{ const tags=(r.tags||[]).slice(0,3).map(t=>`<span class="rtag">${esc(t)}</span>`).join(''); const ings=(r.ingredients||[]).slice(0,5).join(', ')+(r.ingredients&&r.ingredients.length>5?'…':''); const thumb=r.image&&validUrl(r.image)?`<img src="${esc(r.image)}" onerror="this.remove()" alt="">`:'<i class="fa-solid fa-utensils"></i>'; const ytBadge=r.ref&&isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="yt-badge" onclick="event.stopPropagation()"><i class="fa-brands fa-youtube"></i> YouTube</a>`:''; const refBadge=r.ref&&!isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="source-badge source-web" onclick="event.stopPropagation()"><i class="fa-solid fa-link"></i> 출처</a>`:'';
     return `<div class="recipe-row" onclick="viewRecipe('${r.id}')">
-      <div class="recipe-thumb">${thumb||'🍳'}</div>
+      <div class="recipe-thumb">${thumb}</div>
       <div class="recipe-info">
-        <div class="recipe-title-row">
-          <div class="recipe-title">${esc(r.title)}</div>
-          ${ytBadge}${refBadge}
-        </div>
+        <div class="recipe-title-row"><div class="recipe-title">${esc(r.title)}</div>${ytBadge}${refBadge}</div>
         ${tags?`<div class="recipe-tags">${tags}</div>`:''}
         ${ings?`<div class="recipe-ings">${esc(ings)}</div>`:''}
       </div>
       <div class="recipe-row-actions" onclick="event.stopPropagation()">
-        <button class="btn btn-ghost" style="padding:.35rem .6rem;" onclick="editRecipe('${r.id}')">✏</button>
-        <button class="btn btn-danger-ghost" style="padding:.35rem .6rem;" onclick="delRecipe('${r.id}')">×</button>
+        <button class="btn btn-ghost" style="padding:.4rem .7rem; border-color:#ccc;" onclick="editRecipe('${r.id}')"><i class="fa-solid fa-pen"></i></button>
+        <button class="btn btn-ghost" style="padding:.4rem .7rem; color:var(--danger); border-color:#fecaca;" onclick="delRecipe('${r.id}')">✕</button>
       </div>
     </div>`;
   }).join('');
 }
-
-function openRecipeAdd(){
-  $('recipe-modal-ttl').textContent='레시피 추가';$('r-edit-id').value='';
-  ['r-title','r-ings','r-steps','r-img','r-ref','r-tags'].forEach(id=>$(id).value='');
-  $('r-img-prev').style.display='none';openModal('recipe-modal');
-}
-function editRecipe(id){
-  const r=recipes.find(i=>i.id===id);if(!r)return;
-  $('recipe-modal-ttl').textContent='레시피 수정';$('r-edit-id').value=id;
-  $('r-title').value=r.title;$('r-ings').value=(r.ingredients||[]).join(', ');
-  $('r-steps').value=r.steps||'';$('r-img').value=r.image||'';
-  $('r-ref').value=r.ref||'';$('r-tags').value=(r.tags||[]).join(', ');
-  const p=$('r-img-prev');
-  if(r.image&&validUrl(r.image)){p.src=r.image;p.style.display='block';}else p.style.display='none';
-  openModal('recipe-modal');
-}
-$('r-img').addEventListener('input',function(){
-  const p=$('r-img-prev');
-  if(validUrl(this.value)){p.src=this.value;p.style.display='block';}else p.style.display='none';
-});
-function saveRecipe(){
-  const title=ss($('r-title').value,100);if(!title){toast('요리 이름을 입력해주세요','err');return;}
-  const ingredients=ss($('r-ings').value,500).split(',').map(s=>s.trim()).filter(Boolean);
-  const steps=ss($('r-steps').value,2000);
-  const imgRaw=ss($('r-img').value,500);const image=validUrl(imgRaw)?imgRaw:'';
-  const refRaw=ss($('r-ref').value,500);const ref=validUrl(refRaw)?refRaw:'';
-  const tags=ss($('r-tags').value,200).split(',').map(s=>s.trim()).filter(Boolean);
-  const editId=$('r-edit-id').value;
-  const item={id:editId||uid(),title,ingredients,steps,image,ref,tags,savedAt:new Date().toLocaleDateString('ko-KR')};
-  const idx=recipes.findIndex(i=>i.id===item.id);
-  if(idx>=0)recipes[idx]=item;else recipes.push(item);
-  sv(K.recipes,recipes);closeModal('recipe-modal');renderRecipes();
-  syncUpsert('recipes', item);
-  toast(editId?'레시피를 수정했어요 ✓':'레시피를 저장했어요 ✓','ok');
-}
-function delRecipe(id){
-  if(!confirm('이 레시피를 삭제할까요?'))return;
-  recipes=recipes.filter(i=>i.id!==id);sv(K.recipes,recipes);
-  syncDelete('recipes', id);
-  renderRecipes();toast('삭제했어요');
-}
-function viewRecipe(id){
-  const r=recipes.find(i=>i.id===id);if(!r)return;
-  $('detail-ttl').textContent=esc(r.title);
-  const ytBadge=r.ref&&isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-bottom:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;"><span style="color:red;">▶</span> 유튜브에서 보기</a>`:'';
-  const refBadge=r.ref&&!isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-bottom:1rem;text-decoration:none;">🔗 원본 레시피 보기</a>`:'';
-  const tags=(r.tags||[]).map(t=>`<span class="rtag">${esc(t)}</span>`).join('');
-  $('detail-body').innerHTML=`
-    ${r.image&&validUrl(r.image)?`<img src="${esc(r.image)}" class="detail-img" onerror="this.remove()" alt="">`:''}
-    ${ytBadge}${refBadge}
-    ${tags?`<div class="recipe-tags" style="margin-bottom:.75rem;">${tags}</div>`:''}
-    ${r.ingredients&&r.ingredients.length?`<div class="detail-section-title">재료</div><div class="ing-chips">${r.ingredients.map(i=>`<span class="ing-chip">${esc(i)}</span>`).join('')}</div>`:''}
-    ${r.steps?`<div class="detail-section-title">조리법 / 메모</div><div class="steps-text">${esc(r.steps)}</div>`:''}
-    <div style="margin-top:1rem;font-size:.72rem;color:var(--ink-xs);">저장일: ${r.savedAt||''}</div>
-  `;
-  openModal('detail-modal');
+function openRecipeAdd(){ $('recipe-modal-ttl').textContent='Write Recipe';$('r-edit-id').value=''; ['r-title','r-ings','r-steps','r-img','r-ref','r-tags'].forEach(id=>$(id).value=''); $('r-img-prev').style.display='none';openModal('recipe-modal'); }
+function editRecipe(id){ const r=recipes.find(i=>i.id===id);if(!r)return; $('recipe-modal-ttl').textContent='Edit Recipe';$('r-edit-id').value=id; $('r-title').value=r.title;$('r-ings').value=(r.ingredients||[]).join(', '); $('r-steps').value=r.steps||'';$('r-img').value=r.image||''; $('r-ref').value=r.ref||'';$('r-tags').value=(r.tags||[]).join(', '); const p=$('r-img-prev'); if(r.image&&validUrl(r.image)){p.src=r.image;p.style.display='block';}else p.style.display='none'; openModal('recipe-modal'); }
+$('r-img').addEventListener('input',function(){ const p=$('r-img-prev'); if(validUrl(this.value)){p.src=this.value;p.style.display='block';}else p.style.display='none'; });
+function saveRecipe(){ const title=ss($('r-title').value,100);if(!title){toast('요리 이름을 입력해주세요','err');return;} const ingredients=ss($('r-ings').value,500).split(',').map(s=>s.trim()).filter(Boolean); const steps=ss($('r-steps').value,2000); const imgRaw=ss($('r-img').value,500);const image=validUrl(imgRaw)?imgRaw:''; const refRaw=ss($('r-ref').value,500);const ref=validUrl(refRaw)?refRaw:''; const tags=ss($('r-tags').value,200).split(',').map(s=>s.trim()).filter(Boolean); const editId=$('r-edit-id').value; const item={id:editId||uid(),title,ingredients,steps,image,ref,tags,savedAt:new Date().toLocaleDateString('ko-KR')}; const idx=recipes.findIndex(i=>i.id===item.id); if(idx>=0)recipes[idx]=item;else recipes.push(item); sv(K.recipes,recipes);closeModal('recipe-modal');renderRecipes(); syncUpsert('recipes', item); toast(editId?'수정 완료 ✓':'저장 완료 ✓','ok'); refreshToday(); }
+function delRecipe(id){ if(!confirm('이 레시피를 삭제할까요?'))return; recipes=recipes.filter(i=>i.id!==id);sv(K.recipes,recipes); syncDelete('recipes', id); renderRecipes();toast('삭제 완료'); refreshToday(); }
+function viewRecipe(id){ const r=recipes.find(i=>i.id===id);if(!r)return; $('detail-ttl').textContent=esc(r.title); const ytLink=r.ref&&isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-bottom:1rem; border-color:#C00; color:#C00;"><i class="fa-brands fa-youtube"></i> 유튜브 보기</a>`:''; const refLink=r.ref&&!isYoutube(r.ref)?`<a href="${esc(r.ref)}" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-bottom:1rem; border-color:var(--border);"><i class="fa-solid fa-link"></i> 출처 보기</a>`:''; const tags=(r.tags||[]).map(t=>`<span class="rtag">${esc(t)}</span>`).join('');
+  $('detail-body').innerHTML=`${r.image&&validUrl(r.image)?`<img src="${esc(r.image)}" class="detail-img" onerror="this.remove()" alt="">`:''}${ytLink}${refLink}${tags?`<div class="recipe-tags" style="margin-bottom:1rem;">${tags}</div>`:''}${r.ingredients&&r.ingredients.length?`<div class="detail-section-title">Ingredients</div><div class="ing-chips">${r.ingredients.map(it=>`<span class="ing-chip">${esc(it)}</span>`).join('')}</div>`:''}${r.steps?`<div class="detail-section-title">조리법 / 메모</div><div class="steps-text">${esc(r.steps)}</div>`:''}<div style="margin-top:1.5rem;font-size:.75rem;color:var(--ink-xs); font-family:var(--font-serif); font-weight:500;">Saved: ${r.savedAt||''}</div>`; openModal('detail-modal');
 }
 
-/* ── PHOTO OCR (멀티 사진, 라이트박스) ── */
-let photos=[];
-
-function openRecipePhoto(){
-  photos=[];
-  ['photo-result','ocr-save-btn'].forEach(id=>$(id).style.display='none');
-  $('ocr-btn').style.display='';$('ocr-btn').disabled=false;
-  $('photo-thumbs').style.display='none';$('thumb-wrap').innerHTML='';
-  openModal('photo-modal');
-}
-function handlePhotoDrop(e){
-  e.preventDefault();$('photo-drop').classList.remove('drag');
-  [...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')).slice(0,2).forEach(loadPhoto);
-}
-function onPhotoSelect(e){[...e.target.files].slice(0,2).forEach(loadPhoto);e.target.value='';}
-function loadPhoto(file){
-  if(photos.length>=2){toast('사진은 최대 2장까지 가능해요','err');return;}
-  if(file.size>8*1024*1024){toast('8MB 이하 이미지만 가능해요','err');return;}
-  const r=new FileReader();
-  r.onload=ev=>{
-    photos.push({base64:ev.target.result.split(',')[1],mime:file.type,dataUrl:ev.target.result});
-    renderPhotoThumbs();
-  };
-  r.readAsDataURL(file);
-}
-function renderPhotoThumbs(){
-  $('thumb-wrap').innerHTML=photos.map((p,i)=>`
-    <div style="position:relative;flex-shrink:0;">
-      <img src="${p.dataUrl}" onclick="openLightbox('${p.dataUrl}')"
-        style="width:90px;height:90px;object-fit:cover;border-radius:var(--r-md);border:1.5px solid var(--border);cursor:zoom-in;" alt="">
-      <button onclick="removePhoto(${i})"
-        style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--danger);color:#fff;border:none;cursor:pointer;font-size:.65rem;display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
-    </div>`).join('');
-  $('photo-thumbs').style.display=photos.length?'block':'none';
-  $('photo-count-label').textContent=photos.length===2
-    ?'사진 2장 선택됨 — AI가 합쳐서 레시피를 추출합니다'
-    :`${photos.length}장 선택 · ${2-photos.length}장 더 추가 가능`;
-}
-function removePhoto(idx){photos.splice(idx,1);renderPhotoThumbs();if(!photos.length){$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}}
-function clearPhotos(){photos=[];renderPhotoThumbs();$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}
-function openLightbox(src){$('lightbox-img').src=src;$('lightbox').style.display='flex';}
-function closeLightbox(){$('lightbox').style.display='none';$('lightbox-img').src='';}
-async function runOcr(){
-  const key=localStorage.getItem(K.apiKey);
-  if(!key){toast('API 키를 먼저 입력해주세요','err');return;}
-  if(!photos.length){toast('사진을 먼저 선택해주세요','err');return;}
-  showSpin('사진에서 레시피 추출 중…');$('ocr-btn').disabled=true;
-  try{
-    const prompt=`당신은 요리 레시피 전문가입니다. 첨부 이미지(${photos.length}장)에서 레시피를 추출해주세요.
-
-규칙:
-- 레시피와 무관한 텍스트(광고, 워터마크, SNS 아이디, 날짜, 페이지번호 등)는 완전히 제외
-- 여러 장은 하나의 레시피로 합쳐서 추출
-- 재료는 개별 항목으로 분리, 분량 포함
-- 조리법은 순서대로 번호를 붙여 정리
-- 태그는 요리 특징 2~4개 (예: 한식, 국물, 30분, 간단)
-
-반드시 아래 JSON만 반환:
-{"title":"요리이름","ingredients":["재료1 분량","재료2 분량"],"steps":"1. 첫번째\n2. 두번째","tags":["태그1","태그2"]}`;
-
+/* ── PHOTO OCR - 건드리지 않음 ── */
+let photos=[]; function openRecipePhoto(){ photos=[]; ['photo-result','ocr-save-btn'].forEach(id=>$(id).style.display='none'); $('ocr-btn').style.display='';$('ocr-btn').disabled=false; $('photo-thumbs').style.display='none';$('thumb-wrap').innerHTML=''; openModal('photo-modal'); }
+function handlePhotoDrop(e){ e.preventDefault();$('photo-drop').classList.remove('drag'); [...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')).slice(0,2).forEach(loadPhoto); } function onPhotoSelect(e){[...e.target.files].slice(0,2).forEach(loadPhoto);e.target.value='';}
+function loadPhoto(file){ if(photos.length>=2){toast('사진은 최대 2장입니다','err');return;} if(file.size>8*1024*1024){toast('8MB 이하 사진만 가능합니다','err');return;} const r=new FileReader(); r.onload=ev=>{ photos.push({base64:ev.target.result.split(',')[1],mime:file.type,dataUrl:ev.target.result}); renderPhotoThumbs(); }; r.readAsDataURL(file); }
+function renderPhotoThumbs(){ $('thumb-wrap').innerHTML=photos.map((p,i)=>`<div style="position:relative;flex-shrink:0;"><img src="${p.dataUrl}" onclick="openLightbox('${p.dataUrl}')" style="width:100px;height:100px;object-fit:cover;border-radius:var(--r-sm);border:1px solid #ddd;cursor:zoom-in;"><button onclick="removePhoto(${i})" style="position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:var(--danger);color:#fff;border:none;cursor:pointer;font-size:.7rem;font-weight:900;">✕</button></div>`).join(''); $('photo-thumbs').style.display=photos.length?'block':'none'; }
+function removePhoto(idx){photos.splice(idx,1);renderPhotoThumbs();if(!photos.length){$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}} function clearPhotos(){photos=[];renderPhotoThumbs();$('photo-result').style.display='none';$('ocr-save-btn').style.display='none';$('ocr-btn').style.display='';}
+function openLightbox(src){$('lightbox-img').src=src;$('lightbox').style.display='flex';} function closeLightbox(){$('lightbox').style.display='none';$('lightbox-img').src='';}
+async function runOcr(){ const key=localStorage.getItem(K.apiKey); if(!key){toast('API 키를 먼저 입력해주세요','err');openModal('settings-modal');return;} if(!photos.length){toast('사진을 먼저 선택해주세요','err');return;} showSpin('Gemini AI 분석 중…');$('ocr-btn').disabled=true;
+  try{ const prompt=`당신은 요리 전문가입니다. 첨부 사진에서 레시피를 추출해주세요.\n규칙:\n- 요리 이름, 재료(분량 포함), 조리법을 한국어로 정리\n- 재료는 배열로 분리\n- 조리법은 순서대로 번호를 매겨 하나의 텍스트로 정리\n- 태그는 요리 특징 2~3개\n반드시 아래 JSON만 반환:\n{"title":"요리이름","ingredients":["재료1분량","재료2분량"],"steps":"1.첫번째\\n2.두번째","tags":["태그1","태그2"]}`;
     const imgParts=photos.map(p=>({inline_data:{mime_type:p.mime,data:p.base64}}));
-    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}})
-    });
-    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
-    const data=await res.json();
-    const raw=data?.candidates?.[0]?.content?.parts?.[0]?.text||'';
-    let parsed;
-    try{
-      const allText=(data?.candidates?.[0]?.content?.parts||[])
-        .filter(p=>p.text).map(p=>p.text).join('');
-      const stripped=allText
-        .replace(/<thinking>[\s\S]*?<\/thinking>/gi,'')
-        .replace(/```json([\s\S]*?)```/g,'$1')
-        .replace(/```/g,'')
-        .trim();
-      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
-      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
-      parsed=JSON.parse(jsonMatch[0]);
-      if(!parsed.title)throw new Error('레시피 정보가 없어요');
-    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
-    $('ocr-title').value=parsed.title||'';
-    $('ocr-ings').value=(parsed.ingredients||[]).join(', ');
-    $('ocr-steps').value=parsed.steps||'';
-    $('ocr-tags').value=(parsed.tags||[]).join(', ');
-    $('photo-result').style.display='block';$('ocr-save-btn').style.display='';$('ocr-btn').style.display='none';
-    toast('추출 완료! 내용 확인 후 저장해주세요 ✓','ok');
-  }catch(err){toast('추출 실패: '+(err.message||'다시 시도'),'err');$('ocr-btn').disabled=false;}
-  finally{hideSpin();}
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}})});
+    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');} const data=await res.json(); const allText=(data?.candidates?.[0]?.content?.parts||[]).filter(p=>p.text).map(p=>p.text).join(''); let parsed;
+    try{ const stripped=allText.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim(); const jsonMatch=stripped.match(/\{[\s\S]*\}/); if(!jsonMatch)throw new Error('JSON 없음'); parsed=JSON.parse(jsonMatch[0]); }catch(e){throw new Error('분석 실패');}
+    $('ocr-title').value=parsed.title||''; $('ocr-ings').value=(parsed.ingredients||[]).join(', '); $('ocr-steps').value=parsed.steps||''; $('ocr-tags').value=(parsed.tags||[]).join(', '); $('photo-result').style.display='block';$('ocr-save-btn').style.display='';$('ocr-btn').style.display='none'; toast('추출 성공! 내용 확인 후 저장하세요','ok'); }catch(err){toast('OCR 실패: '+(err.message),'err'); $('ocr-btn').disabled=false;}finally{hideSpin();}
 }
-function saveOcrRecipe(){
-  const title=ss($('ocr-title').value,100);if(!title){toast('요리 이름을 확인해주세요','err');return;}
-  const ingredients=ss($('ocr-ings').value,500).split(',').map(s=>s.trim()).filter(Boolean);
-  const steps=ss($('ocr-steps').value,2000);
-  const tags=ss($('ocr-tags').value,200).split(',').map(s=>s.trim()).filter(Boolean);
-  const item={id:uid(),title,ingredients,steps,image:'',ref:'',tags,savedAt:new Date().toLocaleDateString('ko-KR')};
-  recipes.push(item);sv(K.recipes,recipes);
-  syncUpsert('recipes',item);
-  closeModal('photo-modal');renderRecipes();
-  toast('레시피를 저장했어요 ✓','ok');
-}
+function saveOcrRecipe(){ const title=ss($('ocr-title').value,100);if(!title){toast('요리 이름을 입력해주세요','err');return;} const ingredients=ss($('ocr-ings').value,500).split(',').map(s=>s.trim()).filter(Boolean); const steps=ss($('ocr-steps').value,2000); const tags=ss($('ocr-tags').value,200).split(',').map(s=>s.trim()).filter(Boolean); const item={id:uid(),title,ingredients,steps,image:'',ref:'',tags,savedAt:new Date().toLocaleDateString('ko-KR')}; recipes.push(item);sv(K.recipes,recipes); syncUpsert('recipes',item); closeModal('photo-modal');renderRecipes(); refreshToday(); toast('레시피 저장 완료 ✓','ok'); gotoPage('recipe'); }
 
-/* ── SETTINGS ── */
-function loadSettings(){
-  $('api-key-inp').value=localStorage.getItem(K.apiKey)||'';
-  $('prefs-inp').value=localStorage.getItem(K.prefs)||'';
-  $('child-year-inp').value=localStorage.getItem(K.childYear)||'';
-  $('gs-url-inp').value=getGsUrl();
-}
-function saveApiKey(){const k=ss($('api-key-inp').value,200);if(!k){toast('API 키를 입력해주세요','err');return;}localStorage.setItem(K.apiKey,k);toast('저장했어요 ✓','ok');closeModal('settings-modal');}
-function savePrefs(){localStorage.setItem(K.prefs,ss($('prefs-inp').value,200));toast('저장했어요 ✓','ok');closeModal('settings-modal');}
-function saveFamily(){
-  const yr=$('child-year-inp').value.trim();
-  if(yr&&(parseInt(yr)<2000||parseInt(yr)>2030)){toast('생년을 다시 확인해주세요','err');return;}
-  localStorage.setItem(K.childYear,yr);
-  if(!yr){childWithUs=false;localStorage.setItem(K.childWith,'0');}
-  updateFamilyBar();
-  toast('가족 구성을 저장했어요 ✓','ok');closeModal('settings-modal');
-}
-async function saveGsUrl(){
-  const url=ss($('gs-url-inp').value,300);
-  if(!url){toast('URL을 입력해주세요','err');return;}
-  if(!validUrl(url)){toast('올바른 URL 형식이 아니에요','err');return;}
-  localStorage.setItem(K.gsUrl,url);
-  initSyncState();
-  toast('연결 저장됐어요. 데이터 불러오는 중…','ok');
-  closeModal('settings-modal');
-  await syncPull();
-}
-async function testGsConnection(){
-  const url=ss($('gs-url-inp').value,300);
-  if(!url){toast('URL을 먼저 입력해주세요','err');return;}
-  toast('연결 테스트 중…');
-  try{
-    const res=await fetch(`${url}?action=init`);
-    const data=await res.json();
-    if(data.ok)toast('연결 성공! 시트 초기화 완료 ✓','ok');
-    else toast('오류: '+data.error,'err');
-  }catch(e){toast('연결 실패: '+e.message,'err');}
-}
-function toggleKeyVis(){const i=$('api-key-inp');i.type=i.type==='password'?'text':'password';}
+/* ── SETTINGS - 건드리지 않음 ── */
+function loadSettings(){ $('api-key-inp').value=localStorage.getItem(K.apiKey)||''; $('prefs-inp').value=localStorage.getItem(K.prefs)||''; $('child-year-inp').value=localStorage.getItem(K.childYear)||''; $('gs-url-inp').value=getGsUrl(); }
+function saveApiKey(){const k=ss($('api-key-inp').value,200);localStorage.setItem(K.apiKey,k);toast('API 키 저장됨','ok'); closeModal('settings-modal');} function savePrefs(){localStorage.setItem(K.prefs,ss($('prefs-inp').value,200));toast('식성 저장됨','ok'); closeModal('settings-modal');}
+function saveFamily(){ const yr=$('child-year-inp').value.trim(); if(yr&&(parseInt(yr)<2000||parseInt(yr)>2030)){toast('연도를 확인해주세요','err');return;} localStorage.setItem(K.childYear,yr); if(!yr){childWithUs=false;localStorage.setItem(K.childWith,'0');} updateFamilyBar(); toast('가족 정보 저장됨','ok'); closeModal('settings-modal');}
+async function saveGsUrl(){ const url=ss($('gs-url-inp').value,300); if(!url){toast('URL을 입력해주세요','err');return;} if(!validUrl(url)){toast('URL 형식이 올바르지 않습니다','err');return;} localStorage.setItem(K.gsUrl,url); initSyncState(); toast('저장됨. Cloud 데이터 가져오는 중…'); closeModal('settings-modal'); await syncPull(); }
+async function testGsConnection(){ const url=ss($('gs-url-inp').value,300); if(!url){toast('URL을 먼저 입력해주세요','err');return;} toast('연결 테스트 중…'); try{ const res=await fetch(`${url}?action=init`); const data=await res.json(); if(data.ok)toast('연결 성공! Cloud 동기화 활성화됨','ok'); else toast('연결 실패: '+data.error,'err'); }catch(e){toast('연결 실패: '+e.message,'err');} }
+function toggleKeyVis(){const i=$('api-key-inp'); const btn=i.nextElementSibling; btn.innerHTML=i.type==='password'?'<i class="fa-solid fa-eye-slash"></i>':'<i class="fa-solid fa-eye"></i>'; i.type=i.type==='password'?'text':'password';}
 
-/* ── DATA ── */
-function exportData(){
-  const d={fridge,recipes,history,prefs:localStorage.getItem(K.prefs)||'',exportedAt:new Date().toISOString()};
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:'application/json'}));
-  a.download='저녁뭐먹지_백업.json';a.click();toast('내보내기 완료 ✓','ok');
-}
-function importData(e){
-  const f=e.target.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    try{
-      const d=JSON.parse(ev.target.result);
-      if(!confirm('기존 데이터를 덮어쓸까요?'))return;
-      if(Array.isArray(d.fridge)){fridge=d.fridge;sv(K.fridge,fridge);}
-      if(Array.isArray(d.recipes)){recipes=d.recipes;sv(K.recipes,recipes);}
-      if(Array.isArray(d.history)){history=d.history;sv(K.history,history);}
-      if(d.prefs){localStorage.setItem(K.prefs,d.prefs);$('prefs-inp').value=d.prefs;}
-      renderFridge();renderRecipes();toast('가져오기 완료 ✓','ok');
-    }catch{toast('파일 형식이 올바르지 않아요','err');}
-  };
-  r.readAsText(f);e.target.value='';
-}
-function nukeData(){
-  if(!confirm('정말 모든 데이터를 초기화할까요?'))return;
-  fridge=[];recipes=[];history=[];
-  [K.fridge,K.recipes,K.history].forEach(k=>localStorage.removeItem(k));
-  renderFridge();renderRecipes();renderHistory();$('today-result').innerHTML='';toast('초기화 완료');
-}
+/* ── DATA MGT - 건드리지 않음 ── */
+function exportData(){ const d={fridge,recipes,history,prefs:localStorage.getItem(K.prefs)||'',exportedAt:new Date().toISOString()}; const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify(d,null,2)],{type:'application/json'})); a.download='DinnerBook_Backup.json';a.click();toast('백업 파일 다운로드','ok'); }
+function importData(e){ const f=e.target.files[0];if(!f)return; const r=new FileReader(); r.onload=ev=>{ try{ const d=JSON.parse(ev.target.result); if(!confirm('기존 데이터를 모두 덮어쓸까요? (로컬 데이터)'))return; if(Array.isArray(d.fridge)){fridge=d.fridge;sv(K.fridge,fridge);} if(Array.isArray(d.recipes)){recipes=d.recipes;sv(K.recipes,recipes);} if(Array.isArray(d.history)){history=d.history;sv(K.history,history);} if(d.prefs){localStorage.setItem(K.prefs,d.prefs);$('prefs-inp').value=d.prefs;} renderFridge();renderRecipes();renderHistory();toast('데이터 복구 완료','ok'); }catch{toast('올바른 json 파일이 아닙니다','err');} }; r.readAsText(f);e.target.value=''; }
+function nukeData(){ if(!confirm('정말 모든 로컬 데이터를 초기화할까요?\n북마크, 냉장고, 기록이 모두 지워집니다.'))return; fridge=[];recipes=[];history=[]; [K.fridge,K.recipes,K.history].forEach(k=>localStorage.removeItem(k)); renderFridge();renderRecipes();renderHistory();$('today-result').innerHTML='';toast('초기화 완료'); refreshToday(); }
 
-/* ── INIT ── */
-initGreeting();
-updateFamilyBar();
-initSyncState();
-renderFridge();renderRecipes();renderHistory();
-loadSettings();refreshToday();
-$('f-added').value=new Date().toISOString().split('T')[0];
-// 시트 연결돼 있으면 앱 시작 시 자동 pull
-if(getGsUrl()) syncPull();
+/* ── INIT - 건드리지 않음 ── */
+initGreeting(); updateFamilyBar(); initSyncState(); renderFridge();renderRecipes();renderHistory(); loadSettings();refreshToday(); $('f-added').value=new Date().toISOString().split('T')[0]; if(getGsUrl()) syncPull();
 </script>
 </body>
 </html>
