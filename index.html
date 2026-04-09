@@ -1229,7 +1229,6 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
     syncReplaceHistory();
   }
 
-  // 메뉴 찾기 버튼 숨기기
   $('rec-btn').style.display='none';
 
   const recipeBodyId='rec-recipe-body-'+Date.now();
@@ -1255,7 +1254,6 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
       ${tip?`<div class="rec-tip">💡 ${esc(tip)}</div>`:''}
     </div>
     ${missingHtml}
-    ${!savedRecipe?`
     <div class="rec-recipe-box">
       <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
         <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
@@ -1269,12 +1267,12 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
           </div>`:''}
         <div class="steps-text">${esc(recipeSteps)}</div>
       </div>
-    </div>`:''}
+    </div>
     <div class="rec-actions">
       ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피</a>`:''}
-      ${savedRecipe
-        ?`<button class="btn btn-olive" onclick="viewRecipe('${savedRecipe.id}')" style="flex:1;">📖 레시피 상세</button>`
-        :`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})">＋ 레시피로 저장</button>`
+      ${!savedRecipe
+        ?`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})">＋ 레시피로 저장</button>`
+        :''
       }
     </div>
     <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
