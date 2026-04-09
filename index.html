@@ -283,6 +283,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 .bnav-item{flex:1;padding:.7rem .5rem .55rem;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;color:var(--ink-s);font-family:var(--font-sans);font-size:.56rem;font-weight:500;cursor:pointer;transition:color .15s;}
 .bnav-item .bn-icon{font-size:1.1rem;line-height:1;}
 .bnav-item.active{color:var(--miso);}
+.bnav-item:not(.active){color:rgba(180,210,208,.55);}
 
 /* Empty */
 .empty{text-align:center;padding:3.5rem 1rem;}
@@ -404,7 +405,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   background:rgba(111,184,182,.15);
   border-radius:10px;z-index:-1;
 }
-.bnav-item:not(.active){color:rgba(180,210,208,.5);}
+.bnav-item:not(.active){color:rgba(180,210,208,.55);}
 
 /* ── 복수 추천 메뉴 카드 ── */
 .menu-candidates{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem;}
@@ -1494,6 +1495,7 @@ function renderFridge(){
     g.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="empty-icon">🧊</div><div class="empty-title">재료가 없어요</div><div class="empty-sub">+ 재료 추가로 냉장고를 채워보세요</div></div>`;
     return;
   }
+  const fmtDate=s=>{if(!s)return '';try{const d=new Date(s);if(isNaN(d))return s;return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;}catch{return s;}};
   g.innerHTML=items.map(it=>{
     let eb='';
     if(it.expiry){
@@ -1511,7 +1513,7 @@ function renderFridge(){
       </div>
       <span class="tile-cat-icon">${CAT_EMOJI[it.cat]||'🫙'}</span>
       <div class="tile-name">${esc(it.name)}</div>
-      <div class="tile-meta">${esc(it.cat)}${it.added?` · ${esc(it.added)}`:''}${it.memo?`<br>${esc(it.memo)}`:''}${eb?`<br>${eb}`:''}</div>
+      <div class="tile-meta">${esc(it.cat)}${it.added?` · ${fmtDate(it.added)}`:''}${it.memo?`<br>${esc(it.memo)}`:''}${eb?`<br>${eb}`:''}</div>
     </div>`;
   }).join('');
 }
