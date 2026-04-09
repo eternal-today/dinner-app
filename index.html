@@ -868,6 +868,28 @@ function openModal(id){$(id).classList.add('open');}
 function closeModal(id){$(id).classList.remove('open');}
 document.querySelectorAll('.modal-back').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)closeModal(el.id);}));
 
+/* ── API 재시도 헬퍼 ── */
+async function fetchWithRetry(url, options, maxRetries=3){
+  for(let i=0;i<maxRetries;i++){
+    try{
+      const res = await fetch(url, options);
+      if(res.status===503||res.status===429){
+        // high demand or rate limit — 잠시 후 재시도
+        if(i<maxRetries-1){
+          const wait = (i+1)*3000; // 3초, 6초 대기
+          $('spin-txt').textContent=`잠시 대기 중… (${i+1}/${maxRetries-1}회 재시도)`;
+          await new Promise(r=>setTimeout(r,wait));
+          continue;
+        }
+      }
+      return res;
+    }catch(e){
+      if(i===maxRetries-1) throw e;
+      await new Promise(r=>setTimeout(r,(i+1)*2000));
+    }
+  }
+}
+
 /* ── spinner / toast ── */
 function showSpin(t='잠시만요…'){$('spin-txt').textContent=t;$('spinner').classList.add('open');}
 function hideSpin(){$('spinner').classList.remove('open');}
@@ -1014,7 +1036,7 @@ async function recommend(){
       tools:[{google_search:{}}],
       generationConfig:{temperature:0.7,maxOutputTokens:2000,thinkingConfig:{thinkingBudget:0}}
     };
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
@@ -1453,7 +1475,7 @@ async function runOcr(){
 {"title":"요리이름","ingredients":["재료1 분량","재료2 분량"],"steps":"1. 첫번째\n2. 두번째","tags":["태그1","태그2"]}`;
 
     const imgParts=photos.map(p=>({inline_data:{mime_type:p.mime,data:p.base64}}));
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`,{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({contents:[{parts:[...imgParts,{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500,thinkingConfig:{thinkingBudget:0}}})
     });
