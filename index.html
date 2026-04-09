@@ -1397,7 +1397,7 @@ function applyConfirm(){
 function renderHistory(){
   const l=$('history-list');
   if(!history.length){l.innerHTML=`<div style="font-size:.85rem;color:var(--ink-xs);padding:1.5rem 0;text-align:center;">아직 추천 기록이 없어요</div>`;return;}
-  l.innerHTML=history.slice(0,10).map((h,i)=>{
+  l.innerHTML=history.slice(0,10).filter(h=>h.result&&h.result.recipe_steps).map((h,i)=>{
     const hasResult=!!(h.result&&h.result.recipe_steps);
     const srcIcon=h.source==='saved'?'📖':'🌐';
     const srcLabel=h.source==='saved'?'저장 레시피':'웹 검색';
