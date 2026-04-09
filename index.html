@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>오늘 저녁 뭐 먹지?</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8IS0tIOuwsOqyvSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI2VhZjBmMCIvPgogIAogIDwhLS0g64OE67mEIOyGkOyeoeydtCDsmbzsqr0gLS0+CiAgPHJlY3QgeD0iNDgiIHk9IjI0MCIgd2lkdGg9IjcyIiBoZWlnaHQ9IjM2IiByeD0iMTgiIGZpbGw9IiMzYTZiNmUiLz4KICA8IS0tIOuDhOu5hCDshpDsnqHsnbQg7Jik66W47Kq9IC0tPgogIDxyZWN0IHg9IjM5MiIgeT0iMjQwIiB3aWR0aD0iNzIiIGhlaWdodD0iMzYiIHJ4PSIxOCIgZmlsbD0iIzNhNmI2ZSIvPgogIAogIDwhLS0g64OE67mEIOuquO2GtSAo7YGs6rKMKSAtLT4KICA8cmVjdCB4PSI5NiIgeT0iMjEwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjIyMCIgcng9IjUwIiBmaWxsPSIjM2E2YjZlIi8+CiAgCiAgPCEtLSDrg4TruYQg65qc6ruRIC0tPgogIDxyZWN0IHg9Ijk2IiB5PSIxODAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzI3NTU1OCIvPgogIAogIDwhLS0g65qc6ruRIOyGkOyeoeydtCAtLT4KICA8cmVjdCB4PSIyMTYiIHk9IjE0OCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMyNzU1NTgiLz4KICAKICA8IS0tIOuDhOu5hCDqtJHtg50gLS0+CiAgPHJlY3QgeD0iMTE2IiB5PSIyMjgiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjNmZiOGI2IiBvcGFjaXR5PSIwLjQiLz4KICAKICA8IS0tIOusvOydjO2RnCAo64OE67mEIOyViCDspJHslZkpIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iMzQ4IiAKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgCiAgICBmb250LXNpemU9IjE2MCIgCiAgICBmb250LXdlaWdodD0iOTAwIiAKICAgIGZpbGw9IiNlYWYwZjAiIAogICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4/PC90ZXh0Pgo8L3N2Zz4=">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8IS0tIOuwsOqyvSAtLT4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iI2VhZjBmMCIvPgogIAogIDwhLS0g64OE67mEIOyGkOyeoeydtCDsmbzsqr0gLS0+CiAgPHJlY3QgeD0iNDgiIHk9IjI0MCIgd2lkdGg9IjcyIiBoZWlnaHQ9IjM2IiByeD0iMTgiIGZpbGw9IiMzYTZiNmUiLz4KICA8IS0tIOuDhOu5hCDshpDsnqHsnbQg7Jik66W47Kq9IC0tPgogIDxyZWN0IHg9IjM5MiIgeT0iMjQwIiB3aWR0aD0iNzIiIGhlaWdodD0iMzYiIHJ4PSIxOCIgZmlsbD0iIzNhNmI2ZSIvPgogIAogIDwhLS0g64OE67mEIOuquO2GtSAo7YGs6rKMKSAtLT4KICA8cmVjdCB4PSI5NiIgeT0iMjEwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjIyMCIgcng9IjUwIiBmaWxsPSIjM2E2YjZlIi8+CiAgCiAgPCEtLSDrg4TruYQg65qc6ruRIC0tPgogIDxyZWN0IHg9Ijk2IiB5PSIxODAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNTAiIHJ4PSIyNSIgZmlsbD0iIzI3NTU1OCIvPgogIAogIDwhLS0g65qc6ruRIOyGkOyeoeydtCAtLT4KICA8cmVjdCB4PSIyMTYiIHk9IjE0OCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiMyNzU1NTgiLz4KICAKICA8IS0tIOuDhOu5hCDqtJHtg50gLS0+CiAgPHJlY3QgeD0iMTE2IiB5PSIyMjgiIHdpZHRoPSIxMDAiIGhlaWdodD0iMTYiIHJ4PSI4IiBmaWxsPSIjNmZiOGI2IiBvcGFjaXR5PSIwLjQiLz4KICAKICA8IS0tIOusvOydjO2RnCAo64OE67mEIOyViCDspJHslZkpIC0tPgogIDx0ZXh0IHg9IjI1NiIgeT0iMzQ4IiAKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgCiAgICBmb250LXNpemU9IjE2MCIgCiAgICBmb250LXdlaWdodD0iOTAwIiAKICAgIGZpbGw9IiNlYWYwZjAiIAogICAgdGV4dC1hbmNob3I9Im1pZGRsZSIgCiAgICBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4/PC90ZXh0Pgo8L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzFlMmQzMCIvPgogIDxwYXRoIGQ9Ik0gODAgMzQwIEwgNDMyIDM0MCBBIDIwIDIwIDAgMCAxIDQzMiAzODAgTCA4MCAzODAgQSAyMCAyMCAwIDAgMSA4MCAzNDAgWiIgZmlsbD0iIzZmYjhiNiIvPgogIDxwYXRoIGQ9Ik0gMTIwIDM4MCBMIDM5MiAzODAgTCAzNzIgNDEwIEwgMTQwIDQxMCBaIiBmaWxsPSIjM2E2YjZlIi8+CiAgPHBhdGggZD0iTSAxMDAgMzIwIEEgMTU2IDE1NiAwIDAgMSA0MTIgMzIwIFoiIGZpbGw9IiNlYWYwZjAiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIxNDAiIHI9IjI0IiBmaWxsPSIjM2E2YjZlIi8+CiAgPHRleHQgeD0iMjU2IiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQwIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMjc1NTU4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4/PC90ZXh0Pgo8L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzFlMmQzMCIvPgogIDxwYXRoIGQ9Ik0gODAgMzQwIEwgNDMyIDM0MCBBIDIwIDIwIDAgMCAxIDQzMiAzODAgTCA4MCAzODAgQSAyMCAyMCAwIDAgMSA4MCAzNDAgWiIgZmlsbD0iIzZmYjhiNiIvPgogIDxwYXRoIGQ9Ik0gMTIwIDM4MCBMIDM5MiAzODAgTCAzNzIgNDEwIEwgMTQwIDQxMCBaIiBmaWxsPSIjM2E2YjZlIi8+CiAgPHBhdGggZD0iTSAxMDAgMzIwIEEgMTU2IDE1NiAwIDAgMSA0MTIgMzIwIFoiIGZpbGw9IiNlYWYwZjAiLz4KICA8Y2lyY2xlIGN4PSIyNTYiIGN5PSIxNDAiIHI9IjI0IiBmaWxsPSIjM2E2YjZlIi8+CiAgPHRleHQgeD0iMjU2IiB5PSIyNTAiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQwIiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMjc1NTU4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIj4/PC90ZXh0Pgo8L3N2Zz4=">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -280,7 +280,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 /* Bottom nav (mobile) */
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;background:var(--ink);border-top:1px solid rgba(255,255,255,.06);padding-bottom:env(safe-area-inset-bottom);overflow:visible;}
 .bottom-nav-inner{display:flex;}
-.bnav-item{flex:1;padding:.7rem .5rem .55rem;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;color:rgba(180,210,208,.55);font-family:var(--font-sans);font-size:.56rem;font-weight:500;cursor:pointer;transition:color .15s;}
+.bnav-item{flex:1;padding:.7rem .5rem .55rem;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:transparent;color:rgba(200,230,228,.7);font-family:var(--font-sans);font-size:.56rem;font-weight:500;cursor:pointer;transition:color .15s;}
 .bnav-item .bn-icon{font-size:1.1rem;line-height:1;}
 
 /* Empty */
@@ -403,7 +403,7 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
   background:rgba(111,184,182,.15);
   border-radius:10px;z-index:-1;
 }
-.bnav-item:not(.active){color:rgba(180,210,208,.55);}
+.bnav-item:not(.active){color:rgba(200,230,228,.7);}
 
 /* ── 복수 추천 메뉴 카드 ── */
 .menu-candidates{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem;}
@@ -622,10 +622,10 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
     <button class="bnav-item active" id="bnav-today" onclick="gotoPage('today')" style="color:var(--miso);">
       <span class="bn-icon"><i class="fa-solid fa-sparkles"></i></span>오늘
     </button>
-    <button class="bnav-item" id="bnav-fridge" onclick="gotoPage('fridge')" style="color:rgba(180,210,208,.6);">
+    <button class="bnav-item" id="bnav-fridge" onclick="gotoPage('fridge')" style="color:rgba(200,230,228,.7);">
       <span class="bn-icon"><i class="fa-solid fa-snowflake"></i></span>냉장고
     </button>
-    <button class="bnav-item" id="bnav-recipe" onclick="gotoPage('recipe')" style="color:rgba(180,210,208,.6);">
+    <button class="bnav-item" id="bnav-recipe" onclick="gotoPage('recipe')" style="color:rgba(200,230,228,.7);">
       <span class="bn-icon"><i class="fa-solid fa-book-open"></i></span>레시피
     </button>
   </div>
@@ -921,7 +921,7 @@ function gotoPage(name){
     if(sn)sn.classList.toggle('active',p===name);
     if(bn){
       bn.classList.toggle('active',p===name);
-      bn.style.color = p===name ? 'var(--miso)' : 'rgba(180,210,208,.6)';
+      bn.style.color = p===name ? 'var(--miso)' : 'rgba(200,230,228,.7)';
     }
   });
   if(name==='today')refreshToday();
