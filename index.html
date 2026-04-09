@@ -367,6 +367,31 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 }
 .bnav-item:not(.active){color:rgba(196,168,130,.45);}
 
+/* ── 복수 추천 메뉴 카드 ── */
+.menu-candidates{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1rem;}
+.menu-card{
+  background:var(--surface);border:1.5px solid var(--border);
+  border-radius:var(--r-lg);padding:1rem 1.1rem;
+  cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .1s;
+  display:flex;align-items:center;gap:.85rem;
+}
+.menu-card:hover{border-color:var(--terra);box-shadow:var(--sh-sm);transform:translateY(-1px);}
+.menu-card:active{transform:scale(.98);}
+.menu-card-saved{border-color:var(--olive);background:#f6faf2;}
+.menu-card-icon{font-size:1.6rem;flex-shrink:0;line-height:1;}
+.menu-card-body{flex:1;min-width:0;}
+.menu-card-name{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.2rem;}
+.menu-card-reason{font-size:.78rem;color:var(--ink-s);line-height:1.5;}
+.menu-card-badges{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.4rem;}
+.badge-saved{font-size:.65rem;background:#e8f5e9;color:#2e7d32;padding:.15rem .5rem;border-radius:10px;font-weight:600;}
+.badge-have{font-size:.65rem;background:#e8f0fe;color:#1a73e8;padding:.15rem .5rem;border-radius:10px;}
+.menu-card-arrow{color:var(--ink-xs);font-size:.9rem;flex-shrink:0;}
+
+/* 히스토리 탭 가능 표시 */
+.history-row{cursor:pointer;transition:background .12s;}
+.history-row:hover{background:var(--paper);border-radius:var(--r-md);}
+.history-restored{border-left:3px solid var(--terra);padding-left:.75rem;}
+
 /* 앱 헤더 */
 .app-header{
   background:var(--surface);
@@ -974,6 +999,18 @@ function toggleMood(el,m){
 
 /* ── RECOMMEND (Gemini + Google Search Grounding) ── */
 let recDebounce=null;
+
+// 유사 매칭 헬퍼
+function fuzzyMatch(a,b){
+  const na=a.toLowerCase().replace(/\s/g,'');
+  const nb=b.toLowerCase().replace(/\s/g,'');
+  return na.includes(nb)||nb.includes(na);
+}
+function findSavedRecipe(menuName){
+  return recipes.find(r=>fuzzyMatch(menuName,r.title));
+}
+
+// ── 1단계: 복수 메뉴 추천 ──
 async function recommend(){
   if(recDebounce)return;
   recDebounce=setTimeout(()=>recDebounce=null,400);
@@ -987,148 +1024,244 @@ async function recommend(){
     if(i.expiry){const d=new Date(i.expiry);d.setHours(0,0,0,0);const diff=Math.round((d-t0)/86400000);if(diff<=3)s+=`(⚠️D-${diff})`;}
     return s;
   }).join(', ');
-  const savedRecipes=recipes.map(r=>`${r.title}`).join(', ');
+  const savedTitles=recipes.map(r=>r.title).join(', ');
   const moodStr=moods.length?moods.join(', '):'특별한 선호 없음';
   const recent=history.slice(0,5).map(h=>h.menu).join(', ');
   const prefs=localStorage.getItem(K.prefs)||'';
-
-  // 가족 구성 문자열 생성
   const childAge=getChildAge();
   let familyStr='부부 2인';
-  if(childWithUs&&childAge!==null){
-    familyStr=`부부 + 아이(만 ${childAge}세) 3인`;
-  }
+  if(childWithUs&&childAge!==null) familyStr=`부부 + 아이(만 ${childAge}세) 3인`;
 
-  const prompt=`당신은 한국 가정식 요리 전문가입니다. 구글 검색을 활용하여 아래 냉장고 재료로 만들 수 있는 오늘 저녁 메뉴를 추천해주세요.
+  const prompt=`당신은 한국 가정식 요리 전문가입니다. 구글 검색으로 아래 냉장고 재료를 활용할 수 있는 저녁 메뉴를 3~5개 추천해주세요.
 
 냉장고 재료: ${fridgeStr}
-저장된 레시피 목록: ${savedRecipes||'없음'}
-오늘 식사 인원: ${familyStr}${childWithUs&&childAge!==null?`\n※ 아이가 만 ${childAge}세이므로: 너무 맵거나 자극적인 재료 주의, 아이도 먹기 좋은 형태로 조리법 조정, 알레르기 유발 재료(갑각류 등) 언급`:''}
+저장된 레시피: ${savedTitles||'없음'}
+식사 인원: ${familyStr}${childWithUs&&childAge!==null?`
+※ 아이 만 ${childAge}세: 자극적/매운 재료 주의`:''}
 오늘 선호: ${moodStr}
-최근 먹은 메뉴(겹치지 말 것): ${recent||'없음'}
+최근 먹은 메뉴(중복 금지): ${recent||'없음'}
 가족 선호/제한: ${prefs||'없음'}
 
-요청사항:
-1. 냉장고 재료를 최대한 활용하는 메뉴 1개 추천
-2. 웹 검색으로 해당 메뉴의 실제 레시피를 찾아서 조리법을 상세히 제공
-3. 냉장고에 없지만 필요한 재료(장봐야 할 것) 명시
-4. 대안 메뉴 1개도 추천
-5. 유튜브에서 해당 메뉴 레시피 영상을 찾았다면 youtube_url 필드에 URL을 포함해주세요. 못 찾았으면 youtube_url을 빈 문자열("")로 두세요.
+규칙:
+- 저장된 레시피 목록과 유사한 메뉴가 있으면 반드시 포함할 것
+- 냉장고 재료로 실제로 만들 수 있는 메뉴만 추천 (웹 검색으로 검증)
+- 메뉴별 한 줄 추천 이유와 냉장고에서 쓸 수 있는 재료 목록 포함
+- 각 메뉴의 보유 재료 개수도 포함
 
-반드시 아래 JSON 형식으로만 답하세요:
+반드시 아래 JSON만 반환:
 {
-  "menu": "메뉴 이름",
-  "reason": "이 메뉴를 추천하는 이유 (냉장고 재료 활용 포인트, 2-3문장)",
-  "recipe_steps": "검색으로 찾은 상세 조리법 (번호 매겨서, 줄바꿈 포함)",
-  "have_ingredients": ["보유 재료1", "보유 재료2"],
-  "missing_ingredients": ["없는 재료1", "없는 재료2"],
-  "tip": "조리 팁 또는 맛을 높이는 포인트",
-  "alt": "대안 메뉴 이름",
-  "youtube_url": "https://youtu.be/... 또는 빈 문자열"
+  "menus": [
+    {
+      "menu": "메뉴 이름",
+      "reason": "한 줄 추천 이유",
+      "have_ingredients": ["보유재료1","보유재료2"],
+      "have_count": 3
+    }
+  ]
 }`;
 
-  showSpin('웹에서 레시피 검색 중…');
+  showSpin('메뉴 검색 중…');
   $('rec-btn').disabled=true;
+  $('today-result').innerHTML='';
 
   try{
     const body={
       contents:[{parts:[{text:prompt}]}],
       tools:[{google_search:{}}],
-      generationConfig:{temperature:0.7,maxOutputTokens:2000,thinkingConfig:{thinkingBudget:0}}
+      generationConfig:{temperature:0.7,maxOutputTokens:1200,thinkingConfig:{thinkingBudget:0}}
     };
     const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
       method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
     });
     if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
     const data=await res.json();
-    // Google Search Grounding 응답은 parts가 여러개 — 마지막 text part가 실제 응답
     const parts=data?.candidates?.[0]?.content?.parts||[];
-    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||''
-    // 응답 정제: thinking태그, 마크다운 코드블록 제거 후 JSON 추출
-    let r;
+    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||'';
+    let result;
     try{
-      const stripped=raw
-        .replace(/<thinking>[\s\S]*?<\/thinking>/gi,'')
-        .replace(/```json([\s\S]*?)```/g,'$1')
-        .replace(/```/g,'')
-        .trim();
+      const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim();
       const jsonMatch=stripped.match(/\{[\s\S]*\}/);
       if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
-      r=JSON.parse(jsonMatch[0]);
-      if(!r.menu)throw new Error('메뉴 정보가 없어요');
+      result=JSON.parse(jsonMatch[0]);
+      if(!result.menus||!result.menus.length)throw new Error('메뉴 정보가 없어요');
     }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
 
-    history.unshift({id:uid(),menu:r.menu,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods]});
-    history=history.slice(0,20);sv(K.history,history);
-    syncReplaceHistory();
-
-    // Check if it matches a saved recipe
-    const savedMatch=recipes.find(rec=>rec.title===r.menu||(r.menu&&r.menu.includes(rec.title)));
-
-    // 유튜브: Gemini가 실제 URL을 반환했을 때만 버튼 표시
-    const ytUrl=r.youtube_url&&r.youtube_url.trim()&&validUrl(r.youtube_url)?r.youtube_url:'';
-
-    const missingHtml=(r.missing_ingredients&&r.missing_ingredients.length)
-      ?`<div class="shop-box">
-          <div class="shop-title">🛒 장봐야 할 재료</div>
-          <div class="shop-items">${r.missing_ingredients.map(i=>`<span class="shop-chip">${esc(i)}</span>`).join('')}</div>
-        </div>`:''
-
-    const recipeBodyId='rec-recipe-body-'+Date.now();
-
-    // 인원 뱃지
-    const personBadge=childWithUs&&getChildAge()!==null
-      ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
-      :`<span style="font-size:.72rem;background:rgba(255,255,255,.12);color:rgba(250,246,238,.6);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
-
-    $('today-result').innerHTML=`
-      <div class="rec-card" style="animation:fadeIn .4s ease;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;">
-          <div class="rec-label">오늘의 추천 메뉴</div>
-          ${personBadge}
-        </div>
-        <div class="rec-menu">🍽️ ${esc(r.menu)}</div>
-        <div class="rec-reason">${esc(r.reason)}</div>
-        ${r.tip?`<div class="rec-tip">💡 ${esc(r.tip)}</div>`:''}
-        ${r.alt?`<div class="rec-alt">대안: ${esc(r.alt)}</div>`:''}
-      </div>
-
-      ${missingHtml}
-
-      <div class="rec-recipe-box">
-        <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
-          <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
-          <div class="rec-recipe-toggle">▾ 펼치기</div>
-        </div>
-        <div class="rec-recipe-body" id="${recipeBodyId}">
-          ${r.have_ingredients&&r.have_ingredients.length?`
-            <div style="margin-bottom:.75rem;">
-              <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;">보유 재료</div>
-              <div class="ing-chips">${r.have_ingredients.map(i=>`<span class="ing-chip" style="background:#e8f5e9;color:#2e7d32;">${esc(i)}</span>`).join('')}</div>
-            </div>
-          `:''}
-          <div class="steps-text">${esc(r.recipe_steps||'')}</div>
-        </div>
-      </div>
-
-      <div class="rec-actions">
-        ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피 보기</a>`:''}
-        ${savedMatch?`<button class="btn btn-olive" onclick="viewRecipe('${savedMatch.id}')" style="flex:1;">📖 저장된 레시피</button>`:''}
-        <button class="btn btn-ghost" style="padding:.65rem .9rem;" onclick="recommend()" title="다시 추천">🔄</button>
-      </div>
-
-      <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
-        onclick="openConfirmModal(${JSON.stringify(esc(r.menu))}, ${JSON.stringify((r.have_ingredients||[]).map(i=>esc(i)))})">
-        ✅ 이 메뉴로 오늘 저녁 확정 — 재료 정리하기
-      </button>
-    `;
-    renderHistory();
-    toast('메뉴를 찾았어요! 🍽️','ok');
+    renderMenuCandidates(result.menus);
+    toast(`메뉴 ${result.menus.length}개를 찾았어요! 선택해보세요 🍽️`,'ok');
   }catch(err){
     toast('추천 실패: '+(err.message||'다시 시도해주세요'),'err');
   }finally{
     hideSpin();$('rec-btn').disabled=false;
   }
+}
+
+// 복수 메뉴 카드 렌더링
+function renderMenuCandidates(menus){
+  const personBadge=childWithUs&&getChildAge()!==null
+    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
+    :`<span style="font-size:.72rem;background:var(--paper);color:var(--ink-s);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
+
+  $('today-result').innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
+      <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">오늘의 추천 메뉴</div>
+      ${personBadge}
+    </div>
+    <div class="menu-candidates">
+      ${menus.map((m,i)=>{
+        const saved=findSavedRecipe(m.menu);
+        return `<div class="menu-card ${saved?'menu-card-saved':''}" onclick="selectMenu(${i})">
+          <div class="menu-card-icon">${saved?'📖':'🍽️'}</div>
+          <div class="menu-card-body">
+            <div class="menu-card-name">${esc(m.menu)}</div>
+            <div class="menu-card-reason">${esc(m.reason)}</div>
+            <div class="menu-card-badges">
+              ${saved?`<span class="badge-saved">📖 저장된 레시피</span>`:''}
+              ${(m.have_ingredients||[]).slice(0,3).map(i=>`<span class="badge-have">${esc(i)}</span>`).join('')}
+              ${(m.have_ingredients||[]).length>3?`<span class="badge-have">+${m.have_ingredients.length-3}</span>`:''}
+            </div>
+          </div>
+          <div class="menu-card-arrow">›</div>
+        </div>`;
+      }).join('')}
+    </div>
+    <button class="btn btn-ghost btn-full" style="font-size:.85rem;" onclick="recommend()">🔄 다시 추천받기</button>
+  `;
+  // 전역에 메뉴 목록 저장 (selectMenu에서 사용)
+  window._candidates=menus;
+}
+
+// ── 2단계: 메뉴 선택 후 상세 레시피 ──
+async function selectMenu(idx){
+  const m=window._candidates[idx];
+  if(!m)return;
+  const apiKey=localStorage.getItem(K.apiKey);
+  const saved=findSavedRecipe(m.menu);
+
+  // 저장된 레시피 있으면 바로 표시 (API 호출 없음)
+  if(saved){
+    renderDetailResult(m, null, saved);
+    return;
+  }
+
+  showSpin(`${m.menu} 레시피 검색 중…`);
+  const t0=today0();
+  const fridgeStr=fridge.map(i=>i.name).join(', ');
+  const childAge=getChildAge();
+  let familyStr='부부 2인';
+  if(childWithUs&&childAge!==null) familyStr=`부부 + 아이(만 ${childAge}세) 3인`;
+
+  const prompt=`당신은 한국 가정식 요리 전문가입니다. "${m.menu}" 레시피를 구글 검색으로 찾아주세요.
+
+냉장고 재료: ${fridgeStr}
+식사 인원: ${familyStr}
+
+반드시 아래 JSON만 반환:
+{
+  "menu": "${m.menu}",
+  "reason": "${m.reason}",
+  "recipe_steps": "상세 조리법 (번호 매겨서)",
+  "have_ingredients": ["보유재료1","보유재료2"],
+  "missing_ingredients": ["없는재료1"],
+  "tip": "조리 팁",
+  "youtube_url": "https://youtu.be/... 또는 빈문자열"
+}`;
+
+  try{
+    const body={
+      contents:[{parts:[{text:prompt}]}],
+      tools:[{google_search:{}}],
+      generationConfig:{temperature:0.5,maxOutputTokens:2000,thinkingConfig:{thinkingBudget:0}}
+    };
+    const res=await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
+      method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)
+    });
+    if(!res.ok){const e=await res.json();throw new Error(e?.error?.message||'API 오류');}
+    const data=await res.json();
+    const parts=data?.candidates?.[0]?.content?.parts||[];
+    const raw=parts.filter(p=>p.text).map(p=>p.text).join('')||'';
+    let r;
+    try{
+      const stripped=raw.replace(/<thinking>[\s\S]*?<\/thinking>/gi,'').replace(/```json([\s\S]*?)```/g,'$1').replace(/```/g,'').trim();
+      const jsonMatch=stripped.match(/\{[\s\S]*\}/);
+      if(!jsonMatch)throw new Error('JSON을 찾을 수 없어요');
+      r=JSON.parse(jsonMatch[0]);
+    }catch(e){throw new Error('응답 파싱 실패: '+e.message);}
+    renderDetailResult(m, r, null);
+  }catch(err){
+    toast('레시피 검색 실패: '+(err.message||'다시 시도해주세요'),'err');
+  }finally{
+    hideSpin();
+  }
+}
+
+// 상세 결과 렌더링 + 히스토리 저장
+function renderDetailResult(candidate, apiResult, savedRecipe){
+  const r=apiResult||{};
+  const menuName=candidate.menu;
+  const reason=r.reason||candidate.reason||'';
+  const recipeSteps=savedRecipe?savedRecipe.steps:(r.recipe_steps||'');
+  const haveIngs=savedRecipe?savedRecipe.ingredients:(r.have_ingredients||candidate.have_ingredients||[]);
+  const missingIngs=r.missing_ingredients||[];
+  const tip=r.tip||'';
+  const ytUrl=savedRecipe?.ref&&isYoutube(savedRecipe.ref)?savedRecipe.ref:(r.youtube_url&&validUrl(r.youtube_url)?r.youtube_url:'');
+
+  // 히스토리 저장 (전체 결과 포함)
+  const histItem={
+    id:uid(),menu:menuName,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods],
+    result:{reason,recipe_steps:recipeSteps,have_ingredients:haveIngs,missing_ingredients:missingIngs,tip,youtube_url:ytUrl}
+  };
+  history.unshift(histItem);
+  history=history.slice(0,20);
+  sv(K.history,history);
+  syncReplaceHistory();
+
+  const recipeBodyId='rec-recipe-body-'+Date.now();
+  const personBadge=childWithUs&&getChildAge()!==null
+    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
+    :`<span style="font-size:.72rem;background:rgba(255,255,255,.12);color:rgba(250,246,238,.6);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
+
+  const missingHtml=missingIngs.length?`<div class="shop-box">
+    <div class="shop-title">🛒 장봐야 할 재료</div>
+    <div class="shop-items">${missingIngs.map(i=>`<span class="shop-chip">${esc(i)}</span>`).join('')}</div>
+  </div>`:'';
+
+  $('today-result').innerHTML=`
+    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;" onclick="renderMenuCandidates(window._candidates)">← 메뉴 목록으로</button>
+    <div class="rec-card" style="animation:fadeIn .4s ease;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;">
+        <div class="rec-label">${savedRecipe?'📖 저장된 레시피':'오늘의 추천 메뉴'}</div>
+        ${personBadge}
+      </div>
+      <div class="rec-menu">🍽️ ${esc(menuName)}</div>
+      <div class="rec-reason">${esc(reason)}</div>
+      ${tip?`<div class="rec-tip">💡 ${esc(tip)}</div>`:''}
+    </div>
+    ${missingHtml}
+    <div class="rec-recipe-box">
+      <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
+        <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
+        <div class="rec-recipe-toggle">▾ 펼치기</div>
+      </div>
+      <div class="rec-recipe-body" id="${recipeBodyId}">
+        ${haveIngs.length?`
+          <div style="margin-bottom:.75rem;">
+            <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;">보유 재료</div>
+            <div class="ing-chips">${haveIngs.map(i=>`<span class="ing-chip" style="background:#e8f5e9;color:#2e7d32;">${esc(i)}</span>`).join('')}</div>
+          </div>`:''}
+        <div class="steps-text">${esc(recipeSteps)}</div>
+      </div>
+    </div>
+    <div class="rec-actions">
+      ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피</a>`:''}
+      ${savedRecipe?`<button class="btn btn-olive" onclick="viewRecipe('${savedRecipe.id}')" style="flex:1;">📖 레시피 상세</button>`:''}
+      <button class="btn btn-ghost" style="padding:.65rem .9rem;" onclick="recommend()" title="다시 추천">🔄</button>
+    </div>
+    <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
+      onclick="openConfirmModal(${JSON.stringify(esc(menuName))}, ${JSON.stringify((haveIngs).map(i=>esc(i)))})">
+      ✅ 이 메뉴로 오늘 저녁 확정 — 재료 정리하기
+    </button>
+  `;
+  renderHistory();
 }
 
 function toggleRecipeDetail(id,head){
@@ -1218,14 +1351,45 @@ function applyConfirm(){
 function renderHistory(){
   const l=$('history-list');
   if(!history.length){l.innerHTML=`<div style="font-size:.85rem;color:var(--ink-xs);padding:1.5rem 0;text-align:center;">아직 추천 기록이 없어요</div>`;return;}
-  l.innerHTML=history.slice(0,7).map(h=>`
-    <div class="history-row">
-      <span style="font-size:1.1rem;">🍳</span>
+  l.innerHTML=history.slice(0,7).map((h,i)=>{
+    const hasResult=!!(h.result&&h.result.recipe_steps);
+    return `<div class="history-row ${hasResult?'':'history-no-detail'}" onclick="${hasResult?`restoreHistory(${i})`:''}">
+      <span style="font-size:1.1rem;">${hasResult?'🍳':'⏱'}</span>
       <div style="flex:1;min-width:0;">
         <div class="history-menu">${esc(h.menu)}</div>
         <div class="history-date">${esc(h.date)}${h.moods&&h.moods.length?' · '+h.moods.join(', '):''}</div>
       </div>
-    </div>`).join('');
+      ${hasResult?`<span style="font-size:.75rem;color:var(--ink-xs);">›</span>`:''}
+    </div>`;
+  }).join('');
+}
+
+function restoreHistory(idx){
+  const h=history[idx];
+  if(!h||!h.result)return;
+  const candidate={menu:h.menu,reason:h.result.reason||'',have_ingredients:h.result.have_ingredients||[]};
+  const r=h.result;
+  // 저장된 레시피 매칭
+  const saved=findSavedRecipe(h.menu);
+  // result를 직접 활용
+  const apiResult={
+    reason:r.reason||'',
+    recipe_steps:r.recipe_steps||'',
+    have_ingredients:r.have_ingredients||[],
+    missing_ingredients:r.missing_ingredients||[],
+    tip:r.tip||'',
+    youtube_url:r.youtube_url||''
+  };
+  // window._candidates가 없으면 단순 복원
+  if(!window._candidates) window._candidates=[];
+  renderDetailResult(candidate, apiResult, saved&&saved.steps?null:null);
+  // 히스토리 복원임을 표시
+  const card=$('today-result').querySelector('.rec-card');
+  if(card) card.style.borderLeft='3px solid var(--miso)';
+  toast(`${h.menu} 기록을 불러왔어요`,'ok');
+  // 홈 탭으로 스크롤
+  gotoPage('today');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 function clearHistory(){
   if(!confirm('히스토리를 모두 지울까요?'))return;
