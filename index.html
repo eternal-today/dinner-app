@@ -1001,10 +1001,17 @@ function toggleMood(el,m){
 let recDebounce=null;
 
 // 유사 매칭 헬퍼
-function fuzzyMatch(a,b){
-  const na=a.toLowerCase().replace(/\s/g,'');
-  const nb=b.toLowerCase().replace(/\s/g,'');
-  return na.includes(nb)||nb.includes(na);
+function fuzzyMatch(a, b){
+  const na = a.toLowerCase().replace(/\s/g,'');
+  const nb = b.toLowerCase().replace(/\s/g,'');
+  if(na === nb) return true; // 완전 일치
+  // 한쪽이 다른 쪽을 포함할 때: 길이 비율이 0.8 이상일 때만 매칭
+  // "만두전"(3) / "만두전골"(4) = 0.75 → false ✓
+  // "김치찌개"(4) / "김치찌개"(4) = 1.0 → true ✓
+  // "소불고기"(4) / "소불고기덮밥"(6) = 0.67 → false ✓
+  if(na.includes(nb)) return nb.length / na.length >= 0.8;
+  if(nb.includes(na)) return na.length / nb.length >= 0.8;
+  return false;
 }
 function findSavedRecipe(menuName){
   return recipes.find(r=>fuzzyMatch(menuName,r.title));
