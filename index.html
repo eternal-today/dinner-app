@@ -107,15 +107,15 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
 
 .summary-row{display:flex;gap:.75rem;margin-bottom:1.5rem;}
 .summary-tile{
-  flex:1;
+  flex:1;min-width:0;
   background:var(--glass-bg);
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border:1px solid var(--glass-border);
-  border-radius:var(--r-lg);padding:.9rem 1rem;
+  border-radius:var(--r-lg);padding:.9rem .5rem;text-align:center;
   box-shadow:0 2px 12px rgba(30,45,48,.06),inset 0 1px 0 rgba(255,255,255,.9);
 }
 .summary-num{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--terra);line-height:1;}
-.summary-label{font-family:var(--font-display);font-size:.58rem;font-weight:700;color:var(--ink-s);margin-top:.25rem;text-transform:uppercase;letter-spacing:.06em;}
+.summary-label{font-family:var(--font-display);font-size:.52rem;font-weight:700;color:var(--ink-s);margin-top:.25rem;text-transform:uppercase;letter-spacing:.06em;}
 
 /* Mood collapsible */
 .mood-toggle{display:flex;align-items:center;gap:.5rem;cursor:pointer;padding:.6rem 0;border:none;background:none;font-family:var(--font-sans);font-size:.85rem;color:var(--ink-s);font-weight:500;width:100%;}
@@ -505,15 +505,15 @@ select.input{background-image:url("data:image/svg+xml,%3Csvg width='10' height='
       <div class="summary-row">
         <div class="summary-tile">
           <div class="summary-num" id="today-fridge-cnt">0</div>
-          <div class="summary-label">냉장고 재료</div>
+          <div class="summary-label">Ingredients</div>
         </div>
         <div class="summary-tile">
           <div class="summary-num" id="today-recipe-cnt">0</div>
-          <div class="summary-label">저장 레시피</div>
+          <div class="summary-label">Recipes</div>
         </div>
         <div class="summary-tile">
           <div class="summary-num" id="today-expiry-cnt" style="color:var(--danger);">0</div>
-          <div class="summary-label">유통기한 임박</div>
+          <div class="summary-label">Urgent</div>
         </div>
       </div>
 
@@ -1135,36 +1135,36 @@ async function recommend(){
 
 // 복수 메뉴 카드 렌더링
 function renderMenuCandidates(menus){
+  $('rec-btn').style.display='none';
   const personBadge=childWithUs&&getChildAge()!==null
-    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
-    :`<span style="font-size:.72rem;background:var(--paper);color:var(--ink-s);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
+    ?`<span style="font-size:.72rem;background:rgba(111,184,182,.2);color:var(--terra);padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
+    :`<span style="font-size:.72rem;background:var(--glass-bg);color:var(--ink-s);padding:.2rem .6rem;border-radius:20px;border:1px solid var(--glass-border);">👫 부부 2인</span>`;
 
   $('today-result').innerHTML=`
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;">
-      <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;">오늘의 추천 메뉴</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.1em;">오늘의 추천 메뉴</div>
       ${personBadge}
     </div>
     <div class="menu-candidates">
       ${menus.map((m,i)=>{
         const saved=findSavedRecipe(m.menu);
         return `<div class="menu-card ${saved?'menu-card-saved':''}" onclick="selectMenu(${i})">
-          <div class="menu-card-icon">${saved?'📖':'🍽️'}</div>
+          <div class="menu-card-icon"><i class="fa-solid ${saved?'fa-book-open':'fa-utensils'}"></i></div>
           <div class="menu-card-body">
             <div class="menu-card-name">${esc(m.menu)}</div>
             <div class="menu-card-reason">${esc(m.reason)}</div>
             <div class="menu-card-badges">
-              ${saved?`<span class="badge-saved">📖 저장된 레시피</span>`:''}
+              ${saved?`<span class="badge-saved"><i class="fa-solid fa-bookmark" style="font-size:.5rem;"></i> 저장된 레시피</span>`:''}
               ${(m.have_ingredients||[]).slice(0,3).map(i=>`<span class="badge-have">${esc(i)}</span>`).join('')}
               ${(m.have_ingredients||[]).length>3?`<span class="badge-have">+${m.have_ingredients.length-3}</span>`:''}
             </div>
           </div>
-          <div class="menu-card-arrow">›</div>
+          <div class="menu-card-arrow"><i class="fa-solid fa-chevron-right"></i></div>
         </div>`;
       }).join('')}
     </div>
-    <button class="btn btn-ghost btn-full" style="font-size:.85rem;" onclick="recommend()">🔄 다시 추천받기</button>
+    <button class="btn btn-ghost btn-full" style="font-size:.85rem;" onclick="recommend();$('rec-btn').style.display='';"><i class="fa-solid fa-rotate-right"></i> 다시 추천받기</button>
   `;
-  // 전역에 메뉴 목록 저장 (selectMenu에서 사용)
   window._candidates=menus;
 }
 
@@ -1237,15 +1237,16 @@ async function selectMenu(idx){
 function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
   const r=apiResult||{};
   const menuName=candidate.menu;
-  const reason=r.reason||candidate.reason||'';
+  const reason=savedRecipe
+    ?(savedRecipe.tags||[]).join(' · ')||''
+    :r.reason||candidate.reason||'';
   const recipeSteps=savedRecipe?savedRecipe.steps:(r.recipe_steps||'');
   const haveIngs=savedRecipe?savedRecipe.ingredients:(r.have_ingredients||candidate.have_ingredients||[]);
   const missingIngs=r.missing_ingredients||[];
   const tip=r.tip||'';
   const ytUrl=savedRecipe?.ref&&isYoutube(savedRecipe.ref)?savedRecipe.ref:(r.youtube_url&&validUrl(r.youtube_url)?r.youtube_url:'');
-  const source=savedRecipe?'saved':'web'; // 출처
+  const source=savedRecipe?'saved':'web';
 
-  // 복원 시에는 히스토리 재저장 안 함
   if(!isRestore){
     const histItem={
       id:uid(),menu:menuName,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods],
@@ -1258,53 +1259,58 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
     syncReplaceHistory();
   }
 
+  // 메뉴 찾기 버튼 숨기기
+  $('rec-btn').style.display='none';
+
   const recipeBodyId='rec-recipe-body-'+Date.now();
   const personBadge=childWithUs&&getChildAge()!==null
-    ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
-    :`<span style="font-size:.72rem;background:rgba(255,255,255,.12);color:rgba(250,246,238,.6);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
+    ?`<span style="font-size:.72rem;background:rgba(111,184,182,.2);color:var(--terra);padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
+    :`<span style="font-size:.72rem;background:rgba(255,255,255,.12);color:rgba(243,245,246,.6);padding:.2rem .6rem;border-radius:20px;">👫 부부 2인</span>`;
 
   const missingHtml=missingIngs.length?`<div class="shop-box">
-    <div class="shop-title">🛒 장봐야 할 재료</div>
+    <div class="shop-title"><i class="fa-solid fa-cart-shopping"></i> 장봐야 할 재료</div>
     <div class="shop-items">${missingIngs.map(i=>`<span class="shop-chip">${esc(i)}</span>`).join('')}</div>
   </div>`:'';
 
   $('today-result').innerHTML=`
-    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;" onclick="renderMenuCandidates(window._candidates)">← 메뉴 목록으로</button>
+    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;"
+      onclick="renderMenuCandidates(window._candidates);$('rec-btn').style.display='';">
+      <i class="fa-solid fa-arrow-left"></i> 메뉴 목록으로
+    </button>
     <div class="rec-card" style="animation:fadeIn .4s ease;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;">
-        <div class="rec-label">${savedRecipe?'📖 저장된 레시피':'오늘의 추천 메뉴'}</div>
+        <div class="rec-label">${savedRecipe?'<i class="fa-solid fa-book-open"></i> 저장된 레시피':'오늘의 추천 메뉴'}</div>
         ${personBadge}
       </div>
-      <div class="rec-menu">🍽️ ${esc(menuName)}</div>
-      <div class="rec-reason">${esc(reason)}</div>
-      ${tip?`<div class="rec-tip">💡 ${esc(tip)}</div>`:''}
+      <div class="rec-menu"><i class="fa-solid fa-utensils" style="font-size:1.4rem;margin-right:.4rem;"></i>${esc(menuName)}</div>
+      ${reason?`<div class="rec-reason">${esc(reason)}</div>`:''}
+      ${tip?`<div class="rec-tip"><i class="fa-solid fa-lightbulb"></i> ${esc(tip)}</div>`:''}
     </div>
     ${missingHtml}
     <div class="rec-recipe-box">
       <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
-        <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
+        <div class="rec-recipe-head-title"><i class="fa-solid fa-clipboard-list"></i> 레시피 상세 보기</div>
         <div class="rec-recipe-toggle">▾ 펼치기</div>
       </div>
       <div class="rec-recipe-body" id="${recipeBodyId}">
         ${haveIngs.length?`
           <div style="margin-bottom:.75rem;">
-            <div style="font-size:.72rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;">보유 재료</div>
-            <div class="ing-chips">${haveIngs.map(i=>`<span class="ing-chip" style="background:#e8f5e9;color:#2e7d32;">${esc(i)}</span>`).join('')}</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:700;color:var(--ink-s);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;">보유 재료</div>
+            <div class="ing-chips">${haveIngs.map(i=>`<span class="ing-chip" style="background:#e8f5f5;color:var(--terra);">${esc(i)}</span>`).join('')}</div>
           </div>`:''}
         <div class="steps-text">${esc(recipeSteps)}</div>
       </div>
     </div>
     <div class="rec-actions">
-      ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피</a>`:''}
-      ${savedRecipe
-        ?`<button class="btn btn-olive" onclick="viewRecipe('${savedRecipe.id}')" style="flex:1;">📖 레시피 상세</button>`
-        :`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})">＋ 레시피로 저장</button>`
+      ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;"><i class="fa-brands fa-youtube"></i> 유튜브 레시피</a>`:''}
+      ${!savedRecipe
+        ?`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})"><i class="fa-solid fa-plus"></i> 레시피로 저장</button>`
+        :''
       }
-      <button class="btn btn-ghost" style="padding:.65rem .9rem;" onclick="recommend()" title="다시 추천">🔄</button>
     </div>
     <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
       onclick="openConfirmModal(${JSON.stringify(esc(menuName))}, ${JSON.stringify((haveIngs).map(i=>esc(i)))})">
-      ✅ 이 메뉴로 오늘 저녁 확정 — 재료 정리하기
+      <i class="fa-solid fa-check"></i> 이 메뉴로 오늘 저녁 확정 — 재료 정리하기
     </button>
   `;
   renderHistory();
