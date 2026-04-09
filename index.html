@@ -1207,15 +1207,16 @@ async function selectMenu(idx){
 function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
   const r=apiResult||{};
   const menuName=candidate.menu;
-  const reason=r.reason||candidate.reason||'';
+  const reason=savedRecipe
+    ? (savedRecipe.tags||[]).join(' · ')||''
+    : r.reason||candidate.reason||'';
   const recipeSteps=savedRecipe?savedRecipe.steps:(r.recipe_steps||'');
   const haveIngs=savedRecipe?savedRecipe.ingredients:(r.have_ingredients||candidate.have_ingredients||[]);
   const missingIngs=r.missing_ingredients||[];
   const tip=r.tip||'';
   const ytUrl=savedRecipe?.ref&&isYoutube(savedRecipe.ref)?savedRecipe.ref:(r.youtube_url&&validUrl(r.youtube_url)?r.youtube_url:'');
-  const source=savedRecipe?'saved':'web'; // 출처
+  const source=savedRecipe?'saved':'web';
 
-  // 복원 시에는 히스토리 재저장 안 함
   if(!isRestore){
     const histItem={
       id:uid(),menu:menuName,date:new Date().toLocaleDateString('ko-KR'),moods:[...moods],
@@ -1228,6 +1229,9 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
     syncReplaceHistory();
   }
 
+  // 메뉴 찾기 버튼 숨기기
+  $('rec-btn').style.display='none';
+
   const recipeBodyId='rec-recipe-body-'+Date.now();
   const personBadge=childWithUs&&getChildAge()!==null
     ?`<span style="font-size:.72rem;background:#fff3e0;color:#e65100;padding:.2rem .6rem;border-radius:20px;font-weight:600;">👨‍👩‍👧 아이도 함께 · 만 ${getChildAge()}세 배려</span>`
@@ -1239,17 +1243,19 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
   </div>`:'';
 
   $('today-result').innerHTML=`
-    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;" onclick="renderMenuCandidates(window._candidates)">← 메뉴 목록으로</button>
+    <button class="btn btn-ghost" style="margin-bottom:.85rem;font-size:.82rem;"
+      onclick="renderMenuCandidates(window._candidates);$('rec-btn').style.display='';">← 메뉴 목록으로</button>
     <div class="rec-card" style="animation:fadeIn .4s ease;">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem;">
         <div class="rec-label">${savedRecipe?'📖 저장된 레시피':'오늘의 추천 메뉴'}</div>
         ${personBadge}
       </div>
       <div class="rec-menu">🍽️ ${esc(menuName)}</div>
-      <div class="rec-reason">${esc(reason)}</div>
+      ${reason?`<div class="rec-reason">${esc(reason)}</div>`:''}
       ${tip?`<div class="rec-tip">💡 ${esc(tip)}</div>`:''}
     </div>
     ${missingHtml}
+    ${!savedRecipe?`
     <div class="rec-recipe-box">
       <div class="rec-recipe-head" onclick="toggleRecipeDetail('${recipeBodyId}',this)">
         <div class="rec-recipe-head-title">📋 레시피 상세 보기</div>
@@ -1263,14 +1269,13 @@ function renderDetailResult(candidate, apiResult, savedRecipe, isRestore=false){
           </div>`:''}
         <div class="steps-text">${esc(recipeSteps)}</div>
       </div>
-    </div>
+    </div>`:''}
     <div class="rec-actions">
       ${ytUrl?`<a href="${esc(ytUrl)}" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:1;justify-content:center;text-decoration:none;color:#c00;">▶ 유튜브 레시피</a>`:''}
       ${savedRecipe
         ?`<button class="btn btn-olive" onclick="viewRecipe('${savedRecipe.id}')" style="flex:1;">📖 레시피 상세</button>`
         :`<button class="btn btn-ghost" style="flex:1;" onclick="saveToRecipes(${JSON.stringify(esc(menuName))},${JSON.stringify(esc(reason))},${JSON.stringify(haveIngs.map(i=>esc(i)))},${JSON.stringify(esc(recipeSteps))},${JSON.stringify(esc(ytUrl))})">＋ 레시피로 저장</button>`
       }
-      <button class="btn btn-ghost" style="padding:.65rem .9rem;" onclick="recommend()" title="다시 추천">🔄</button>
     </div>
     <button class="btn btn-terra btn-full" style="margin-top:.75rem;font-size:.9rem;"
       onclick="openConfirmModal(${JSON.stringify(esc(menuName))}, ${JSON.stringify((haveIngs).map(i=>esc(i)))})">
